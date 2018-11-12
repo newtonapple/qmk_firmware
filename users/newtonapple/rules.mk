@@ -1,1 +1,2 @@
-SRC += newtonapple.c
+SRC += newtonapple.c \
+       macvim.c
