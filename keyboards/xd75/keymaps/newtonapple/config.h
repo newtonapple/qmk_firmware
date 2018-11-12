@@ -1,4 +1,4 @@
-/* Copyright 2017 Benjamin Kesselring
+/* Copyright 2018 David Dai <newtonapple>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
 
-#include "../../config.h"
-// place overrides here
-// #define PERMISSIVE_HOLD
+#define ENABLE_MACVIM
+
 #endif
