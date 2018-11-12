@@ -1,17 +1,38 @@
 #pragma once
 
-#include "quantum.h"
+#ifdef ENABLE_MACVIM
+#include "macvim.h"
+#endif
 
-enum custom_keycodes {
-  VIM_B = SAFE_RANGE,
-  VIM_C,
-  VIM_D,
-  VIM_V,
-  VIM_W,
-  VIM_X,
-  VIM_0,
-  VIM_DOLLAR,
-  VIM_ESC,
+enum newtonapple_layers {
+  _QWERTY,
+  _CAP,
+  _NUM,
+  _SYM,
+  _MOUSE,
+#ifdef ENABLE_MACVIM
+  _MACVIM,
+#endif
 };
 
-bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat);
+#define QWERTY TO(_QWERTY)
+#define CAP TO(_CAP)
+#define NUM TO(_NUM)
+#define SYM TO(_SYM)
+#define MOUSE TO(_MOUSE)
+#ifdef ENABLE_MACVIM
+#define MACVIM TO(_MACVIM)
+#endif
+
+#define MOUSE_GRV LT(_MOUSE, KC_GRV)
+#define MOUSE_TAB LT(_MOUSE, KC_TAB)
+#ifdef ENABLE_MACVIM
+#define MACVIM_ESC LT(_MACVIM, KC_ESC)
+#define MACVIM_SPC LT(_MACVIM, KC_SPC)
+#endif
+
+#define SYM_MINS LT(_SYM, KC_MINS)
+#define GUI_T_EQL GUI_T(KC_EQL)
+#define SFT_T_QUOT SFT_T(KC_QUOT)
+#define OSL_NUM OSL(_NUM)
+#define OSL_SYM OSL(_SYM)
