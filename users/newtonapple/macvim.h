@@ -8,12 +8,14 @@ enum macvim_custom_keycodes {
   VIM_C,
   VIM_D,
   VIM_V,
-  VIM_W,
   VIM_X,
   VIM_0,
   VIM_DOLLAR,
   VIM_ESC,
 };
+
+#define VIM_B ALT_LEFT
+#define VIM_W ALT_RGHT
 
 #ifndef MACVIM_MAX_REPEAT
 #define MACVIM_MAX_REPEAT 9999
