@@ -32,6 +32,8 @@ enum newtonapple_layers {
 #endif
 
 #define SYM_MINS LT(_SYM, KC_MINS)
+#define SYM_SPC LT(_SYM, KC_SPC)
+#define NUM_MINS LT(_NUM, KC_MINS)
 #define GUI_T_EQL GUI_T(KC_EQL)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
 #define OSL_NUM OSL(_NUM)
