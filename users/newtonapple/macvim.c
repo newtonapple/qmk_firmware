@@ -47,11 +47,9 @@
 #define VIM_SEL_TO_START_OF_LINE()                                             \
   VIM_WITH_MOD(LSHIFT, MAC_SEL_TO_START_OF_LINE());
 
-#define VIM_SEL_TO_END_OF_LINE()                                               \
-  VIM_WITH_MOD(LSHIFT, MAC_SEL_TO_END_OF_LINE());
+#define VIM_SEL_TO_END_OF_LINE() VIM_WITH_MOD(LSHIFT, MAC_SEL_TO_END_OF_LINE());
 
-#define VIM_SEL_LINE()                                                         \
-  VIM_WITH_MOD(LSHIFT, MAC_SEL_LINE(VIM_REPEAT()));
+#define VIM_SEL_LINE() VIM_WITH_MOD(LSHIFT, MAC_SEL_LINE(VIM_REPEAT()));
 
 #define VIM_SEL_TO_NEXT_LINE()                                                 \
   VIM_WITH_MOD(LSHIFT, MAC_SEL_TO_NEXT_LINE(VIM_REPEAT()));
@@ -116,9 +114,16 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
         }
         return false;
       }
-      // Hijack left, right, up, down to add vim repeat.
+      // Hijack alt-left, alt-right, left, right, up, down to add vim repeat.
       if (vim_repeat > 0) {
         switch (keycode) {
+        case VIM_W:
+          VIM_SEL_TO_END_OF_WORD();
+          VIM_MOV_TO_END_OF_WORD();
+        case VIM_B:
+          VIM_SEL_TO_START_OF_WORD();
+          VIM_CUT_TO_START_OF_WORD_FROM_CURSOR();
+          VIM_MOV_TO_START_OF_WORD();
         case KC_LEFT:
           VIM_SEL_PREV_CHAR();
           VIM_MOV_TO_PREV_CHAR();
@@ -138,13 +143,6 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
     }
 
     switch (keycode) {
-    case VIM_W:
-      VIM_SEL_TO_END_OF_WORD();
-      VIM_MOV_TO_END_OF_WORD();
-    case VIM_B:
-      VIM_SEL_TO_START_OF_WORD();
-      VIM_CUT_TO_START_OF_WORD_FROM_CURSOR();
-      VIM_MOV_TO_START_OF_WORD();
     case VIM_C:
       VIM_CUT_WORD_ON_CURSOR();
     case VIM_D:
