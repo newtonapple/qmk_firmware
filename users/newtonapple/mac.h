@@ -72,7 +72,11 @@
 #define SS_UP_SHIFT SS_UP(X_LSHIFT)
 #define SS_DOWN_SHIFT SS_DOWN(X_LSHIFT)
 
-// Macros for various Mac copy-cut-paste actions
+#define MAC_LEFT() SEND_STRING(SS_TAP_LEFT);
+#define MAC_RIGHT() SEND_STRING(SS_TAP_RIGHT);
+#define MAC_UP() SEND_STRING(SS_TAP_UP);
+#define MAC_DOWN() SEND_STRING(SS_TAP_DOWN);
+
 #define MAC_COPY() SEND_STRING(SS_TAP_MAC_COPY);
 #define MAC_CUT() SEND_STRING(SS_TAP_MAC_CUT);
 
@@ -95,8 +99,12 @@
   MAC_CUT()
 
 #define MAC_CUT_LINE(N)                                                        \
-  MAC_SEL_LINE(N)                                                              \
-  SEND_STRING(SS_TAP_MAC_CUT);
+  MAC_SEL_LINE(N);                                                             \
+  MAC_CUT();
+
+#define MAC_COPY_LINE(N)                                                       \
+  MAC_SEL_LINE(N);                                                             \
+  MAC_COPY();
 
 #define MAC_SEL_NEXT_CHAR(N) REPEAT_SEND_STRING(N, SS_TAP_SFT_RIGHT);
 #define MAC_SEL_PREV_CHAR(N) REPEAT_SEND_STRING(N, SS_TAP_SFT_LEFT);
@@ -134,8 +142,4 @@
 // Macros for repeatedly sending strings
 #define REPEAT_SEND_STRING(N, SS_STRING) repeat_send_string(N, PSTR(SS_STRING))
 
-#define REPEAT_SEND_STRING_AND_MAC_CUT(N, SS_STRING)                           \
-  repeat_send_string_and_cut(N, PSTR(SS_STRING))
-
 void repeat_send_string(uint16_t n, const char *str);
-void repeat_send_string_and_cut(uint16_t n, const char *str);

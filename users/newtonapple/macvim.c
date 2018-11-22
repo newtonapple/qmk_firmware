@@ -32,6 +32,11 @@
   MAC_CUT_LINE(VIM_REPEAT())                                                   \
   CLEAR_VIM_REPEAT_AND_RETURN()
 
+#define VIM_COPY_LINE()                                                        \
+  MAC_COPY_LINE(VIM_REPEAT())                                                  \
+  MAC_LEFT();                                                                  \
+  CLEAR_VIM_REPEAT_AND_RETURN()
+
 #define VIM_SEL_NEXT_CHAR()                                                    \
   VIM_WITH_MOD(LSHIFT, MAC_SEL_NEXT_CHAR(VIM_REPEAT()));
 
@@ -94,38 +99,48 @@
   }
 
 #define IS_MOD_ON(MOD) get_mods() & MOD_BIT(KC_##MOD)
-#define VIM_REPEAT() repeat()
+#define VIM_REPEAT() get_repeat()
 #define CLEAR_VIM_REPEAT_AND_RETURN()                                          \
   vim_repeat = 0;                                                              \
   return false;
 
 static uint16_t vim_repeat = 0;
-static bool visual_mode = false;
 
-uint16_t repeat(void) { return (vim_repeat > 0 ? vim_repeat : 1); };
+enum VIMODES {
+  VIMODE_NO,
+  VIMODE_VISUAL,
+  VIMODE_DELETE,
+  VIMODE_YANK,
+};
+
+static uint8_t vimode = VIMODE_NO;
+
+#define IS_VIMODE(MODE) (vimode & (1U << VIMODE_##MODE))
+#define SET_VIMODE(MODE) (vimode |= (1U << VIMODE_##MODE));
+#define SET_VIMODE_VISUAL() (vimode |= (1U << VIMODE_VISUAL));
+#define SET_VIMODE_YANK() (vimode = (1U << VIMODE_YANK) | IS_VIMODE(VISUAL));
+#define SET_VIMODE_DELETE()                                                    \
+  (vimode = (1U << VIMODE_DELETE) | IS_VIMODE(VISUAL));
+#define CLEAR_VIMODE(MODE) (vimode &= ~(1U << VIMODE_##MODE));
+#define CLEAR_VIMODES() (vimode = VIMODE_NO);
+
+uint16_t get_repeat(void) { return (vim_repeat > 0 ? vim_repeat : 1); };
 
 void reset_macvim_states(void) {
   vim_repeat = 0;
-  if (visual_mode && IS_MOD_ON(LSHIFT)) {
-    exit_visual_mode();
+  if (IS_VIMODE(VISUAL) && IS_MOD_ON(LSHIFT)) {
+    MAC_UP_SHIFT();
   }
-};
-
-void enter_visual_mode(void) {
-  MAC_DOWN_SHIFT();
-  visual_mode = true;
-};
-
-void exit_visual_mode(void) {
-  MAC_UP_SHIFT();
-  visual_mode = false;
+  CLEAR_VIMODES();
 };
 
 void toggle_visual_mode(void) {
   if (IS_MOD_ON(LSHIFT)) {
-    exit_visual_mode();
+    MAC_UP_SHIFT();
+    CLEAR_VIMODE(VISUAL);
   } else {
-    enter_visual_mode();
+    MAC_DOWN_SHIFT();
+    SET_VIMODE_VISUAL();
   }
 };
 
@@ -147,25 +162,19 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
       if (vim_repeat > 0) {
         switch (keycode) {
         case VIM_W:
-          // VIM_SEL_TO_END_OF_WORD();
           VIM_MOV_TO_END_OF_WORD();
         case VIM_B:
-          // VIM_SEL_TO_START_OF_WORD();
           VIM_CUT_TO_START_OF_WORD_FROM_CURSOR();
           VIM_MOV_TO_START_OF_WORD();
         case KC_LEFT:
-          // VIM_SEL_PREV_CHAR();
           VIM_MOV_TO_PREV_CHAR();
         case KC_RIGHT:
-          // VIM_SEL_NEXT_CHAR();
           VIM_MOV_TO_NEXT_CHAR();
         case KC_UP:
           VIM_MOV_LINE_UP();
-          // VIM_SEL_TO_PREV_LINE();
           VIM_MOV_TO_PREV_LINE();
         case KC_DOWN:
-          VIM_MOV_LINE_UP();
-          // VIM_SEL_TO_NEXT_LINE();
+          VIM_MOV_LINE_DOWN();
           VIM_MOV_TO_NEXT_LINE();
         }
       }
@@ -177,27 +186,41 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
     case VIM_D:
       VIM_CUT_TO_END_OF_WORD_FROM_CURSOR();
     case VIM_V:
-      toggle_visual_mode();
-      // SEND_STRING(SS_DOWN(X_LSHIFT));
+      if (IS_MOD_ON(LSHIFT)) {
+        // turn off visual mode
+        if (IS_VIMODE(VISUAL)) {
+          MAC_UP_SHIFT();
+          CLEAR_VIMODE(VISUAL);
+        } else {
+          SET_VIMODE_VISUAL();
+          VIM_SEL_LINE();
+        }
+      } else {
+        MAC_DOWN_SHIFT();
+        SET_VIMODE_VISUAL();
+      }
       return false;
-      // VIM_SEL_LINE();
-      // VIM_CUT_LINE( );
     case VIM_Y:
-      if (visual_mode) {
+      if (IS_VIMODE(VISUAL)) {
         // don't hold down shift while copy
         MAC_UP_SHIFT();
         MAC_COPY();
         // deselect by moving one character to the left
-        MAC_MOV_TO_PREV_CHAR(1);
+        MAC_LEFT();
         reset_macvim_states();
+        return false;
+      }
+      // allow copy while holding down shift
+      VIM_WITH_MOD(LSHIFT, MAC_COPY());
+      VIM_WITH_MOD(RSHIFT, MAC_COPY());
+
+      if (IS_VIMODE(YANK)) {
+        CLEAR_VIMODE(YANK);
+        VIM_COPY_LINE();
+      } else {
+        SET_VIMODE_YANK();
       }
       return false;
-    case VIM_DOLLAR:
-      VIM_SEL_TO_END_OF_LINE();
-      VIM_CUT_TO_END_OF_LINE();
-    case VIM_0:
-      VIM_SEL_TO_START_OF_LINE();
-      VIM_CUT_TO_START_OF_LINE();
     case VIM_X:
       VIM_CUT_PREV_CHAR();
       VIM_CUT_NEXT_CHAR();
