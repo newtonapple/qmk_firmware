@@ -4,8 +4,7 @@
 #include "mac.h"
 
 enum macvim_custom_keycodes {
-  VIM_B = SAFE_RANGE,
-  VIM_C,
+  VIM_C = SAFE_RANGE,
   VIM_D,
   VIM_Y,
   VIM_V,
@@ -24,6 +23,4 @@ enum macvim_custom_keycodes {
 
 bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat);
 void reset_macvim_states(void);
-void enter_visual_mode(void);
-void exit_visual_mode(void);
-uint16_t repeat(void);
+uint16_t get_repeat(void);
