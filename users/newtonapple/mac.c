@@ -6,9 +6,3 @@ void repeat_send_string(uint16_t n, const char *str) {
     send_string_P(str);
   }
 };
-
-
-void repeat_send_string_and_cut(uint16_t n, const char *str) {
-  repeat_send_string(n, str);
-  MAC_CUT();
-}
