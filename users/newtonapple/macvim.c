@@ -86,19 +86,48 @@
 #define VIM_MOV_LINE_DOWN() VIM_WITH_MOD(LALT, MAC_MOV_LINE_DOWN(VIM_REPEAT()));
 
 #define VIM_WITH_MOD(MOD, CODE)                                                \
-  if (get_mods() & MOD_BIT(KC_##MOD)) {                                        \
+  if (IS_MOD_ON(MOD)) {                                                        \
     SEND_STRING(SS_UP(X_##MOD));                                               \
     CODE;                                                                      \
     SEND_STRING(SS_DOWN(X_##MOD));                                             \
     CLEAR_VIM_REPEAT_AND_RETURN();                                             \
   }
 
+#define IS_MOD_ON(MOD) get_mods() & MOD_BIT(KC_##MOD)
+#define VIM_REPEAT() repeat()
 #define CLEAR_VIM_REPEAT_AND_RETURN()                                          \
   vim_repeat = 0;                                                              \
   return false;
 
 static uint16_t vim_repeat = 0;
-#define VIM_REPEAT() (vim_repeat > 0 ? vim_repeat : 1)
+static bool visual_mode = false;
+
+uint16_t repeat(void) { return (vim_repeat > 0 ? vim_repeat : 1); };
+
+void reset_macvim_states(void) {
+  vim_repeat = 0;
+  if (visual_mode && IS_MOD_ON(LSHIFT)) {
+    exit_visual_mode();
+  }
+};
+
+void enter_visual_mode(void) {
+  MAC_DOWN_SHIFT();
+  visual_mode = true;
+};
+
+void exit_visual_mode(void) {
+  MAC_UP_SHIFT();
+  visual_mode = false;
+};
+
+void toggle_visual_mode(void) {
+  if (IS_MOD_ON(LSHIFT)) {
+    exit_visual_mode();
+  } else {
+    enter_visual_mode();
+  }
+};
 
 bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
   if (record->event.pressed) {
@@ -108,7 +137,7 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
         if (vim_repeat > 0) {
           vim_repeat = vim_repeat * 10 + repeat;
           if (vim_repeat > MACVIM_MAX_REPEAT)
-            vim_repeat = MACVIM_MAX_REPEAT;
+            vim_repeat = 0; // probably made a mistake, to be safe reset it to 0
         } else {
           vim_repeat = repeat;
         }
@@ -118,25 +147,25 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
       if (vim_repeat > 0) {
         switch (keycode) {
         case VIM_W:
-          VIM_SEL_TO_END_OF_WORD();
+          // VIM_SEL_TO_END_OF_WORD();
           VIM_MOV_TO_END_OF_WORD();
         case VIM_B:
-          VIM_SEL_TO_START_OF_WORD();
+          // VIM_SEL_TO_START_OF_WORD();
           VIM_CUT_TO_START_OF_WORD_FROM_CURSOR();
           VIM_MOV_TO_START_OF_WORD();
         case KC_LEFT:
-          VIM_SEL_PREV_CHAR();
+          // VIM_SEL_PREV_CHAR();
           VIM_MOV_TO_PREV_CHAR();
         case KC_RIGHT:
-          VIM_SEL_NEXT_CHAR();
+          // VIM_SEL_NEXT_CHAR();
           VIM_MOV_TO_NEXT_CHAR();
         case KC_UP:
           VIM_MOV_LINE_UP();
-          VIM_SEL_TO_PREV_LINE();
+          // VIM_SEL_TO_PREV_LINE();
           VIM_MOV_TO_PREV_LINE();
         case KC_DOWN:
           VIM_MOV_LINE_UP();
-          VIM_SEL_TO_NEXT_LINE();
+          // VIM_SEL_TO_NEXT_LINE();
           VIM_MOV_TO_NEXT_LINE();
         }
       }
@@ -148,8 +177,21 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
     case VIM_D:
       VIM_CUT_TO_END_OF_WORD_FROM_CURSOR();
     case VIM_V:
-      VIM_SEL_LINE();
-      VIM_CUT_LINE();
+      toggle_visual_mode();
+      // SEND_STRING(SS_DOWN(X_LSHIFT));
+      return false;
+      // VIM_SEL_LINE();
+      // VIM_CUT_LINE( );
+    case VIM_Y:
+      if (visual_mode) {
+        // don't hold down shift while copy
+        MAC_UP_SHIFT();
+        MAC_COPY();
+        // deselect by moving one character to the left
+        MAC_MOV_TO_PREV_CHAR(1);
+        reset_macvim_states();
+      }
+      return false;
     case VIM_DOLLAR:
       VIM_SEL_TO_END_OF_LINE();
       VIM_CUT_TO_END_OF_LINE();
@@ -160,7 +202,7 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
       VIM_CUT_PREV_CHAR();
       VIM_CUT_NEXT_CHAR();
     case VIM_ESC:
-      CLEAR_VIM_REPEAT_AND_RETURN();
+      reset_macvim_states();
     }
   }
   return true;
