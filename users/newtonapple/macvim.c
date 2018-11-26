@@ -33,29 +33,9 @@
   MAC_CUT_LINE(VIM_REPEAT())                                                   \
   RESET_VIM_REPEAT()
 
-/*
- * Used only when visual mode AND shifts keys are off.
- * It copies up to number of lines specified in vim_repeat and also resets
- * the vimode and the vim_repeat counter.
- */
-#define VIM_YANK_LINES()                                                       \
-  CLEAR_VIMODE(YANK)                                                           \
-  MAC_COPY_LINE(VIM_REPEAT())                                                  \
-  MAC_LEFT();                                                                  \
-  RESET_VIM_REPEAT()
-
-/*
- * Used only in conjunction with visual mode being on.
- * It copies everything that is currently visually selected.
- */
-#define VIM_VISUAL_YANK()                                                      \
-  MAC_UP_SHIFT();                                                              \
-  MAC_COPY();                                                                  \
-  MAC_LEFT();                                                                  \
-  reset_macvim_states();                                                       \
-  return false;
-
 #define VIM_SHIFT_YANK() VIM_EXEC_IF_SHIFT(MAC_COPY());
+#define VIM_SHIFT_CHANGE() VIM_EXEC_IF_SHIFT(MAC_CUT());
+#define VIM_SHIFT_DELETE() VIM_SHIFT_CHANGE()
 
 #define VIM_SEL_NEXT_CHAR()                                                    \
   VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_SEL_NEXT_CHAR(VIM_REPEAT()));
@@ -137,11 +117,23 @@
 static uint16_t vim_repeat = 0;
 
 enum VIMODES {
-  VIMODE_NO,
+  VIMODE_NO = 0,
   VIMODE_VISUAL,
+  VIMODE_CHANGE,
   VIMODE_DELETE,
   VIMODE_YANK,
 };
+#define VIM_EDIT_MODE_OFFSET VIMODE_CHANGE
+#define VIM_EDIT_MODE_IDX(MODE) (MODE - VIMODE_CHANGE)
+
+#define VIM_EDIT(MODE)                                                         \
+  if (vim_visual_edit(VIMODE_##MODE))                                          \
+    return false;                                                              \
+  VIM_SHIFT_##MODE();                                                          \
+  if (vim_edit_lines(VIMODE_##MODE))                                           \
+    return false;                                                              \
+  SET_VIMODE_##MODE();                                                         \
+  return false;
 
 static uint8_t vimode = VIMODE_NO;
 
@@ -149,25 +141,92 @@ static uint8_t vimode = VIMODE_NO;
 #define SET_VIMODE(MODE) (vimode |= (1U << VIMODE_##MODE));
 #define SET_VIMODE_VISUAL() (vimode |= (1U << VIMODE_VISUAL));
 #define SET_VIMODE_YANK() (vimode = (1U << VIMODE_YANK) | IS_VIMODE(VISUAL));
+#define SET_VIMODE_CHANGE()                                                    \
+  (vimode = (1U << VIMODE_CHANGE) | IS_VIMODE(VISUAL));
 #define SET_VIMODE_DELETE()                                                    \
   (vimode = (1U << VIMODE_DELETE) | IS_VIMODE(VISUAL));
-#define CLEAR_VIMODE(MODE) (vimode &= ~(1U << VIMODE_##MODE));
-#define CLEAR_VIMODES() (vimode = VIMODE_NO);
+
+#define RESET_VIMODE(MODE) (vimode &= ~(1U << VIMODE_##MODE));
+#define RESET_VIMODES() (vimode = VIMODE_NO);
+
+uint16_t get_repeat(void);
+bool is_vimode(uint8_t mode);
+void reset_vimode(uint8_t mode);
+
+bool vim_visual_edit(uint8_t mode);
+void vim_cut_selection(void);
+void vim_copy_selection(void);
+
+bool vim_edit_lines(uint8_t mode);
+void vim_cut_lines(void);
+void vim_copy_lines(void);
+
+typedef void (*VimEdit)(void);
+
+VimEdit vim_visual_edit_funcs[] = {
+    &vim_cut_selection,
+    &vim_cut_selection,
+    &vim_copy_selection,
+};
+
+VimEdit vim_edit_lines_funcs[] = {
+    &vim_cut_lines,
+    &vim_cut_lines,
+    &vim_copy_lines,
+};
 
 uint16_t get_repeat(void) { return (vim_repeat > 0 ? vim_repeat : 1); };
+void reset_vimode(uint8_t mode) { vimode &= ~(1U << mode); };
+bool is_vimode(uint8_t mode) { return (vimode & (1U << mode)); };
+
+bool vim_visual_edit(uint8_t mode) {
+  if (IS_VIMODE(VISUAL)) {
+    MAC_UP_SHIFT();
+    if (mode == VIMODE_YANK) {
+      MAC_COPY();
+      MAC_LEFT();
+    } else {
+      MAC_CUT();
+    }
+    reset_macvim_states();
+    return true;
+  }
+  return false;
+};
+void vim_cut_selection() { MAC_CUT(); };
+void vim_copy_selection() { MAC_COPY(); };
+
+bool vim_edit_lines(uint8_t mode) {
+  if (is_vimode(mode)) {
+    reset_vimode(mode);
+    if (mode == VIMODE_YANK) {
+      MAC_COPY_LINE(VIM_REPEAT());
+      MAC_LEFT();
+    } else {
+      MAC_CUT_LINE(VIM_REPEAT());
+    }
+    // vim_edit_lines_funcs[VIM_EDIT_MODE_IDX(mode)]();
+    vim_repeat = 0;
+    return true;
+  }
+  return false;
+};
+
+void vim_cut_lines() { MAC_CUT_LINE(VIM_REPEAT()); }
+void vim_copy_lines() { MAC_COPY_LINE(VIM_REPEAT()); }
 
 void reset_macvim_states(void) {
   vim_repeat = 0;
   if (IS_VIMODE(VISUAL) && IS_MOD_ON(LSHIFT)) {
     MAC_UP_SHIFT();
   }
-  CLEAR_VIMODES();
+  RESET_VIMODES();
 };
 
 void toggle_visual_mode(void) {
   if (IS_MOD_ON(LSHIFT)) {
     MAC_UP_SHIFT();
-    CLEAR_VIMODE(VISUAL);
+    RESET_VIMODE(VISUAL);
   } else {
     MAC_DOWN_SHIFT();
     SET_VIMODE_VISUAL();
@@ -212,15 +271,15 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
 
     switch (keycode) {
     case VIM_C:
-      VIM_CUT_WORD_ON_CURSOR();
+      VIM_EDIT(CHANGE);
     case VIM_D:
-      VIM_CUT_TO_END_OF_WORD_FROM_CURSOR();
+      VIM_EDIT(DELETE);
     case VIM_V:
       if (IS_MOD_ON(LSHIFT)) {
         // turn off visual mode
         if (IS_VIMODE(VISUAL)) {
           MAC_UP_SHIFT();
-          CLEAR_VIMODE(VISUAL);
+          RESET_VIMODE(VISUAL);
         } else {
           SET_VIMODE_VISUAL();
           VIM_SEL_LINE();
@@ -231,18 +290,7 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
       }
       return false;
     case VIM_Y:
-      // yank while in visual mode (vy)
-      if (IS_VIMODE(VISUAL)) {
-        VIM_VISUAL_YANK();
-      }
-      // allow yanking while holding down shift and not in visual mode
-      VIM_SHIFT_YANK();
-      // yanking multiple lines (yy)
-      if (IS_VIMODE(YANK)) {
-        VIM_YANK_LINES();
-      }
-      SET_VIMODE_YANK();
-      return false;
+      VIM_EDIT(YANK);
     case VIM_X:
       VIM_CUT_PREV_CHAR();
       VIM_CUT_NEXT_CHAR();
