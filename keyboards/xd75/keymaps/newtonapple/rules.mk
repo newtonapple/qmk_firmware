@@ -15,6 +15,6 @@
 
 BOOTMAGIC_ENABLE = no
 COMMAND_ENABLE = no
-
+# TAP_DANCE_ENABLE = yes
 # BACKLIGHT_ENABLE = yes
 # RGBLIGHT_ENABLE = no        # Enable WS2812 RGB underlight.
