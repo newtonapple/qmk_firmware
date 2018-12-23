@@ -14,6 +14,7 @@ enum newtonapple_layers {
   _MOUSE,
   _NUM,
   _SYM,
+  _LED,
 };
 
 #define QWERTY TO(_QWERTY)

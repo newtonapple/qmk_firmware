@@ -98,6 +98,11 @@
   MAC_MOV_TO_NEXT_WORD(VIM_REPEAT())                                           \
   RESET_VIM_REPEAT()
 
+#define VIM_INSERT_NEW_LINE()                                                  \
+  MAC_MOV_TO_END_OF_LINE()                                                     \
+  REPEAT_SEND_STRING(VIM_REPEAT(), SS_TAP(X_ENTER))                            \
+  RESET_VIM_REPEAT()
+
 #define VIM_MOV_TO_NEXT_LINE()                                                 \
   MAC_MOV_TO_NEXT_LINE(VIM_REPEAT())                                           \
   RESET_VIM_REPEAT()
@@ -305,6 +310,8 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
         SET_VIMODE_YANKI();
       }
       return false;
+    case VIM_O:
+      VIM_INSERT_NEW_LINE();
     case VIM_V:
       if (IS_MOD_ON(LSHIFT)) {
         // turn off visual mode
