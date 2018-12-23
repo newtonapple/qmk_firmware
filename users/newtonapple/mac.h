@@ -77,6 +77,11 @@
 #define MAC_UP() SEND_STRING(SS_TAP_UP);
 #define MAC_DOWN() SEND_STRING(SS_TAP_DOWN);
 
+#define MAC_ALT_LEFT() SEND_STRING(SS_TAP_ALT_LEFT);
+#define MAC_ALT_RIGHT() SEND_STRING(SS_TAP_ALT_RIGHT);
+#define MAC_ALT_UP() SEND_STRING(SS_TAP_ALT_UP);
+#define MAC_ALT_DOWN() SEND_STRING(SS_TAP_ALT_DOWN);
+
 #define MAC_COPY() SEND_STRING(SS_TAP_MAC_COPY);
 #define MAC_CUT() SEND_STRING(SS_TAP_MAC_CUT);
 
@@ -88,8 +93,7 @@
   MAC_CUT()
 
 #define MAC_CUT_WORD_ON_CURSOR(N)                                              \
-  MAC_MOV_TO_END_OF_WORD(N)                                                    \
-  MAC_SEL_TO_START_OF_WORD(N)                                                  \
+  MAC_SEL_WORD_ON_CURSOR(N)                                                    \
   MAC_CUT()
 #define MAC_CUT_TO_START_OF_WORD_FROM_CURSOR(N)                                \
   MAC_SEL_TO_START_OF_WORD(N)                                                  \
@@ -97,20 +101,43 @@
 #define MAC_CUT_TO_END_OF_WORD_FROM_CURSOR(N)                                  \
   MAC_SEL_TO_END_OF_WORD(N)                                                    \
   MAC_CUT()
+#define MAC_CUT_TO_NEXT_WORD_FROM_CURSOR(N)                                    \
+  MAC_SEL_TO_NEXT_WORD(N)                                                      \
+  MAC_CUT()
 
 #define MAC_CUT_LINE(N)                                                        \
-  MAC_SEL_LINE(N);                                                             \
-  MAC_CUT();
+  MAC_SEL_LINE(N)                                                              \
+  MAC_CUT()
 
 #define MAC_COPY_LINE(N)                                                       \
-  MAC_SEL_LINE(N);                                                             \
-  MAC_COPY();
+  MAC_SEL_LINE(N)                                                              \
+  MAC_COPY()
+
+#define MAC_COPY_WORD_ON_CURSOR(N)                                             \
+  MAC_SEL_WORD_ON_CURSOR(N)                                                    \
+  MAC_COPY()
+#define MAC_COPY_TO_START_OF_WORD_FROM_CURSOR(N)                               \
+  MAC_SEL_TO_START_OF_WORD(N)                                                  \
+  MAC_COPY()
+#define MAC_COPY_TO_END_OF_WORD_FROM_CURSOR(N)                                 \
+  MAC_SEL_TO_END_OF_WORD(N)                                                    \
+  MAC_COPY()
+#define MAC_COPY_TO_NEXT_WORD_FROM_CURSOR(N)                                   \
+  MAC_SEL_TO_NEXT_WORD(N)                                                      \
+  MAC_COPY()
 
 #define MAC_SEL_NEXT_CHAR(N) REPEAT_SEND_STRING(N, SS_TAP_SFT_RIGHT);
 #define MAC_SEL_PREV_CHAR(N) REPEAT_SEND_STRING(N, SS_TAP_SFT_LEFT);
 
 #define MAC_SEL_TO_START_OF_WORD(N) REPEAT_SEND_STRING(N, SS_TAP_ALT_SFT_LEFT);
 #define MAC_SEL_TO_END_OF_WORD(N) REPEAT_SEND_STRING(N, SS_TAP_ALT_SFT_RIGHT);
+#define MAC_SEL_WORD_ON_CURSOR(N)                                              \
+  MAC_ALT_RIGHT()                                                              \
+  MAC_ALT_LEFT()                                                               \
+  MAC_SEL_TO_END_OF_WORD(N)
+#define MAC_SEL_TO_NEXT_WORD(N)                                                \
+  REPEAT_SEND_STRING(N + 1, SS_TAP_ALT_SFT_RIGHT);                             \
+  SEND_STRING(SS_TAP_ALT_SFT_LEFT);
 
 #define MAC_SEL_TO_NEXT_LINE(N) REPEAT_SEND_STRING(N, SS_TAP_SFT_DOWN);
 #define MAC_SEL_TO_PREV_LINE(N) REPEAT_SEND_STRING(N, SS_TAP_SFT_UP);
@@ -127,6 +154,9 @@
 
 #define MAC_MOV_TO_START_OF_WORD(N) REPEAT_SEND_STRING(N, SS_TAP_ALT_LEFT);
 #define MAC_MOV_TO_END_OF_WORD(N) REPEAT_SEND_STRING(N, SS_TAP_ALT_RIGHT);
+#define MAC_MOV_TO_NEXT_WORD(N)                                                \
+  MAC_MOV_TO_END_OF_WORD(N + 1)                                                \
+  SEND_STRING(SS_TAP_ALT_LEFT);
 
 #define MAC_MOV_TO_NEXT_LINE(N) REPEAT_SEND_STRING(N, SS_TAP_DOWN);
 #define MAC_MOV_TO_PREV_LINE(N) REPEAT_SEND_STRING(N, SS_TAP_UP);
@@ -136,10 +166,10 @@
 #define MAC_MOV_LINE_UP(N) REPEAT_SEND_STRING(N, SS_TAP_ALT_UP);
 #define MAC_MOV_LINE_DOWN(N) REPEAT_SEND_STRING(N, SS_TAP_ALT_DOWN);
 
-#define MAC_UP_SHIFT() SEND_STRING(SS_UP_SHIFT)
-#define MAC_DOWN_SHIFT() SEND_STRING(SS_DOWN_SHIFT)
+#define MAC_UP_SHIFT() SEND_STRING(SS_UP_SHIFT);
+#define MAC_DOWN_SHIFT() SEND_STRING(SS_DOWN_SHIFT);
 
 // Macros for repeatedly sending strings
-#define REPEAT_SEND_STRING(N, SS_STRING) repeat_send_string(N, PSTR(SS_STRING))
+#define REPEAT_SEND_STRING(N, SS_STRING) repeat_send_string(N, PSTR(SS_STRING));
 
 void repeat_send_string(uint16_t n, const char *str);
