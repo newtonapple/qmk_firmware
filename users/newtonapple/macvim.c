@@ -3,73 +3,87 @@
 #define VIM_CUT_NEXT_CHAR()                                                    \
   MAC_CUT_NEXT_CHAR(VIM_REPEAT())                                              \
   RESET_VIM_REPEAT()
-
 #define VIM_CUT_PREV_CHAR()                                                    \
   VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_CUT_PREV_CHAR(VIM_REPEAT()))
 
 #define VIM_CUT_TO_START_OF_WORD_FROM_CURSOR()                                 \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(                                            \
-      LCTRL, MAC_CUT_TO_START_OF_WORD_FROM_CURSOR(VIM_REPEAT()));
-
+  if (IS_VIMODE(DELETE)) {                                                     \
+    MAC_CUT_TO_START_OF_WORD_FROM_CURSOR(VIM_REPEAT())                         \
+    RESET_VIM_STATES()                                                         \
+  }
 #define VIM_CUT_TO_END_OF_WORD_FROM_CURSOR()                                   \
-  MAC_CUT_TO_END_OF_WORD_FROM_CURSOR(VIM_REPEAT())                             \
-  RESET_VIM_REPEAT()
-
+  if (IS_VIMODE(DELETE)) {                                                     \
+    MAC_CUT_TO_END_OF_WORD_FROM_CURSOR(VIM_REPEAT())                           \
+    RESET_VIM_STATES()                                                         \
+  }
+#define VIM_CUT_TO_NEXT_WORD_FROM_CURSOR()                                     \
+  if (IS_VIMODE(DELETE)) {                                                     \
+    MAC_CUT_TO_NEXT_WORD_FROM_CURSOR(VIM_REPEAT())                             \
+    RESET_VIM_STATES()                                                         \
+  }
 #define VIM_CUT_WORD_ON_CURSOR()                                               \
-  MAC_CUT_WORD_ON_CURSOR(VIM_REPEAT())                                         \
-  RESET_VIM_REPEAT()
+  if (IS_VIMODE(CHANGE)) {                                                     \
+    MAC_CUT_WORD_ON_CURSOR(VIM_REPEAT())                                       \
+    RESET_VIM_STATES()                                                         \
+  }
+
+#define VIM_COPY_TO_START_OF_WORD_FROM_CURSOR()                                \
+  if (IS_VIMODE(YANK)) {                                                       \
+    MAC_COPY_TO_START_OF_WORD_FROM_CURSOR(VIM_REPEAT())                        \
+    MAC_LEFT()                                                                 \
+    RESET_VIM_STATES()                                                         \
+  }
+#define VIM_COPY_TO_END_OF_WORD_FROM_CURSOR()                                  \
+  if (IS_VIMODE(YANK)) {                                                       \
+    MAC_COPY_TO_END_OF_WORD_FROM_CURSOR(VIM_REPEAT())                          \
+    MAC_LEFT()                                                                 \
+    RESET_VIM_STATES()                                                         \
+  }
+#define VIM_COPY_TO_NEXT_WORD_FROM_CURSOR()                                    \
+  if (IS_VIMODE(YANK)) {                                                       \
+    MAC_COPY_TO_NEXT_WORD_FROM_CURSOR(VIM_REPEAT())                            \
+    MAC_LEFT()                                                                 \
+    RESET_VIM_STATES()                                                         \
+  }
+
+#define VIM_COPY_WORD_ON_CURSOR()                                              \
+  if (IS_VIMODE(YANKI)) {                                                      \
+    MAC_COPY_WORD_ON_CURSOR(VIM_REPEAT())                                      \
+    MAC_LEFT()                                                                 \
+    RESET_VIM_STATES()                                                         \
+  }
 
 #define VIM_CUT_TO_START_OF_LINE()                                             \
   MAC_SEL_TO_START_OF_LINE()                                                   \
   MAC_CUT()                                                                    \
   RESET_VIM_REPEAT()
-
 #define VIM_CUT_TO_END_OF_LINE()                                               \
   MAC_SEL_TO_END_OF_LINE()                                                     \
   MAC_CUT()                                                                    \
   RESET_VIM_REPEAT()
-
 #define VIM_CUT_LINE()                                                         \
   MAC_CUT_LINE(VIM_REPEAT())                                                   \
   RESET_VIM_REPEAT()
 
-#define VIM_SHIFT_YANK() VIM_EXEC_IF_SHIFT(MAC_COPY());
-#define VIM_SHIFT_CHANGE() VIM_EXEC_IF_SHIFT(MAC_CUT());
+#define VIM_SHIFT_YANK() VIM_EXEC_IF_SHIFT(MAC_COPY())
+#define VIM_SHIFT_CHANGE() VIM_EXEC_IF_SHIFT(MAC_CUT())
 #define VIM_SHIFT_DELETE() VIM_SHIFT_CHANGE()
 
-#define VIM_SEL_NEXT_CHAR()                                                    \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_SEL_NEXT_CHAR(VIM_REPEAT()));
-
-#define VIM_SEL_PREV_CHAR()                                                    \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_SEL_PREV_CHAR(VIM_REPEAT()));
-
-#define VIM_SEL_TO_START_OF_WORD()                                             \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT,                                     \
-                                   MAC_SEL_TO_START_OF_WORD(VIM_REPEAT()));
-
-#define VIM_SEL_TO_END_OF_WORD()                                               \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT,                                     \
-                                   MAC_SEL_TO_END_OF_WORD(VIM_REPEAT()));
-
-#define VIM_SEL_TO_START_OF_LINE()                                             \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_SEL_TO_START_OF_LINE());
-
-#define VIM_SEL_TO_END_OF_LINE()                                               \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_SEL_TO_END_OF_LINE());
+#define VIM_SEL_WORD_ON_CURSOR()                                               \
+  if (IS_VIMODE(VISUALI)) {                                                    \
+    MAC_UP_SHIFT()                                                             \
+    MAC_SEL_WORD_ON_CURSOR(VIM_REPEAT())                                       \
+    MAC_DOWN_SHIFT()                                                           \
+    SET_VIMODE_VISUAL()                                                        \
+    RESET_VIM_REPEAT()                                                         \
+  }
 
 #define VIM_SEL_LINE()                                                         \
   VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_SEL_LINE(VIM_REPEAT()));
 
-#define VIM_SEL_TO_NEXT_LINE()                                                 \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_SEL_TO_NEXT_LINE(VIM_REPEAT()));
-
-#define VIM_SEL_TO_PREV_LINE()                                                 \
-  VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LSHIFT, MAC_SEL_TO_PREV_LINE(VIM_REPEAT()));
-
 #define VIM_MOV_TO_NEXT_CHAR()                                                 \
   MAC_MOV_TO_NEXT_CHAR(VIM_REPEAT())                                           \
   RESET_VIM_REPEAT()
-
 #define VIM_MOV_TO_PREV_CHAR()                                                 \
   MAC_MOV_TO_PREV_CHAR(VIM_REPEAT())                                           \
   RESET_VIM_REPEAT()
@@ -77,22 +91,21 @@
 #define VIM_MOV_TO_START_OF_WORD()                                             \
   MAC_MOV_TO_START_OF_WORD(VIM_REPEAT())                                       \
   RESET_VIM_REPEAT()
-
 #define VIM_MOV_TO_END_OF_WORD()                                               \
   MAC_MOV_TO_END_OF_WORD(VIM_REPEAT())                                         \
+  RESET_VIM_REPEAT()
+#define VIM_MOV_TO_NEXT_WORD()                                                 \
+  MAC_MOV_TO_NEXT_WORD(VIM_REPEAT())                                           \
   RESET_VIM_REPEAT()
 
 #define VIM_MOV_TO_NEXT_LINE()                                                 \
   MAC_MOV_TO_NEXT_LINE(VIM_REPEAT())                                           \
   RESET_VIM_REPEAT()
-
 #define VIM_MOV_TO_PREV_LINE()                                                 \
   MAC_MOV_TO_PREV_LINE(VIM_REPEAT())                                           \
   RESET_VIM_REPEAT()
-
 #define VIM_MOV_LINE_UP()                                                      \
   VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LALT, MAC_MOV_LINE_UP(VIM_REPEAT()));
-
 #define VIM_MOV_LINE_DOWN()                                                    \
   VIM_EXEC_AND_RESET_REPEAT_IF_MOD(LALT, MAC_MOV_LINE_DOWN(VIM_REPEAT()));
 
@@ -114,17 +127,23 @@
   vim_repeat = 0;                                                              \
   return false;
 
+#define RESET_VIM_STATES()                                                     \
+  reset_vim_states();                                                          \
+  return false;
+
 static uint16_t vim_repeat = 0;
 
 enum VIMODES {
   VIMODE_NO = 0,
   VIMODE_VISUAL,
+  VIMODE_VISUALI,
   VIMODE_CHANGE,
   VIMODE_DELETE,
   VIMODE_YANK,
+  VIMODE_YANKI,
 };
-#define VIM_EDIT_MODE_OFFSET VIMODE_CHANGE
-#define VIM_EDIT_MODE_IDX(MODE) (MODE - VIMODE_CHANGE)
+// #define VIM_EDIT_MODE_OFFSET VIMODE_CHANGE
+// #define VIM_EDIT_MODE_IDX(MODE) (MODE - VIMODE_CHANGE)
 
 #define VIM_EDIT(MODE)                                                         \
   if (vim_visual_edit(VIMODE_##MODE))                                          \
@@ -137,16 +156,26 @@ enum VIMODES {
 
 static uint8_t vimode = VIMODE_NO;
 
-#define IS_VIMODE(MODE) (vimode & (1U << VIMODE_##MODE))
-#define SET_VIMODE(MODE) (vimode |= (1U << VIMODE_##MODE));
-#define SET_VIMODE_VISUAL() (vimode |= (1U << VIMODE_VISUAL));
-#define SET_VIMODE_YANK() (vimode = (1U << VIMODE_YANK) | IS_VIMODE(VISUAL));
-#define SET_VIMODE_CHANGE()                                                    \
-  (vimode = (1U << VIMODE_CHANGE) | IS_VIMODE(VISUAL));
-#define SET_VIMODE_DELETE()                                                    \
-  (vimode = (1U << VIMODE_DELETE) | IS_VIMODE(VISUAL));
+#define VIMODE_NO_MASK (1U << VIMODE_NO)
+#define VIMODE_VISUAL_MASK (1U << VIMODE_VISUAL)
+#define VIMODE_VISUALI_MASK (1U << VIMODE_VISUALI)
+#define VIMODE_DELETE_MASK (1U << VIMODE_DELETE)
+#define VIMODE_CHANGE_MASK (1U << VIMODE_CHANGE)
+#define VIMODE_YANK_MASK (1U << VIMODE_YANK)
+#define VIMODE_YANKI_MASK (1U << VIMODE_YANKI)
 
-#define RESET_VIMODE(MODE) (vimode &= ~(1U << VIMODE_##MODE));
+#define IS_VIMODE(MODE) (vimode & VIMODE_##MODE##_MASK)
+#define IS_VIMODE_EDIT()                                                       \
+  (vimode & (VIMODE_DELETE_MASK | VIMODE_CHANGE_MASK | VIMODE_YANK_MASK |      \
+             VIMODE_YANKI_MASK))
+#define SET_VIMODE_VISUAL() (vimode = VIMODE_VISUAL_MASK);
+#define SET_VIMODE_VISUALI() (vimode = VIMODE_VISUALI_MASK);
+#define SET_VIMODE_YANK() (vimode = VIMODE_YANK_MASK | IS_VIMODE(VISUAL));
+#define SET_VIMODE_YANKI() (vimode = VIMODE_YANKI_MASK | IS_VIMODE(VISUAL));
+#define SET_VIMODE_CHANGE() (vimode = VIMODE_CHANGE_MASK | IS_VIMODE(VISUAL));
+#define SET_VIMODE_DELETE() (vimode = VIMODE_DELETE_MASK | IS_VIMODE(VISUAL));
+
+#define RESET_VIMODE(MODE) (vimode &= ~VIMODE_##MODE##_MASK);
 #define RESET_VIMODES() (vimode = VIMODE_NO);
 
 uint16_t get_repeat(void);
@@ -154,26 +183,8 @@ bool is_vimode(uint8_t mode);
 void reset_vimode(uint8_t mode);
 
 bool vim_visual_edit(uint8_t mode);
-void vim_cut_selection(void);
-void vim_copy_selection(void);
 
 bool vim_edit_lines(uint8_t mode);
-void vim_cut_lines(void);
-void vim_copy_lines(void);
-
-typedef void (*VimEdit)(void);
-
-VimEdit vim_visual_edit_funcs[] = {
-    &vim_cut_selection,
-    &vim_cut_selection,
-    &vim_copy_selection,
-};
-
-VimEdit vim_edit_lines_funcs[] = {
-    &vim_cut_lines,
-    &vim_cut_lines,
-    &vim_copy_lines,
-};
 
 uint16_t get_repeat(void) { return (vim_repeat > 0 ? vim_repeat : 1); };
 void reset_vimode(uint8_t mode) { vimode &= ~(1U << mode); };
@@ -188,13 +199,11 @@ bool vim_visual_edit(uint8_t mode) {
     } else {
       MAC_CUT();
     }
-    reset_macvim_states();
+    reset_vim_states();
     return true;
   }
   return false;
 };
-void vim_cut_selection() { MAC_CUT(); };
-void vim_copy_selection() { MAC_COPY(); };
 
 bool vim_edit_lines(uint8_t mode) {
   if (is_vimode(mode)) {
@@ -205,17 +214,13 @@ bool vim_edit_lines(uint8_t mode) {
     } else {
       MAC_CUT_LINE(VIM_REPEAT());
     }
-    // vim_edit_lines_funcs[VIM_EDIT_MODE_IDX(mode)]();
     vim_repeat = 0;
     return true;
   }
   return false;
 };
 
-void vim_cut_lines() { MAC_CUT_LINE(VIM_REPEAT()); }
-void vim_copy_lines() { MAC_COPY_LINE(VIM_REPEAT()); }
-
-void reset_macvim_states(void) {
+void reset_vim_states(void) {
   vim_repeat = 0;
   if (IS_VIMODE(VISUAL) && IS_MOD_ON(LSHIFT)) {
     MAC_UP_SHIFT();
@@ -247,12 +252,17 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
         }
         return false;
       }
+
       // Hijack alt-left, alt-right, left, right, up, down to add vim repeat.
-      if (vim_repeat > 0) {
+      if (vim_repeat > 0 || IS_VIMODE_EDIT()) {
         switch (keycode) {
-        case VIM_W:
+        case VIM_E:
+          VIM_COPY_TO_END_OF_WORD_FROM_CURSOR();
+          VIM_CUT_TO_END_OF_WORD_FROM_CURSOR();
+          VIM_CUT_WORD_ON_CURSOR();
           VIM_MOV_TO_END_OF_WORD();
         case VIM_B:
+          VIM_COPY_TO_START_OF_WORD_FROM_CURSOR();
           VIM_CUT_TO_START_OF_WORD_FROM_CURSOR();
           VIM_MOV_TO_START_OF_WORD();
         case KC_LEFT:
@@ -270,10 +280,31 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
     }
 
     switch (keycode) {
+    case VIM_W:
+      VIM_SEL_WORD_ON_CURSOR();
+      VIM_COPY_WORD_ON_CURSOR();
+      VIM_COPY_TO_NEXT_WORD_FROM_CURSOR();
+      VIM_CUT_TO_NEXT_WORD_FROM_CURSOR();
+      VIM_CUT_WORD_ON_CURSOR();
+      VIM_MOV_TO_NEXT_WORD();
     case VIM_C:
       VIM_EDIT(CHANGE);
     case VIM_D:
       VIM_EDIT(DELETE);
+    case VIM_Y:
+      VIM_EDIT(YANK);
+    case VIM_X:
+      if (vim_visual_edit(VIMODE_DELETE))
+        return false;
+      VIM_CUT_PREV_CHAR();
+      VIM_CUT_NEXT_CHAR();
+    case VIM_I:
+      if (is_vimode(VIMODE_VISUAL)) {
+        SET_VIMODE_VISUALI();
+      } else if (is_vimode(VIMODE_YANK)) {
+        SET_VIMODE_YANKI();
+      }
+      return false;
     case VIM_V:
       if (IS_MOD_ON(LSHIFT)) {
         // turn off visual mode
@@ -289,13 +320,8 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
         SET_VIMODE_VISUAL();
       }
       return false;
-    case VIM_Y:
-      VIM_EDIT(YANK);
-    case VIM_X:
-      VIM_CUT_PREV_CHAR();
-      VIM_CUT_NEXT_CHAR();
     case VIM_ESC:
-      reset_macvim_states();
+      reset_vim_states();
     }
   }
   return true;
