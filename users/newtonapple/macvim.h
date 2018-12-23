@@ -7,6 +7,7 @@ enum macvim_custom_keycodes {
   VIM_C = SAFE_RANGE,
   VIM_D,
   VIM_I,
+  VIM_O,
   VIM_Y,
   VIM_V,
   VIM_W,
