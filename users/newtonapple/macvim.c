@@ -105,10 +105,10 @@
 
 #define VIM_MOV_TO_START_OF_LINE()                                             \
   MAC_MOV_TO_START_OF_LINE()                                                   \
-  RESET_VIM_STATES()
+  RESET_VIM_REPEAT()
 #define VIM_MOV_TO_END_OF_LINE()                                               \
   MAC_MOV_TO_END_OF_LINE()                                                     \
-  RESET_VIM_STATES()
+  RESET_VIM_REPEAT()
 #define VIM_MOV_TO_NEXT_LINE()                                                 \
   MAC_MOV_TO_NEXT_LINE(VIM_REPEAT())                                           \
   RESET_VIM_REPEAT()
