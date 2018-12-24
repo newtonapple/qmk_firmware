@@ -19,4 +19,6 @@
 
 #define ENABLE_MACVIM
 
+#define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
 #endif
