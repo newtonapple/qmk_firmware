@@ -19,6 +19,7 @@ enum macvim_custom_keycodes {
 
 #define VIM_B ALT_LEFT
 #define VIM_E ALT_RGHT
+#define VIM_DOL VIM_DOLLAR
 
 #ifndef MACVIM_MAX_REPEAT
 #define MACVIM_MAX_REPEAT 300
