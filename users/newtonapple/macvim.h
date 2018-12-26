@@ -15,6 +15,7 @@ enum macvim_custom_keycodes {
   VIM_0,
   VIM_DOLLAR,
   VIM_ESC,
+  VIM_SAFE_RANGE
 };
 
 #define VIM_B ALT_LEFT

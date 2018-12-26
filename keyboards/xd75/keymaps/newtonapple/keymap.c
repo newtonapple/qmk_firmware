@@ -20,25 +20,25 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY
- * .-----------------------------------------------------------------------------------------------------------------------------------------------------------------------.
- * | MOUSE » `   | 1      | 2      | 3        | 4            | 5     | CMD+[  | SNAP CENTER  |  CMD+] | 6            | 7         | 8       | 9      | 0      | BACKSP      |
- * |-------------+--------+--------+----------+--------------+-------+--------+--------------+--------+--------------+-----------+---------+--------+----------------------|
- * | MOUSE » TAB | Q      | W      | E        | R            | T     | CMD+{  | SNAP MAX     |  CMD+} | Y            | U         | I       | O      | P      | BACKSP      |
- * |-------------+--------+--------+----------+--------------+-------+--------+--------------+--------+--------------+-----------+---------+-----------------+-------------|
- * | MAC » ESC   | A      | S      | D        | F            | G     | HOME   | SNAP BACK    | PG UP  | H            | J         | K       | L      | ;      | ENTER       |
- * |-------------+--------+--------+----------+--------------+-------+--------+--------------+--------+--------------+-----------+---------------------------+-------------|
- * | LSHIFT » (  | Z      | X      | C        | V            | B     | END    | UP           | PG DN  | N            | M         | ,       | .      | /      | RSHIFT » )  |
- * |-------------+--------+--------+----------+--------------+----------------+--------------+--------+--------------+-----------+------------------+--------+-------------|
- * | LCTRL       | LCTRL  | LALT   | LGUI » = | NUM » SPACE  | SPACE | LEFT   | DOWN         | RIGHT  | MAC » SPACE  | SHIFT » ' | NUM » - | _      | RGUI   | "           |
- * '-----------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+ * .---------------------------------------------------------------------------------------------------------------------------------------------------------------------------.
+ * | MOUSE » `   | 1      | 2         | 3        | 4            | 5     | CMD+[  | SNAP CENTER  |  CMD+] | 6        | 7         | 8       | 9         | 0        | BACKSP      |
+ * |-------------+--------+-----------+----------+--------------+-------+--------+--------------+--------+----------+-----------+---------+-----------+------------------------|
+ * | MOUSE » TAB | Q      | W         | E        | R            | T     | CMD+{  | SNAP MAX     |  CMD+} | Y        | U         | I       | O         | P        | BACKSP      |
+ * |-------------+--------+-----------+----------+--------------+-------+--------+--------------+--------+----------+-----------+---------+----------------------+-------------|
+ * | MAC » ESC   | A      | S         | D        | F            | G     | HOME   | SNAP BACK    | PG UP  | H        | J         | K       | L         | ;        | ENTER       |
+ * |-------------+--------+-----------+----------+--------------+-------+--------+--------------+--------+----------+-----------+--------------------------------+-------------|
+ * | LSHIFT » (  | Z      | X         | C        | V            | B     | END    | UP           | PG DN  | N        | M         | ,       | .         | /        | RSHIFT » )  |
+ * |-------------+--------+-----------+----------+--------------+----------------+--------------+--------+----------+-----------+---------------------+----------+-------------|
+ * | LCTRL » {   | LCTRL  | LALT » [  | LGUI » = | NUM » SPACE  | SPACE | LEFT   | DOWN         | RIGHT  | MAC » "  | SHIFT » ' | NUM » - | LGUI » _  | RALT » ] | RCTRL » }   |
+ * '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
  */
 
  [_QWERTY] = LAYOUT_ortho_5x15(
-	 MOUSE_GRV,  KC_1,    KC_2,    KC_3,      KC_4,    KC_5,   UNINDENT, SNAP_CENTER, INDENT,   KC_6,       KC_7,       KC_8,     KC_9,       KC_0,    KC_BSPC,
-	 MOUSE_TAB,  KC_Q,    KC_W,    KC_E,      KC_R,    KC_T,   PREV_TAB, SNAP_MAX,    NEXT_TAB, KC_Y,       KC_U,       KC_I,     KC_O,       KC_P,    KC_BSPC,
-	 MACVIM_ESC, KC_A,    KC_S,    KC_D,      KC_F,    KC_G,   KC_HOME,  SNAP_BACK,   KC_PGUP,  KC_H,       KC_J,       KC_K,     KC_L,       KC_SCLN, KC_ENT ,
-	 KC_LSPO,    KC_Z,    KC_X,    KC_C,      KC_V,    KC_B,   KC_END,   KC_UP,       KC_PGDN,  KC_N,       KC_M,       KC_COMM,  KC_DOT,     KC_SLSH, KC_RSPC,
-	 KC_LCTL,    KC_LCTL, KC_LALT, GUI_T_EQL, SYM_SPC, KC_SPC, KC_LEFT,  KC_DOWN,     KC_RGHT,  MACVIM_SPC, SFT_T_QUOT, NUM_MINS, S(KC_MINS), KC_RALT, S(KC_QUOT)
+	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,    KC_5,   UNINDENT, SNAP_CENTER, INDENT,   KC_6,       KC_7,         KC_8,     KC_9,      KC_0,       KC_BSPC,
+	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,    KC_T,   PREV_TAB, SNAP_MAX,    NEXT_TAB, KC_Y,       KC_U,         KC_I,     KC_O,      KC_P,       KC_BSPC,
+	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,    KC_G,   KC_HOME,  SNAP_BACK,   KC_PGUP,  KC_H,       KC_J,         KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
+	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,    KC_B,   KC_END,   KC_UP,       KC_PGDN,  KC_N,       KC_M,         KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
+	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SPC, KC_SPC, KC_LEFT,  KC_DOWN,     KC_RGHT,  MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
  ),
 
  [_CAP] = LAYOUT_ortho_5x15(
@@ -163,6 +163,13 @@ uint32_t layer_state_set_user(uint32_t state) {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	return process_macvim(keycode, record, IS_LAYER_ON(_MACVIM));
+  #ifdef ENABLE_SPACE_CADET
+  static uint16_t space_cadet_timer;
+  SPACE_CADET_LAYER(keycode, MACVIM_SQUOT, _MACVIM, "\"", record->event.pressed);
+  SPACE_CADET(keycode, CRTL_SLBRC, KC_LCTRL, "{", record->event.pressed);
+  SPACE_CADET(keycode, CRTL_SRBRC, KC_RCTRL, "}", record->event.pressed);
+  SPACE_CADET(keycode, CMD_SMINS, KC_RCMD, "_", record->event.pressed);
+  #endif
+  return process_macvim(keycode, record, IS_LAYER_ON(_MACVIM));
 }
 
