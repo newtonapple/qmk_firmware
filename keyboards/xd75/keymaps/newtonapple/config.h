@@ -18,6 +18,7 @@
 #define CONFIG_USER_H
 
 #define ENABLE_MACVIM
+#define ENABLE_SPACE_CADET
 
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
