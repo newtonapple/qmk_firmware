@@ -1,7 +1,11 @@
 #pragma once
+#include "quantum.h"
 
 #ifdef ENABLE_MACVIM
 #include "macvim.h"
+#define NEWTONAPPLE_SAFE_RANGE VIM_SAFE_RANGE
+#else
+#define NEWTONAPPLE_SAFE_RANGE SAFE_RANGE
 #endif
 
 enum newtonapple_layers {
@@ -15,6 +19,13 @@ enum newtonapple_layers {
   _NUM,
   _SYM,
   _LED,
+};
+
+enum custom_keycodes {
+  MACVIM_SQUOT = NEWTONAPPLE_SAFE_RANGE,
+  CRTL_SLBRC,
+  CRTL_SRBRC,
+  CMD_SMINS,
 };
 
 #define QWERTY TO(_QWERTY)
@@ -41,9 +52,50 @@ enum newtonapple_layers {
 #define NUM_MINS LT(_NUM, KC_MINS)
 #define GUI_T_EQL GUI_T(KC_EQL)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
+#define ALT_T_LBRC LALT_T(KC_LBRC)
+#define ALT_T_RBRC RALT_T(KC_RBRC)
 
 #define OSL_NUM OSL(_NUM)
 #define OSL_SYM OSL(_SYM)
 
 #define TT_NUM TT(_NUM)
 #define TT_SYM TT(_SYM)
+
+#ifdef ENABLE_SPACE_CADET
+
+#ifndef SPACE_CADET_TIMEOUT
+#define SPACE_CADET_TIMEOUT 200
+#endif
+
+/*
+ * To use SPACE_CADET* macros, you must define the static timer variable:
+ *    static uint16_t space_cadet_timer;
+ *
+ * The SPACE_CADET* macros assume only one key is pressed at a time,
+ * i.e. no mixing modifier or layer keys are held at the same time.  It also
+ * assumes a timeout `SPACE_CADET_TIMEOUT` is defined. It'll use a default value
+ * 200ms if you don't define it.
+ *
+ * You can use `space_cadet` & `space_cadet_layer` for custom timers & timouts.
+ */
+
+#define SPACE_CADET(keycode, kc_custom, kc_mod, str, pressed)                  \
+  if (keycode == kc_custom) {                                                  \
+    space_cadet(kc_mod, str, pressed, &space_cadet_timer,                      \
+                SPACE_CADET_TIMEOUT);                                          \
+    return false;                                                              \
+  };
+
+#define SPACE_CADET_LAYER(keycode, kc_custom, layer, str, pressed)             \
+  if (keycode == kc_custom) {                                                  \
+    space_cadet_layer(layer, str, pressed, &space_cadet_timer,                 \
+                      SPACE_CADET_TIMEOUT);                                    \
+    return false;                                                              \
+  };
+
+void space_cadet(uint16_t kc_mod, const char *str, bool pressed,
+                 uint16_t *timer, uint16_t timeout);
+
+void space_cadet_layer(uint8_t layer, const char *str, bool pressed,
+                       uint16_t *timer, uint16_t timeout);
+#endif
