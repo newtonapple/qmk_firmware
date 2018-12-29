@@ -146,19 +146,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  [_LED] = LAYOUT_ortho_5x15(
 	RGB_TOG, RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW, RGB_M_SN, _______,  _______, TG(_LED), RGB_M_K, RGB_M_X, RGB_M_G, RGB_M_T, _______, TG(_LED),
-	_______, _______, _______, _______, _______,  _______,  RGB_RMOD, _______, RGB_MOD,  _______, _______, _______, _______, _______, _______,
-	_______, _______, _______, _______, _______,  _______,  RGB_SAI,  RGB_TOG, RGB_HUI,  _______, _______, _______, _______, _______, _______,
+	_______, BL_TOGG, BL_OFF,  BL_ON,   _______,  _______,  RGB_RMOD, _______, RGB_MOD,  _______, _______, _______, _______, _______, _______,
+	QWERTY,  BL_BRTG, BL_DEC,  BL_INC,  _______,  _______,  RGB_SAI,  RGB_TOG, RGB_HUI,  _______, _______, _______, _______, _______, _______,
 	_______, _______, _______, _______, _______,  _______,  RGB_SAD,  RGB_VAI, RGB_HUD,  _______, _______, _______, _______, _______, _______,
 	_______, _______, _______, _______, _______,  _______,  RGB_SPD,  RGB_VAD, RGB_SPI,  _______, _______, _______, _______, _______, _______
  )
 };
 
 #define IS_LAYER_ON_STATE(layer, state) (state & (1UL << (layer)))
-
 uint32_t layer_state_set_user(uint32_t state) {
+  #ifdef ENABLE_MACVIM
   if ( !(IS_LAYER_ON_STATE(_MACVIM, state) || IS_LAYER_ON_STATE(_VIMNUM, state)) ) {
     reset_vim_states();
   }
+  #endif
   return state;
 };
 
