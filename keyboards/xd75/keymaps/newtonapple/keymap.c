@@ -34,11 +34,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_QWERTY] = LAYOUT_ortho_5x15(
-	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,    KC_5,   UNINDENT, SNAP_CENTER, INDENT,   KC_6,       KC_7,         KC_8,     KC_9,      KC_0,       KC_BSPC,
-	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,    KC_T,   PREV_TAB, SNAP_MAX,    NEXT_TAB, KC_Y,       KC_U,         KC_I,     KC_O,      KC_P,       KC_BSPC,
-	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,    KC_G,   KC_HOME,  SNAP_BACK,   KC_PGUP,  KC_H,       KC_J,         KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
-	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,    KC_B,   KC_END,   KC_UP,       KC_PGDN,  KC_N,       KC_M,         KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
-	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SPC, KC_SPC, KC_LEFT,  KC_DOWN,     KC_RGHT,  MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
+	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,    KC_5,   UNINDENT,           SNAP_CENTER, INDENT,         KC_6,         KC_7,       KC_8,     KC_9,      KC_0,       KC_BSPC,
+	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,    KC_T,   PREV_TAB,           SNAP_MAX,    NEXT_TAB,       KC_Y,         KC_U,       KC_I,     KC_O,      KC_P,       KC_BSPC,
+	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,    KC_G,   KC_HOME,            SNAP_BACK,   KC_PGUP,        KC_H,         KC_J,       KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
+	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,    KC_B,   KC_END,             KC_UP,       KC_PGDN,        KC_N,         KC_M,       KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
+	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SPC, KC_SPC, LT(_MOUSE,KC_LEFT), KC_DOWN,     CTL_T(KC_RGHT), MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
  ),
 
  [_CAP] = LAYOUT_ortho_5x15(
@@ -81,23 +81,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Mouse Movements
  * .-------------------------------------------------------------------------------------------------------------------------------------------------------------------------.
- * |         | ACC0   | ACC1   | ACC2   |        |       |             |            |              |            |             |              |             |        |        |
- * |---------+--------+--------+--------+--------+-------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
- * |         | CMD+q  | CMD+w  | PG UP  | CMD+r  |       |             | SCRL_UP    |              | CMD+c      | CMD+u       | CMD+{        | CMD+}       | CMD+a  | CMD+x  |
- * |---------+--------+--------+--------+--------+-------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
- * | QWERTY  | CMD+a  | CMD+s  | PG DN  | ACC2   |       | SCRL_LEFT   | SCRL_DOWN  | SCRL_RIGHT   | LEFT       | DOWN        | UP           | RIGHT       | CMD+c  | CMD+v  |
- * |---------+--------+--------+--------+--------+-------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
- * |         |        |        |        |        |       | LEFT_CLICK  | UP         | RIGHT_CLICK  | SCRL_LEFT  | SCRL_DOWN   | SCRL_UP      | SCRL_RIGHT  |        |        |
- * |------- -+--------+--------+--------+--------+-------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
- * |         |        |        |        | ACC1   | ACC2  | LEFT        | DOWN       | RIGHT        | ACC0       | LEFT_CLICK  | RIGHT_CLICK  | MID_CLICK   |        |        |
+ * |         | ACC0   | ACC1   | ACC2  |        |        |             |            |              |            |             |              |             |        |        |
+ * |---------+--------+--------+-------+--------+--------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
+ * |         | CMD+q  | CMD+w  | ACC2  | CMD+r  | PG UP  |             | SCRL_UP    |              | CMD+c      | CMD+u       | CMD+{        | CMD+}       | CMD+a  | CMD+x  |
+ * |---------+--------+--------+-------+--------+--------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
+ * | QWERTY  | CMD+a  | ACC1   | ACC1  | ACC2   | PG DN  | SCRL_LEFT   | SCRL_DOWN  | SCRL_RIGHT   | LEFT       | DOWN        | UP           | RIGHT       | CMD+c  | CMD+v  |
+ * |---------+--------+--------+-------+--------+--------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
+ * |         |        |        |       | SHIFT  |        | LEFT_CLICK  | UP         | RIGHT_CLICK  | SCRL_LEFT  | SCRL_DOWN   | SCRL_UP      | SCRL_RIGHT  |        |        |
+ * |------- -+--------+--------+-------+--------+--------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
+ * |         |        |        |       | SHIFT  | ACC1   | LEFT        | DOWN       | RIGHT        | ACC0       | LEFT_CLICK  | RIGHT_CLICK  | MID_CLICK   |        |        |
  * '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
  */
  [_MOUSE] = LAYOUT_ortho_5x15(
-	_______, KC_MS_ACCEL0, KC_MS_ACCEL1, KC_MS_ACCEL2, _______,      _______,      _______,       _______,       _______,        _______,       _______,       _______,     _______,        _______, _______,
-	_______, QUIT,         CLOSE,        KC_PGUP,      REDO,         _______,      _______,       KC_MS_WH_UP,   _______,        COPY,          UNDO,          PREV_TAB,    NEXT_TAB,       PASTE,   CUT,
-	QWERTY,  SEL_ALL,      SAVE,         KC_PGDN,      KC_MS_ACCEL2, _______,      KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT, KC_MS_LEFT,    KC_MS_DOWN,    KC_MS_UP,    KC_MS_RIGHT,    COPY,    PASTE,
-	_______, _______,      _______,      _______,      _______,      _______,      KC_MS_BTN1,    KC_MS_UP,      KC_MS_BTN2,     KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_UP, KC_MS_WH_RIGHT, _______, _______,
-	_______, _______,      _______,      _______,      KC_LSFT,      KC_MS_ACCEL1, KC_MS_LEFT,    KC_MS_DOWN,    KC_MS_RIGHT,    KC_MS_ACCEL0,  KC_MS_BTN1,    KC_MS_BTN2,  KC_MS_BTN3,     _______, _______
+	_______, KC_ACL0, KC_ACL1, KC_ACL2, _______, _______, _______, _______,  _______, _______, _______, _______,  _______,  _______, _______,
+	_______, QUIT,    CLOSE,   KC_ACL2, REDO,    KC_PGUP, _______, KC_WH_U,  _______, COPY,    UNDO,    PREV_TAB, NEXT_TAB, PASTE,   CUT,
+	QWERTY,  SEL_ALL, KC_ACL0, KC_ACL1, KC_ACL2, KC_PGDN, KC_WH_L, KC_WH_D,  KC_WH_R, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R,  COPY,    PASTE,
+	_______, _______, _______, _______, KC_LSFT, _______, KC_BTN1, KC_MS_UP, KC_BTN2, KC_WH_L, KC_WH_D, KC_WH_U,  KC_WH_R,  _______, _______,
+	_______, _______, _______, _______, KC_LSFT, KC_ACL1, KC_MS_L, KC_MS_D,  KC_MS_R, KC_ACL0, KC_BTN1, KC_BTN2,  KC_BTN3,  _______, _______
  ),
 
 /* NUMBERS
