@@ -3,9 +3,9 @@
 
 #ifdef ENABLE_MACVIM
 #include "macvim.h"
-#define NEWTONAPPLE_SAFE_RANGE VIM_SAFE_RANGE
+#define _NEWTONAPPLE_SAFE_RANGE VIM_SAFE_RANGE
 #else
-#define NEWTONAPPLE_SAFE_RANGE SAFE_RANGE
+#define _NEWTONAPPLE_SAFE_RANGE SAFE_RANGE
 #endif
 
 enum newtonapple_layers {
@@ -22,12 +22,15 @@ enum newtonapple_layers {
 };
 
 enum custom_keycodes {
-  MACVIM_SQUOT = NEWTONAPPLE_SAFE_RANGE,
-  CRTL_SLBRC,
+  CRTL_SLBRC = _NEWTONAPPLE_SAFE_RANGE,
   CRTL_SRBRC,
   CMD_SMINS,
+  MACVIM_SQUOT,
+  SYM_SQUOT,
+  NEWTONAPPLE_SAFE_RANGE,
 };
 
+#define DEFAULT TO(0)
 #define QWERTY TO(_QWERTY)
 #define CAP TO(_CAP)
 #define NUM TO(_NUM)
@@ -49,6 +52,8 @@ enum custom_keycodes {
 
 #define SYM_MINS LT(_SYM, KC_MINS)
 #define SYM_SPC LT(_SYM, KC_SPC)
+#define MACVIM_SPC LT(_MACVIM, KC_SPC)
+#define LED_RBRC LT(_LED, KC_RBRC)
 #define NUM_MINS LT(_NUM, KC_MINS)
 #define GUI_T_EQL GUI_T(KC_EQL)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
@@ -92,7 +97,5 @@ void space_cadet(uint16_t kc_mod, const char *str, bool pressed,
 void space_cadet_layer(uint8_t layer, const char *str, bool pressed,
                        uint16_t *timer, uint16_t timeout);
 #endif
-
-
 
 void rgb_matrix_scan(void);
