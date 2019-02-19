@@ -10,6 +10,7 @@
 
 enum newtonapple_layers {
   _QWERTY,
+  _CODE,
   _CAP,
 #ifdef ENABLE_MACVIM
   _MACVIM,
@@ -27,6 +28,7 @@ enum custom_keycodes {
   CMD_SMINS,
   MACVIM_SQUOT,
   SYM_SQUOT,
+  SYM_SMINS,
   NEWTONAPPLE_SAFE_RANGE,
 };
 
