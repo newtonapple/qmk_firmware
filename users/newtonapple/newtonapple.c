@@ -29,7 +29,6 @@ void space_cadet_layer(uint8_t layer, const char *str, bool pressed,
 
 #ifdef RGBLIGHT_ENABLE
 extern rgblight_config_t rgblight_config;
-#endif
 
 void rgb_matrix_scan(void) {
   static bool rgb_enable;
@@ -75,3 +74,4 @@ void rgb_matrix_scan(void) {
     break;
   }
 }
+#endif
