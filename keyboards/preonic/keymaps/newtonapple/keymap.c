@@ -60,11 +60,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_NUM] = LAYOUT_preonic_grid(
-    KC_BRIU, KC_BRID, KC_F3,     KC_F4,   KC_F5,   KC_F6,      KC_MRWD,  KC_MPLY, KC_MFFD,    KC_MUTE, KC_VOLD,    KC_VOLU,
-    _______, KC_GRV,  S(KC_GRV), KC_EQL,  KC_MINS, S(KC_EQL),  S(KC_6),  S(KC_8), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
-    DEFAULT, KC_1,    KC_2,      KC_3,    KC_4,    KC_5,       KC_6,     KC_7,    KC_8,       KC_9,    KC_0,       _______,
-    _______, S(KC_5), MOUSE,     MACVIM,  KC_QUOT, S(KC_QUOT), KC_LBRC,  KC_RBRC, _______,    _______, _______,    _______,
-    _______, _______, _______,   _______, KC_LSFT, _______,    _______,  OSL_SYM, KC_UP,      KC_DOWN, KC_LEFT,    KC_RGHT
+    KC_BRIU, KC_BRID, C(KC_UP),  C(KC_DOWN), C(KC_LEFT), C(KC_RGHT), KC_MRWD,  KC_MPLY, KC_MFFD,    KC_MUTE, KC_VOLD,    KC_VOLU,
+    _______, KC_GRV,  S(KC_GRV), KC_EQL,     KC_MINS,    S(KC_EQL),  S(KC_6),  S(KC_8), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
+    DEFAULT, KC_1,    KC_2,      KC_3,       KC_4,       KC_5,       KC_6,     KC_7,    KC_8,       KC_9,    KC_0,       _______,
+    _______, S(KC_5), MOUSE,     MACVIM,     KC_QUOT,    S(KC_QUOT), KC_LBRC,  KC_RBRC, _______,    _______, _______,    _______,
+    _______, _______, _______,   _______,    KC_LSFT,    _______,    _______,  OSL_SYM, KC_UP,      KC_DOWN, KC_LEFT,    KC_RGHT
   ),
 
   [_SYM] = LAYOUT_preonic_grid(
@@ -76,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT_preonic_grid(
-    KC_BRIU, KC_BRID, KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MRWD, KC_MPLY, KC_MFFD, KC_MUTE, KC_VOLD, KC_VOLU,
-    _______, MI_ON,   MI_OFF,  MU_MOD,  MUV_IN,  MUV_DE,  _______, _______, _______, _______, _______, RESET,
-    _______, AU_ON,   AU_OFF,  CK_RST,  CK_UP,   CK_DOWN, _______, _______, _______, _______, _______, _______,
-    _______, MU_ON,   MU_OFF,  CK_ON,   CK_OFF,  _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, AUDIO
+    KC_BRIU, KC_BRID, C(KC_UP), C(KC_DOWN), C(KC_LEFT), C(KC_RGHT), KC_MRWD, KC_MPLY, KC_MFFD, KC_MUTE, KC_VOLD, KC_VOLU,
+    _______, MI_ON,   MI_OFF,   MU_MOD,     MUV_IN,     MUV_DE,     _______, _______, _______, _______, _______, RESET,
+    _______, AU_ON,   AU_OFF,   CK_RST,     CK_UP,      CK_DOWN,    _______, _______, _______, _______, _______, _______,
+    _______, MU_ON,   MU_OFF,   CK_ON,      CK_OFF,     _______,    _______, _______, _______, _______, _______, _______,
+    _______, _______, _______,  _______,    _______,    _______,    _______, _______, _______, _______, _______, AUDIO
   ),
 
   [_AUDIO] = LAYOUT_preonic_grid(
