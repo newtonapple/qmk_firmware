@@ -78,9 +78,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT_preonic_grid(
     KC_BRIU, KC_BRID, KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MRWD, KC_MPLY, KC_MFFD, KC_MUTE, KC_VOLD, KC_VOLU,
     _______, MI_ON,   MI_OFF,  MU_MOD,  MUV_IN,  MUV_DE,  _______, _______, _______, _______, _______, RESET,
-    AUDIO,   AU_ON,   AU_OFF,  CK_RST,  CK_UP,   CK_DOWN, _______, _______, _______, _______, _______, _______,
+    _______, AU_ON,   AU_OFF,  CK_RST,  CK_UP,   CK_DOWN, _______, _______, _______, _______, _______, _______,
     _______, MU_ON,   MU_OFF,  CK_ON,   CK_OFF,  _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, AUDIO
   ),
 
   [_AUDIO] = LAYOUT_preonic_grid(
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     DEFAULT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, MU_ON,   _______, _______, _______, _______, _______, _______, _______, _______, MU_OFF,  _______
+    KC_UP,   KC_LCTL, KC_LALT, KC_LGUI, KC_DOWN, _______, _______, _______, _______, _______, MU_OFF,  MU_ON
   )
 };
 
@@ -114,79 +114,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return process_macvim(keycode, record, IS_LAYER_ON(_MACVIM));
 }
 
-bool muse_mode = false;
-uint8_t last_muse_note = 0;
-uint16_t muse_counter = 0;
-uint8_t muse_offset = 70;
-uint16_t muse_tempo = 50;
-
-void encoder_update_user(uint8_t index, bool clockwise) {
-  if (muse_mode) {
-    if (IS_LAYER_ON(_NUM)) {
-      if (clockwise) {
-        muse_offset++;
-      } else {
-        muse_offset--;
-      }
-    } else {
-      if (clockwise) {
-        muse_tempo+=1;
-      } else {
-        muse_tempo-=1;
-      }
-    }
-  } else {
-    if (clockwise) {
-      register_code(KC_PGDN);
-      unregister_code(KC_PGDN);
-    } else {
-      register_code(KC_PGUP);
-      unregister_code(KC_PGUP);
-    }
-  }
-}
-
-// void dip_update(uint8_t index, bool active) {
-//   switch (index) {
-//     case 0:
-//       if (active) {
-//         layer_on(_ADJUST);
-//       } else {
-//         layer_off(_ADJUST);
-//       }
-//       break;
-//     case 1:
-//       if (active) {
-//         muse_mode = true;
-//       } else {
-//         muse_mode = false;
-//         #ifdef AUDIO_ENABLE
-//           stop_all_notes();
-//         #endif
-//       }
-//    }
-// }
-
-void matrix_scan_user(void) {
-  #ifdef AUDIO_ENABLE
-    if (muse_mode) {
-      if (muse_counter == 0) {
-        uint8_t muse_note = muse_offset + SCALE[muse_clock_pulse()];
-        if (muse_note != last_muse_note) {
-          stop_note(compute_freq_for_midi_note(last_muse_note));
-          play_note(compute_freq_for_midi_note(muse_note), 0xF);
-          last_muse_note = muse_note;
-        }
-      }
-      muse_counter = (muse_counter + 1) % muse_tempo;
-    }
-  #endif
-}
-
 // bool music_mask_user(uint16_t keycode) {
 //   switch (keycode) {
-//     case RAISE:
-//     case LOWER:
+//     case SYM_SMINS:
+//     case NUM_MINS:
 //       return false;
 //     default:
 //       return true;
