@@ -222,6 +222,9 @@ bool vim_edit_lines(uint8_t mode) {
     if (mode == VIMODE_YANK) {
       MAC_COPY_LINE(VIM_REPEAT());
       MAC_LEFT();
+    } else if (mode == VIMODE_DELETE) {
+      MAC_CUT_LINE(VIM_REPEAT());
+      MAC_DELETE();
     } else {
       MAC_CUT_LINE(VIM_REPEAT());
     }
