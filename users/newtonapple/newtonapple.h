@@ -20,6 +20,8 @@ enum newtonapple_layers {
   _NUM,
   _SYM,
   _LED,
+  _ADJUST,
+  _AUDIO,
 };
 
 enum custom_keycodes {
@@ -38,12 +40,17 @@ enum custom_keycodes {
 #define NUM TO(_NUM)
 #define SYM TO(_SYM)
 #define MOUSE TO(_MOUSE)
+#define ADJUST TO(_ADJUST)
+#define AUDIO TO(_AUDIO)
 #ifdef ENABLE_MACVIM
 #define MACVIM TO(_MACVIM)
 #endif
 
 #define MOUSE_GRV LT(_MOUSE, KC_GRV)
 #define MOUSE_TAB LT(_MOUSE, KC_TAB)
+#define MOUSE_SPC LT(_MOUSE, KC_SPC)
+#define MOUSE_LEFT LT(_MOUSE, KC_LEFT)
+#define MOUSE_RGHT LT(_MOUSE, KC_RGHT)
 #ifdef ENABLE_MACVIM
 #define VIMNUM TO(_VIMNUM)
 #define MACVIM_ESC LT(_MACVIM, KC_ESC)
@@ -54,13 +61,19 @@ enum custom_keycodes {
 
 #define SYM_MINS LT(_SYM, KC_MINS)
 #define SYM_SPC LT(_SYM, KC_SPC)
-#define MACVIM_SPC LT(_MACVIM, KC_SPC)
+#define LED_LBRC LT(_LED, KC_LBRC)
 #define LED_RBRC LT(_LED, KC_RBRC)
 #define NUM_MINS LT(_NUM, KC_MINS)
+#define ADJ_BSLS LT(_ADJUST, KC_BSLS)
 #define GUI_T_EQL GUI_T(KC_EQL)
+#define GUI_T_LBRC GUI_T(KC_LBRC)
+#define GUI_T_RBRC GUI_T(KC_RBRC)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
 #define ALT_T_LBRC LALT_T(KC_LBRC)
 #define ALT_T_RBRC RALT_T(KC_RBRC)
+#define CTL_T_BSPC CTL_T(KC_BSPC)
+#define CTL_T_LEFT CTL_T(KC_LEFT)
+#define CTL_T_RGHT CTL_T(KC_RGHT)
 
 #define OSL_NUM OSL(_NUM)
 #define OSL_SYM OSL(_SYM)
@@ -100,4 +113,6 @@ void space_cadet_layer(uint8_t layer, const char *str, bool pressed,
                        uint16_t *timer, uint16_t timeout);
 #endif
 
+#ifdef RGBLIGHT_ENABLE
 void rgb_matrix_scan(void);
+#endif
