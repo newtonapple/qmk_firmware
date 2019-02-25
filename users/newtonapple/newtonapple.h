@@ -67,7 +67,7 @@ enum custom_keycodes {
 #define ADJ_BSLS LT(_ADJUST, KC_BSLS)
 #define GUI_T_EQL GUI_T(KC_EQL)
 #define GUI_T_LBRC GUI_T(KC_LBRC)
-#define GUI_T_RBRC GUI_T(KC_RBRC)
+#define GUI_T_RBRC RGUI_T(KC_RBRC)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
 #define ALT_T_LBRC LALT_T(KC_LBRC)
 #define ALT_T_RBRC RALT_T(KC_RBRC)
