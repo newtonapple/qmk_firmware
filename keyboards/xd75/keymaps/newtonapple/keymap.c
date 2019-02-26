@@ -34,19 +34,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_QWERTY] = LAYOUT_ortho_5x15(
-	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,      KC_5,   DF(_CODE),          SNAP_MAX,    INDENT,         KC_6,         KC_7,       KC_8,     KC_9,      KC_0,       KC_BSPC,
-	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,      KC_T,   PREV_TAB,           SNAP_CENTER, NEXT_TAB,       KC_Y,         KC_U,       KC_I,     KC_O,      KC_P,       KC_BSPC,
-	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,      KC_G,   KC_HOME,            SNAP_BACK,   KC_PGUP,        KC_H,         KC_J,       KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
-	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,      KC_B,   KC_END,             KC_UP,       KC_PGDN,        KC_N,         KC_M,       KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
-	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC, LT(_MOUSE,KC_LEFT), KC_DOWN,     CTL_T(KC_RGHT), MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
+	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,      KC_5,   DF(_CODE),  SNAP_MAX,    INDENT,     KC_6,         KC_7,       KC_8,     KC_9,      KC_0,       KC_BSPC,
+	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,      KC_T,   PREV_TAB,   SNAP_CENTER, NEXT_TAB,   KC_Y,         KC_U,       KC_I,     KC_O,      KC_P,       KC_BSPC,
+	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,      KC_G,   KC_HOME,    SNAP_BACK,   KC_PGUP,    KC_H,         KC_J,       KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
+	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,      KC_B,   KC_END,     KC_UP,       KC_PGDN,    KC_N,         KC_M,       KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
+	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC, MOUSE_LEFT, KC_DOWN,     CTL_T_RGHT, MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
  ),
 
  [_CODE] = LAYOUT_ortho_5x15(
-	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,      KC_5,   DF(_QWERTY),        SNAP_MAX,    INDENT,         KC_6,         KC_7,       KC_8,     KC_9,      KC_0,       KC_BSPC,
-	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,      KC_T,   PREV_TAB,           SNAP_CENTER, NEXT_TAB,       KC_Y,         KC_U,       KC_I,     KC_O,      KC_P,       KC_BSPC,
-	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,      KC_G,   KC_HOME,            SNAP_BACK,   KC_PGUP,        KC_H,         KC_J,       KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
-	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,      KC_B,   KC_END,             KC_UP,       KC_PGDN,        KC_N,         KC_M,       KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
-	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC, LT(_MOUSE, KC_SPC), KC_DOWN,     CTL_T(KC_BSPC), MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
+	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,      KC_5,   DF(_QWERTY), SNAP_MAX,    INDENT,     KC_6,         KC_7,       KC_8,     KC_9,      KC_0,       KC_BSPC,
+	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,      KC_T,   PREV_TAB,    SNAP_CENTER, NEXT_TAB,   KC_Y,         KC_U,       KC_I,     KC_O,      KC_P,       KC_BSPC,
+	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,      KC_G,   KC_HOME,     SNAP_BACK,   KC_PGUP,    KC_H,         KC_J,       KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
+	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,      KC_B,   KC_END,      KC_UP,       KC_PGDN,    KC_N,         KC_M,       KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
+	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC, MOUSE_SPC,   KC_DOWN,     CTL_T_BSPC, MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
  ),
 
  [_CAP] = LAYOUT_ortho_5x15(
@@ -72,11 +72,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_MACVIM] = LAYOUT_ortho_5x15(
-	VIM_ESC,   KC_1,    KC_2,    KC_3,     KC_4,     KC_5,      _______,   QUIT,      CLOSE,      KC_6,      KC_7,     KC_8,      KC_9,    KC_0,    _______,
-	_______,   VIM_0,   VIM_W,   VIM_E,    REDO,     VIM_DOL,   _______,   SNAP_MAX,  SNAP_CENTER,VIM_Y,     UNDO,     VIM_I,     VIM_O,   PASTE,   CUT,
-	DEFAULT,   SEL_ALL, SAVE,    VIM_D,    CMD_LEFT, CMD_RGHT,  _______,   SNAP_BACK, _______,    KC_LEFT,   KC_DOWN,  KC_UP,     KC_RGHT, COPY,    _______,
-	TG_VIMNUM, UNDO,    VIM_X,   VIM_C,    VIM_V,    VIM_B,     _______,   SNAP_UP,   _______,    PREV_TAB,  NEXT_TAB, UNINDENT,  INDENT,  _______, _______,
-	_______,   _______, _______, _______,  KC_LSFT,  MO_VIMNUM, SNAP_LEFT, SNAP_DOWN, SNAP_RGHT,  MO_VIMNUM, KC_LSFT,  MO_VIMNUM, _______, _______, _______
+	VIM_ESC,   KC_1,    KC_2,    KC_3,     KC_4,     KC_5,      _______,   QUIT,      CLOSE,      KC_6,     KC_7,     KC_8,      KC_9,    KC_0,    _______,
+	_______,   VIM_0,   VIM_W,   VIM_E,    REDO,     VIM_DOL,   _______,   SNAP_MAX,  SNAP_CENTER,VIM_Y,    UNDO,     VIM_I,     VIM_O,   PASTE,   CUT,
+	DEFAULT,   SEL_ALL, SAVE,    VIM_D,    CMD_LEFT, CMD_RGHT,  _______,   SNAP_BACK, _______,    KC_LEFT,  KC_DOWN,  KC_UP,     KC_RGHT, COPY,    _______,
+	TG_VIMNUM, UNDO,    VIM_X,   VIM_C,    VIM_V,    VIM_B,     _______,   SNAP_UP,   _______,    PREV_TAB, NEXT_TAB, UNINDENT,  INDENT,  _______, _______,
+	_______,   _______, _______, _______,  KC_LSFT,  MO_VIMNUM, SNAP_LEFT, SNAP_DOWN, SNAP_RGHT,  KC_BSPC,  KC_LSFT,  MO_VIMNUM, _______, _______, _______
  ),
 
  [_VIMNUM] = LAYOUT_ortho_5x15(
@@ -101,9 +101,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
  */
  [_MOUSE] = LAYOUT_ortho_5x15(
-	_______, KC_ACL0, KC_ACL1, KC_ACL2, _______, _______, _______, _______,  _______, _______, _______, _______,  _______,  _______, _______,
+	_______, KC_ACL2, KC_ACL0, KC_ACL1, _______, _______, _______, _______,  _______, _______, _______, _______,  _______,  _______, _______,
 	_______, QUIT,    CLOSE,   KC_ACL2, REDO,    KC_PGUP, _______, KC_WH_U,  _______, COPY,    UNDO,    PREV_TAB, NEXT_TAB, PASTE,   CUT,
-	DEFAULT, SEL_ALL, KC_ACL0, KC_ACL1, KC_ACL2, KC_PGDN, KC_WH_L, KC_WH_D,  KC_WH_R, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R,  COPY,    PASTE,
+	DEFAULT, SEL_ALL, KC_ACL2, KC_ACL0, KC_ACL1, KC_PGDN, KC_WH_L, KC_WH_D,  KC_WH_R, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R,  COPY,    PASTE,
 	_______, _______, _______, _______, KC_LSFT, _______, KC_BTN1, KC_MS_UP, KC_BTN2, KC_WH_L, KC_WH_D, KC_WH_U,  KC_WH_R,  _______, _______,
 	_______, _______, _______, _______, KC_LSFT, KC_ACL1, KC_MS_L, KC_MS_D,  KC_MS_R, KC_ACL0, KC_BTN1, KC_BTN2,  KC_BTN3,  _______, _______
  ),
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |---------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * |         |        | MOUSE  | MACVIM | '      | "      | P1     | P2     | P3     | {      | }      |        |        |        |        |
  * |---------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * |         |        |        |        | SHIFT  |        | P0     |        | P.     | SYM    |        |        |        |        | RESET  |
+ * |         |        |        |        | SHIFT  |        | P0     | P.     | Enter  | SYM    |        |        |        |        | RESET  |
  * '---------------------------------------------------------------------------------------------------------------------------------------'
  */
 
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, KC_GRV,  S(KC_GRV), KC_EQL,  KC_MINS,   S(KC_EQL),  KC_P7,   KC_P8,   KC_P9,    S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
 	DEFAULT, KC_1,    KC_2,      KC_3,    KC_4,      KC_5,       KC_P4,   KC_P5,   KC_P6,    KC_6,       KC_7,       KC_8,       KC_9,    KC_0,       _______,
 	_______, _______, MOUSE,     MACVIM,  KC_QUOT,   S(KC_QUOT), KC_P1,   KC_P2,   KC_P3,    KC_LBRC,    KC_RBRC,    _______,    _______, _______,    _______,
-	_______, _______, _______,   _______, KC_LSFT,   _______,    KC_P0,   _______, KC_PDOT,  OSL_SYM,    _______,    _______,    _______, _______,    RESET
+	_______, _______, _______,   _______, KC_LSFT,   _______,    KC_P0,   KC_PDOT, KC_ENT,   OSL_SYM,    _______,    _______,    _______, _______,    RESET
  ),
 
 /* SYMBOLS
@@ -149,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	NUM,     KC_GRV,   S(KC_GRV), KC_EQL,  KC_MINS,    S(KC_EQL),  KC_P7,   KC_P8,   KC_P9,    S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
 	CAP,     S(KC_1),  S(KC_2),   S(KC_3), S(KC_4),    S(KC_5),    KC_P4,   KC_P5,   KC_P6,    S(KC_6),    S(KC_7),    S(KC_8),    S(KC_9), S(KC_0),    _______,
 	_______, _______,  MOUSE,     MACVIM,  KC_QUOT,    S(KC_QUOT), KC_P1,   KC_P2,   KC_P3,    KC_LBRC,    KC_RBRC,    _______,    _______, _______,    _______,
-	_______, _______,  _______,   _______, _______,    _______,    KC_P0,   _______, KC_PDOT,  _______,    S(KC_QUOT), S(KC_MINS), _______, _______,    _______
+	_______, _______,  _______,   _______, _______,    _______,    KC_P0,   KC_PDOT, KC_ENT,   KC_BSPC,    S(KC_QUOT), S(KC_MINS), _______, _______,    _______
  ),
 
  [_LED] = LAYOUT_ortho_5x15(
