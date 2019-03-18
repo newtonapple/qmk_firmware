@@ -110,9 +110,21 @@
 #define MAC_CUT_LINE(N)                                                        \
   MAC_SEL_LINE(N)                                                              \
   MAC_CUT()
+#define MAC_CUT_TO_START_OF_LINE()                                             \
+  MAC_SEL_TO_START_OF_LINE()                                                   \
+  MAC_CUT()
+#define MAC_CUT_TO_END_OF_LINE()                                               \
+  MAC_SEL_TO_END_OF_LINE()                                                     \
+  MAC_CUT()
 
 #define MAC_COPY_LINE(N)                                                       \
   MAC_SEL_LINE(N)                                                              \
+  MAC_COPY()
+#define MAC_COPY_TO_START_OF_LINE()                                            \
+  MAC_SEL_TO_START_OF_LINE()                                                   \
+  MAC_COPY()
+#define MAC_COPY_TO_END_OF_LINE()                                              \
+  MAC_SEL_TO_END_OF_LINE()                                                     \
   MAC_COPY()
 
 #define MAC_COPY_WORD_ON_CURSOR(N)                                             \
