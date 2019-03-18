@@ -93,11 +93,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |---------+--------+--------+-------+--------+--------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
  * |         | CMD+q  | CMD+w  | ACC2  | CMD+r  | PG UP  |             | SCRL_UP    |              | CMD+c      | CMD+u       | CMD+{        | CMD+}       | CMD+a  | CMD+x  |
  * |---------+--------+--------+-------+--------+--------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
- * | DEFAULT | CMD+a  | ACC1   | ACC1  | ACC2   | PG DN  | SCRL_LEFT   | SCRL_DOWN  | SCRL_RIGHT   | LEFT       | DOWN        | UP           | RIGHT       | CMD+c  | CMD+v  |
+ * | DEFAULT | CMD+a  | ACC2   | ACC0  | ACC1   | PG DN  | SCRL_LEFT   | SCRL_DOWN  | SCRL_RIGHT   | LEFT       | DOWN        | UP           | RIGHT       | CMD+c  | CMD+v  |
  * |---------+--------+--------+-------+--------+--------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
  * |         |        |        |       | SHIFT  |        | LEFT_CLICK  | UP         | RIGHT_CLICK  | SCRL_LEFT  | SCRL_DOWN   | SCRL_UP      | SCRL_RIGHT  |        |        |
  * |------- -+--------+--------+-------+--------+--------+-------------+------------+--------------+------------+-------------+--------------+-------------+--------+--------|
- * |         |        |        |       | SHIFT  | ACC1   | LEFT        | DOWN       | RIGHT        | ACC0       | LEFT_CLICK  | RIGHT_CLICK  | MID_CLICK   |        |        |
+ * |         |        |        |       | SHIFT  | ACC0   | LEFT        | DOWN       | RIGHT        | LEFT_CLICK | LEFT_CLICK  | RIGHT_CLICK  | MID_CLICK   |        |        |
  * '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
  */
  [_MOUSE] = LAYOUT_ortho_5x15(
@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, QUIT,    CLOSE,   KC_ACL2, REDO,    KC_PGUP, _______, KC_WH_U,  _______, COPY,    UNDO,    PREV_TAB, NEXT_TAB, PASTE,   CUT,
 	DEFAULT, SEL_ALL, KC_ACL2, KC_ACL0, KC_ACL1, KC_PGDN, KC_WH_L, KC_WH_D,  KC_WH_R, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R,  COPY,    PASTE,
 	_______, _______, _______, _______, KC_LSFT, _______, KC_BTN1, KC_MS_UP, KC_BTN2, KC_WH_L, KC_WH_D, KC_WH_U,  KC_WH_R,  _______, _______,
-	_______, _______, _______, _______, KC_LSFT, KC_ACL1, KC_MS_L, KC_MS_D,  KC_MS_R, KC_ACL0, KC_BTN1, KC_BTN2,  KC_BTN3,  _______, _______
+	_______, _______, _______, _______, KC_LSFT, KC_ACL0, KC_MS_L, KC_MS_D,  KC_MS_R, KC_BTN1, KC_BTN1, KC_BTN2,  KC_BTN3,  _______, _______
  ),
 
 /* NUMBERS
