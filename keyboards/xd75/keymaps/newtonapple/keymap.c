@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_MACVIM] = LAYOUT_ortho_5x15(
 	VIM_ESC,   KC_1,    KC_2,    KC_3,     KC_4,     KC_5,      _______,   QUIT,      CLOSE,      KC_6,     KC_7,     KC_8,      KC_9,    KC_0,    _______,
 	_______,   VIM_0,   VIM_W,   VIM_E,    REDO,     VIM_DOL,   _______,   SNAP_MAX,  SNAP_CENTER,VIM_Y,    UNDO,     VIM_I,     VIM_O,   PASTE,   CUT,
-	DEFAULT,   SEL_ALL, SAVE,    VIM_D,    CMD_LEFT, CMD_RGHT,  _______,   SNAP_BACK, _______,    KC_LEFT,  KC_DOWN,  KC_UP,     KC_RGHT, COPY,    _______,
+	DEFAULT,   SEL_ALL, SAVE,    VIM_D,    CMD_LEFT, CMD_RGHT,  _______,   SNAP_BACK, _______,    KC_LEFT,  KC_DOWN,  KC_UP,     KC_RGHT, VIM_0,   VIM_DOL,
 	TG_VIMNUM, UNDO,    VIM_X,   VIM_C,    VIM_V,    VIM_B,     _______,   SNAP_UP,   _______,    PREV_TAB, NEXT_TAB, UNINDENT,  INDENT,  _______, _______,
 	_______,   _______, _______, _______,  KC_LSFT,  MO_VIMNUM, SNAP_LEFT, SNAP_DOWN, SNAP_RGHT,  KC_BSPC,  KC_LSFT,  MO_VIMNUM, _______, _______, _______
  ),
