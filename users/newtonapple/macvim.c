@@ -53,17 +53,29 @@
     RESET_VIM_STATES()                                                         \
   }
 
+#define VIM_COPY_TO_START_OF_LINE()                                            \
+  if (IS_VIMODE(YANK)) {                                                       \
+    MAC_COPY_TO_START_OF_LINE()                                                \
+    MAC_RIGHT()                                                                \
+    RESET_VIM_STATES()                                                         \
+  }
+#define VIM_COPY_TO_END_OF_LINE()                                              \
+  if (IS_VIMODE(YANK)) {                                                       \
+    MAC_COPY_TO_END_OF_LINE()                                                  \
+    MAC_LEFT()                                                                 \
+    RESET_VIM_STATES()                                                         \
+  }
+
 #define VIM_CUT_TO_START_OF_LINE()                                             \
-  MAC_SEL_TO_START_OF_LINE()                                                   \
-  MAC_CUT()                                                                    \
-  RESET_VIM_REPEAT()
+  if (IS_VIMODE(DELETE)) {                                                     \
+    MAC_CUT_TO_START_OF_LINE()                                                 \
+    RESET_VIM_STATES()                                                         \
+  }
 #define VIM_CUT_TO_END_OF_LINE()                                               \
-  MAC_SEL_TO_END_OF_LINE()                                                     \
-  MAC_CUT()                                                                    \
-  RESET_VIM_REPEAT()
-#define VIM_CUT_LINE()                                                         \
-  MAC_CUT_LINE(VIM_REPEAT())                                                   \
-  RESET_VIM_REPEAT()
+  if (IS_VIMODE(DELETE)) {                                                     \
+    MAC_CUT_TO_END_OF_LINE()                                                   \
+    RESET_VIM_STATES()                                                         \
+  }
 
 #define VIM_SHIFT_YANK() VIM_EXEC_IF_SHIFT(MAC_COPY())
 #define VIM_SHIFT_CHANGE() VIM_EXEC_IF_SHIFT(MAC_CUT())
@@ -317,13 +329,19 @@ bool process_macvim(uint16_t keycode, keyrecord_t *record, bool with_repeat) {
         SET_VIMODE_VISUALI();
       } else if (is_vimode(VIMODE_YANK)) {
         SET_VIMODE_YANKI();
+      } else {
+        VIM_MOV_TO_START_OF_LINE();
       }
       return false;
     case VIM_O:
       VIM_INSERT_NEW_LINE();
     case VIM_0:
+      VIM_COPY_TO_START_OF_LINE();
+      VIM_CUT_TO_START_OF_LINE();
       VIM_MOV_TO_START_OF_LINE();
     case VIM_DOL:
+      VIM_COPY_TO_END_OF_LINE();
+      VIM_CUT_TO_END_OF_LINE();
       VIM_MOV_TO_END_OF_LINE();
     case VIM_V:
       if (IS_MOD_ON(LSHIFT)) {
