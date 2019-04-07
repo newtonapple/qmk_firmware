@@ -26,14 +26,15 @@ void space_cadet_layer(uint8_t layer, const char *str, bool pressed,
   }
 }
 
-
 #ifdef RGBLIGHT_ENABLE
+#ifndef RGBLIGHT_LAYER_INDICATOR_DISABLE
 extern rgblight_config_t rgblight_config;
 
 void rgb_matrix_scan(void) {
   static bool rgb_enable;
   uint8_t layer = biton32(layer_state);
-  if (layer == _LED) return;
+  if (layer == _LED)
+    return;
   if (layer != _QWERTY) {
     rgb_enable = true;
     rgblight_enable_noeeprom();
@@ -46,7 +47,8 @@ void rgb_matrix_scan(void) {
       rgb_enable = true;
       rgblight_enable_noeeprom();
       rgblight_mode_noeeprom(rgblight_config.mode);
-      rgblight_sethsv_noeeprom(rgblight_config.hue, rgblight_config.sat, rgblight_config.val);
+      rgblight_sethsv_noeeprom(rgblight_config.hue, rgblight_config.sat,
+                               rgblight_config.val);
     } else {
       if (rgb_enable) {
         rgb_enable = false;
@@ -74,4 +76,5 @@ void rgb_matrix_scan(void) {
     break;
   }
 }
+#endif
 #endif
