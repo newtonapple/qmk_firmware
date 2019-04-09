@@ -27,6 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, MOUSE_SPC, MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, GUI_T_RBRC, ADJ_BSLS, CRTL_SRBRC
   ),
 
+
   [_CAP] = LAYOUT_preonic_grid(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T), S(KC_Y), S(KC_U), S(KC_I), S(KC_O), S(KC_P), _______,
@@ -63,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_BRIU, KC_BRID, C(KC_UP),  C(KC_DOWN), C(KC_LEFT), C(KC_RGHT), KC_MRWD,  KC_MPLY, KC_MFFD,    KC_MUTE, KC_VOLD,    KC_VOLU,
     _______, KC_GRV,  S(KC_GRV), KC_EQL,     KC_MINS,    S(KC_EQL),  S(KC_6),  S(KC_8), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
     DEFAULT, KC_1,    KC_2,      KC_3,       KC_4,       KC_5,       KC_6,     KC_7,    KC_8,       KC_9,    KC_0,       _______,
-    _______, S(KC_5), MOUSE,     MACVIM,     KC_QUOT,    S(KC_QUOT), KC_LBRC,  KC_RBRC, _______,    _______, _______,    _______,
+    _______, S(KC_5), S(KC_9),  S(KC_0),     KC_QUOT,    S(KC_QUOT), KC_LBRC,  KC_RBRC, _______,    _______, _______,    _______,
     _______, _______, _______,   _______,    KC_LSFT,    _______,    _______,  OSL_SYM, KC_UP,      KC_DOWN, KC_LEFT,    KC_RGHT
   ),
 
