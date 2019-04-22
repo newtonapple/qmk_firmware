@@ -1,5 +1,6 @@
 #pragma once
 #include "quantum.h"
+#include "wrappers.h"
 
 #ifdef ENABLE_MACVIM
 #include "macvim.h"
