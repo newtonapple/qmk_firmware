@@ -33,28 +33,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_QWERTY] = LAYOUT_ortho_5x15(
-	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,      KC_5,   DF(_CODE),  SNAP_MAX,    INDENT,     KC_6,         KC_7,       KC_8,     KC_9,      KC_0,       KC_BSPC,
-	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,      KC_T,   PREV_TAB,   SNAP_CENTER, NEXT_TAB,   KC_Y,         KC_U,       KC_I,     KC_O,      KC_P,       KC_BSPC,
-	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,      KC_G,   KC_HOME,    SNAP_BACK,   KC_PGUP,    KC_H,         KC_J,       KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
-	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,      KC_B,   KC_END,     KC_UP,       KC_PGDN,    KC_N,         KC_M,       KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
-	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC, MOUSE_LEFT, KC_DOWN,     CTL_T_RGHT, MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
+ [_QWERTY] = LAYOUT_ortho_5x15_wrapper(
+	 ________________ORTHO_GRID_QWERTY_L0________________, DF(_CODE),  SNAP_MAX,    INDENT,     ________________ORTHO_GRID_QWERTY_R0________________,
+	 ________________ORTHO_GRID_QWERTY_L1________________, PREV_TAB,   SNAP_CENTER, NEXT_TAB,   ________________ORTHO_GRID_QWERTY_R1________________,
+	 ________________ORTHO_GRID_QWERTY_L2________________, KC_HOME,    SNAP_BACK,   KC_PGUP,    ________________ORTHO_GRID_QWERTY_R2________________,
+	 ________________ORTHO_GRID_QWERTY_L3________________, KC_END,     KC_UP,       KC_PGDN,    ________________ORTHO_GRID_QWERTY_R3________________,
+	 ________________ORTHO_GRID_QWERTY_L4________________, MOUSE_LEFT, KC_DOWN,     CTL_T_RGHT, ________________ORTHO_GRID_QWERTY_R4________________
  ),
 
- [_CODE] = LAYOUT_ortho_5x15(
-	 MOUSE_GRV,  KC_1,    KC_2,       KC_3,      KC_4,      KC_5,   DF(_QWERTY), SNAP_MAX,    INDENT,     KC_6,         KC_7,       KC_8,     KC_9,      KC_0,       KC_BSPC,
-	 MOUSE_TAB,  KC_Q,    KC_W,       KC_E,      KC_R,      KC_T,   PREV_TAB,    SNAP_CENTER, NEXT_TAB,   KC_Y,         KC_U,       KC_I,     KC_O,      KC_P,       KC_BSPC,
-	 MACVIM_ESC, KC_A,    KC_S,       KC_D,      KC_F,      KC_G,   KC_HOME,     SNAP_BACK,   KC_PGUP,    KC_H,         KC_J,       KC_K,     KC_L,      KC_SCLN,    KC_ENT ,
-	 KC_LSPO,    KC_Z,    KC_X,       KC_C,      KC_V,      KC_B,   KC_END,      KC_UP,       KC_PGDN,    KC_N,         KC_M,       KC_COMM,  KC_DOT,    KC_SLSH,    KC_RSPC,
-	 CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC, MOUSE_SPC,   KC_DOWN,     CTL_T_BSPC, MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
+ [_CODE] = LAYOUT_ortho_5x15_wrapper(
+	 ________________ORTHO_GRID_QWERTY_L0________________, DF(_QWERTY), SNAP_MAX,    INDENT,     ________________ORTHO_GRID_QWERTY_R0________________,
+	 ________________ORTHO_GRID_QWERTY_L1________________, PREV_TAB,    SNAP_CENTER, NEXT_TAB,   ________________ORTHO_GRID_QWERTY_R1________________,
+	 ________________ORTHO_GRID_QWERTY_L2________________, KC_HOME,     SNAP_BACK,   KC_PGUP,    ________________ORTHO_GRID_QWERTY_R2________________,
+	 ________________ORTHO_GRID_QWERTY_L3________________, KC_END,      KC_UP,       KC_PGDN,    ________________ORTHO_GRID_QWERTY_R3________________,
+	 ________________ORTHO_GRID_QWERTY_L4________________, MOUSE_SPC,   KC_DOWN,     CTL_T_BSPC, ________________ORTHO_GRID_QWERTY_R4________________
  ),
 
- [_CAP] = LAYOUT_ortho_5x15(
-	 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-	 _______, S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T), _______, _______, _______, S(KC_Y), S(KC_U), S(KC_I), S(KC_O), S(KC_P), _______,
-	 DEFAULT, S(KC_A), S(KC_S), S(KC_D), S(KC_F), S(KC_G), _______, _______, _______, S(KC_H), S(KC_J), S(KC_K), S(KC_L), _______, _______,
-	 _______, S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B), _______, _______, _______, S(KC_N), S(KC_M), _______, _______, _______, _______,
-	 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+ [_CAP] = LAYOUT_ortho_5x15_wrapper(
+   _______________________________________________________________BLANK_15______________________________________________________________,
+   _________________ORTHO_GRID_CAP_L1__________________, _________BLANK_3_________, _________________ORTHO_GRID_CAP_R1__________________,
+   _________________ORTHO_GRID_CAP_L2__________________, _________BLANK_3_________, _________________ORTHO_GRID_CAP_R2__________________,
+   _________________ORTHO_GRID_CAP_L3__________________, _________BLANK_3_________, _________________ORTHO_GRID_CAP_R3__________________,
+   _______________________________________________________________BLANK_15______________________________________________________________
  ),
 
 /* Mac System Shortcuts & Vim Movements
@@ -71,21 +71,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_MACVIM] = LAYOUT_ortho_5x15(
-	VIM_ESC,   KC_1,    KC_2,    KC_3,     KC_4,     KC_5,      _______,   QUIT,      CLOSE,      KC_6,     KC_7,     KC_8,      KC_9,    KC_0,    _______,
-	_______,   VIM_0,   VIM_W,   VIM_E,    REDO,     VIM_DOL,   _______,   SNAP_MAX,  SNAP_CENTER,VIM_Y,    UNDO,     VIM_I,     VIM_O,   PASTE,   CUT,
-	DEFAULT,   SEL_ALL, SAVE,    VIM_D,    CMD_LEFT, CMD_RGHT,  _______,   SNAP_BACK, _______,    KC_LEFT,  KC_DOWN,  KC_UP,     KC_RGHT, VIM_0,   VIM_DOL,
-	TG_VIMNUM, UNDO,    VIM_X,   VIM_C,    VIM_V,    VIM_B,     _______,   SNAP_UP,   _______,    PREV_TAB, NEXT_TAB, UNINDENT,  INDENT,  _______, _______,
-	_______,   _______, _______, _______,  KC_LSFT,  MO_VIMNUM, SNAP_LEFT, SNAP_DOWN, SNAP_RGHT,  KC_BSPC,  KC_LSFT,  MO_VIMNUM, _______, _______, _______
+ [_MACVIM] = LAYOUT_ortho_5x15_wrapper(
+	________________ORTHO_GRID_MACVIM_L0________________, _______,   QUIT,      CLOSE,       ________________ORTHO_GRID_MACVIM_R0________________,
+	________________ORTHO_GRID_MACVIM_L1________________, _______,   SNAP_MAX,  SNAP_CENTER, ________________ORTHO_GRID_MACVIM_R1________________,
+	________________ORTHO_GRID_MACVIM_L2________________, _______,   SNAP_BACK, _______,     ________________ORTHO_GRID_MACVIM_R2________________,
+	________________ORTHO_GRID_MACVIM_L3________________, _______,   SNAP_UP,   _______,     ________________ORTHO_GRID_MACVIM_R3________________,
+	________________ORTHO_GRID_MACVIM_L4________________, SNAP_LEFT, SNAP_DOWN, SNAP_RGHT,   ________________ORTHO_GRID_MACVIM_R4________________
  ),
 
- [_VIMNUM] = LAYOUT_ortho_5x15(
-	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-	DEFAULT, KC_1,    KC_2,    KC_3,     KC_4,     KC_5,  _______, _______, _______, KC_6,    KC_7,   KC_8,     KC_9,    KC_0,    _______,
-	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+ [_VIMNUM] = LAYOUT_ortho_5x15_wrapper(
+	________________ORTHO_GRID_VIMNUM_L0________________, _________BLANK_3_________, ________________ORTHO_GRID_VIMNUM_R0________________,
+	________________ORTHO_GRID_VIMNUM_L1________________, _________BLANK_3_________, ________________ORTHO_GRID_VIMNUM_R1________________,
+	________________ORTHO_GRID_VIMNUM_L2________________, _________BLANK_3_________, ________________ORTHO_GRID_VIMNUM_R2________________,
+	________________ORTHO_GRID_VIMNUM_L3________________, _________BLANK_3_________, ________________ORTHO_GRID_VIMNUM_R3________________,
+	________________ORTHO_GRID_VIMNUM_L4________________, _________BLANK_3_________, ________________ORTHO_GRID_VIMNUM_R4________________
  ),
+
 
 /* Mouse Movements
  * .-------------------------------------------------------------------------------------------------------------------------------------------------------------------------.
