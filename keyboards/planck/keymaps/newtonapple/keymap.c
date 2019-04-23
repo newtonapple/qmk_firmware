@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_MACVIM] = LAYOUT_ortho_4x12_wrapper(
-    ________________ORTHO_GRID_MACVIM_L1________________, ________________ORTHO_GRID_MACVIM_L1________________,
+    ________________ORTHO_GRID_MACVIM_L1________________, ________________ORTHO_GRID_MACVIM_R1________________,
     ________________ORTHO_GRID_MACVIM_L2________________, ________________ORTHO_GRID_MACVIM_R2________________,
     ________________ORTHO_GRID_MACVIM_L3________________, ________________ORTHO_GRID_MACVIM_R3________________,
     ________________ORTHO_GRID_MACVIM_L4________________, ________________ORTHO_GRID_MACVIM_R4________________
@@ -48,10 +48,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_MOUSE] = LAYOUT_ortho_4x12_wrapper(
-    _______, QUIT,    CLOSE,   KC_ACL2, REDO,    KC_PGUP, COPY,     UNDO,    PREV_TAB, NEXT_TAB, PASTE,   CUT,
-    DEFAULT, SEL_ALL, KC_ACL2, KC_ACL0, KC_ACL1, KC_PGDN, KC_MS_L,  KC_MS_D, KC_MS_U,  KC_MS_R,  COPY,    PASTE,
-    _______, _______, _______, _______, KC_LSFT, _______, KC_WH_L,  KC_WH_D, KC_WH_U,  KC_WH_R,  KC_UP,   KC_UP,
-    _______, _______, _______, _______, KC_LSFT, KC_ACL1, KC_ENTER, KC_BTN1, KC_BTN2,  KC_LEFT,  KC_DOWN, KC_RGHT
+    ________________ORTHO_GRID_MOUSE_L1_________________, ________________ORTHO_GRID_MOUSE_R1_________________,
+    ________________ORTHO_GRID_MOUSE_L2_________________, ________________ORTHO_GRID_MOUSE_R2_________________,
+    ________________ORTHO_GRID_MOUSE_L3_________________, ________________ORTHO_GRID_MOUSE_R3_________________,
+    ________________ORTHO_GRID_MOUSE_L4_________________, ________________ORTHO_GRID_MOUSE_R4_________________
   ),
 
   [_NUM] = LAYOUT_ortho_4x12_wrapper(
