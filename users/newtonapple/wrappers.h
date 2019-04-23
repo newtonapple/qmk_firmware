@@ -131,3 +131,33 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define ________________ORTHO_GRID_VIMNUM_R2________________     LAYOUT_args2_wrapper(_________________VIMNUM_R2_________________, _______)
 #define ________________ORTHO_GRID_VIMNUM_R3________________     LAYOUT_args2_wrapper(_________________VIMNUM_R3_________________, _______)
 #define ________________ORTHO_GRID_VIMNUM_R4________________     ______________________BLANK_6_______________________
+
+
+/*
+ * Blocks for _MOUSE layer
+ */
+#define _________________MOUSE_L0__________________     KC_ACL2, KC_ACL0, KC_ACL1, _______, _______
+#define _________________MOUSE_L1__________________     QUIT,    CLOSE,   KC_ACL2, REDO,    KC_PGUP
+#define _________________MOUSE_L2__________________     SEL_ALL, KC_ACL2, KC_ACL0, KC_ACL1, KC_PGDN
+#define _________________MOUSE_L3__________________     _______, _______, _______, KC_LSFT, _______
+#define _________________MOUSE_L4__________________     _______, _______, _______, KC_LSFT, KC_ACL0
+
+#define _________________MOUSE_R0__________________     __________________BLANK_5__________________
+#define _________________MOUSE_R1__________________     COPY,    UNDO,    PREV_TAB, NEXT_TAB, PASTE
+#define _________________MOUSE_R2__________________     KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R,  COPY
+#define _________________MOUSE_R3__________________     KC_WH_L, KC_WH_D, KC_WH_U,  KC_WH_R,  KC_UP
+#define _________________MOUSE_R4__________________     KC_ENTER, KC_BTN1, KC_BTN2, KC_LEFT,  KC_DOWN
+
+
+#define ________________ORTHO_GRID_MOUSE_L0_________________     LAYOUT_args2_wrapper(_______, _________________MOUSE_L0__________________)
+#define ________________ORTHO_GRID_MOUSE_L1_________________     LAYOUT_args2_wrapper(_______, _________________MOUSE_L1__________________)
+#define ________________ORTHO_GRID_MOUSE_L2_________________     LAYOUT_args2_wrapper(DEFAULT, _________________MOUSE_L2__________________)
+#define ________________ORTHO_GRID_MOUSE_L3_________________     LAYOUT_args2_wrapper(_______, _________________MOUSE_L3__________________)
+#define ________________ORTHO_GRID_MOUSE_L4_________________     LAYOUT_args2_wrapper(_______, _________________MOUSE_L4__________________)
+
+#define ________________ORTHO_GRID_MOUSE_R0_________________     LAYOUT_args2_wrapper(_________________MOUSE_R0__________________, _______)
+#define ________________ORTHO_GRID_MOUSE_R1_________________     LAYOUT_args2_wrapper(_________________MOUSE_R1__________________, CUT)
+#define ________________ORTHO_GRID_MOUSE_R2_________________     LAYOUT_args2_wrapper(_________________MOUSE_R2__________________, PASTE)
+#define ________________ORTHO_GRID_MOUSE_R3_________________     LAYOUT_args2_wrapper(_________________MOUSE_R3__________________, _______)
+#define ________________ORTHO_GRID_MOUSE_R4_________________     LAYOUT_args2_wrapper(_________________MOUSE_R4__________________, KC_RGHT)
+
