@@ -101,12 +101,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |         |        |        |       | SHIFT  | ACC0   | LEFT        | DOWN       | RIGHT        | LEFT_CLICK | LEFT_CLICK  | RIGHT_CLICK  | MID_CLICK   |        |        |
  * '-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
  */
- [_MOUSE] = LAYOUT_ortho_5x15(
-	_______, KC_ACL2, KC_ACL0, KC_ACL1, _______, _______, _______, _______,  _______, _______, _______, _______,  _______,  _______, _______,
-	_______, QUIT,    CLOSE,   KC_ACL2, REDO,    KC_PGUP, _______, KC_WH_U,  _______, COPY,    UNDO,    PREV_TAB, NEXT_TAB, PASTE,   CUT,
-	DEFAULT, SEL_ALL, KC_ACL2, KC_ACL0, KC_ACL1, KC_PGDN, KC_WH_L, KC_WH_D,  KC_WH_R, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R,  COPY,    PASTE,
-	_______, _______, _______, _______, KC_LSFT, _______, KC_BTN1, KC_MS_UP, KC_BTN2, KC_WH_L, KC_WH_D, KC_WH_U,  KC_WH_R,  _______, _______,
-	_______, _______, _______, _______, KC_LSFT, KC_ACL0, KC_MS_L, KC_MS_D,  KC_MS_R, KC_BTN1, KC_BTN1, KC_BTN2,  KC_BTN3,  KC_BTN4, KC_BTN5
+ [_MOUSE] = LAYOUT_ortho_5x15_wrapper(
+	________________ORTHO_GRID_MOUSE_L0_________________, _______, _______,  _______, ________________ORTHO_GRID_MOUSE_R0_________________,
+	________________ORTHO_GRID_MOUSE_L1_________________, _______, KC_WH_U,  _______, ________________ORTHO_GRID_MOUSE_R1_________________,
+	________________ORTHO_GRID_MOUSE_L2_________________, KC_WH_L, KC_WH_D,  KC_WH_R, ________________ORTHO_GRID_MOUSE_R2_________________,
+	________________ORTHO_GRID_MOUSE_L3_________________, KC_BTN1, KC_MS_UP, KC_BTN2, ________________ORTHO_GRID_MOUSE_R3_________________,
+	________________ORTHO_GRID_MOUSE_L4_________________, KC_MS_L, KC_MS_D,  KC_MS_R, ________________ORTHO_GRID_MOUSE_R4_________________
  ),
 
 /* NUMBERS
@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '---------------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_NUM] = LAYOUT_ortho_5x15(
+ [_NUM] = LAYOUT_ortho_5x15_wrapper(
 	KC_F1,   KC_F2,   KC_F3,     KC_F4,   KC_F5,     KC_F6,      _______, SLEEP,   TG(_LED), KC_F7,      KC_F8,      KC_F9,      KC_F10,  KC_F11,     KC_F12 ,
 	_______, KC_GRV,  S(KC_GRV), KC_EQL,  KC_MINS,   S(KC_EQL),  KC_P7,   KC_P8,   KC_P9,    S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
 	DEFAULT, KC_1,    KC_2,      KC_3,    KC_4,      KC_5,       KC_P4,   KC_P5,   KC_P6,    KC_6,       KC_7,       KC_8,       KC_9,    KC_0,       _______,
@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_SYM] = LAYOUT_ortho_5x15(
+ [_SYM] = LAYOUT_ortho_5x15_wrapper(
 	KC_F1,   KC_F2,    KC_F3,     KC_F4,   KC_F5,      KC_F6,      _______, SLEEP,   TG(_LED), KC_F7,      KC_F8,      KC_F9,      KC_F10,  KC_F11,     KC_F12 ,
 	NUM,     KC_GRV,   S(KC_GRV), KC_EQL,  KC_MINS,    S(KC_EQL),  KC_P7,   KC_P8,   KC_P9,    S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
 	CAP,     S(KC_1),  S(KC_2),   S(KC_3), S(KC_4),    S(KC_5),    KC_P4,   KC_P5,   KC_P6,    S(KC_6),    S(KC_7),    S(KC_8),    S(KC_9), S(KC_0),    _______,
@@ -153,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	_______, _______,  _______,   _______, _______,    _______,    KC_P0,   KC_PDOT, KC_ENT,   KC_BSPC,    S(KC_QUOT), S(KC_MINS), _______, _______,    _______
  ),
 
- [_LED] = LAYOUT_ortho_5x15(
+ [_LED] = LAYOUT_ortho_5x15_wrapper(
 	RGB_TOG, RGB_M_P, RGB_M_B, RGB_M_R, RGB_M_SW, RGB_M_SN, _______,  _______, TG(_LED), RGB_M_K, RGB_M_X, RGB_M_G, RGB_M_T, _______, TG(_LED),
 	_______, BL_TOGG, BL_OFF,  BL_ON,   _______,  _______,  RGB_RMOD, _______, RGB_MOD,  _______, _______, _______, _______, _______, _______,
 	DEFAULT, BL_BRTG, BL_DEC,  BL_INC,  _______,  _______,  RGB_SAI,  RGB_TOG, RGB_HUI,  _______, _______, _______, _______, _______, _______,
