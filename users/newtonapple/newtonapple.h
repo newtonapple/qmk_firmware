@@ -30,7 +30,8 @@ enum newtonapple_layers {
 };
 
 enum custom_keycodes {
-  CRTL_SLBRC = _NEWTONAPPLE_SAFE_RANGE,
+  ADJ_SBSLS = _NEWTONAPPLE_SAFE_RANGE,
+  CRTL_SLBRC,
   CRTL_SRBRC,
   CMD_SMINS,
   MACVIM_SQUOT,
@@ -77,6 +78,7 @@ enum custom_keycodes {
 #define ALT_T_LBRC LALT_T(KC_LBRC)
 #define ALT_T_RBRC RALT_T(KC_RBRC)
 #define CTL_T_BSPC CTL_T(KC_BSPC)
+#define CTL_T_BSLS CTL_T(KC_BSLS)
 #define CTL_T_LEFT CTL_T(KC_LEFT)
 #define CTL_T_RGHT CTL_T(KC_RGHT)
 
