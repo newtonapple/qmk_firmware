@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ________________ORTHO_GRID_QWERTY_L1________________, ________________ORTHO_GRID_QWERTY_R1________________,
     ________________ORTHO_GRID_QWERTY_L2________________, ________________ORTHO_GRID_QWERTY_R2________________,
     ________________ORTHO_GRID_QWERTY_L3________________, ________________ORTHO_GRID_QWERTY_R3________________,
-    ________________ORTHO_GRID_QWERTY_L4________________, MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, GUI_T_RBRC, ADJ_BSLS, CRTL_SRBRC
+    ________________ORTHO_GRID_QWERTY_L4________________, ________________ORTHO_GRID_QWERTY_R4________________
   ),
 
  [_CAP] = LAYOUT_ortho_4x12_wrapper(
@@ -55,10 +55,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_NUM] = LAYOUT_ortho_4x12_wrapper(
-    _______, KC_GRV,  S(KC_GRV), KC_EQL,     KC_MINS,    S(KC_EQL),  S(KC_6),  S(KC_8), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
-    DEFAULT, KC_1,    KC_2,      KC_3,       KC_4,       KC_5,       KC_6,     KC_7,    KC_8,       KC_9,    KC_0,       _______,
-    _______, S(KC_5), S(KC_9),  S(KC_0),     KC_QUOT,    S(KC_QUOT), KC_LBRC,  KC_RBRC, _______,    _______, _______,    _______,
-    _______, _______, _______,   _______,    KC_LSFT,    _______,    _______,  OSL_SYM, KC_UP,      KC_DOWN, KC_LEFT,    KC_RGHT
+    _________________ORTHO_GRID_NUM_L1__________________, _________________ORTHO_GRID_NUM_R1__________________,
+    _________________ORTHO_GRID_NUM_L2__________________, _________________ORTHO_GRID_NUM_R2__________________,
+    _________________ORTHO_GRID_NUM_L3__________________, _________________ORTHO_GRID_NUM_R3__________________,
+    _________________ORTHO_GRID_NUM_L4__________________, _________________ORTHO_GRID_NUM_R4__________________
   ),
 
   [_SYM] = LAYOUT_ortho_4x12_wrapper(
@@ -99,6 +99,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   static uint16_t space_cadet_timer;
   SPACE_CADET_LAYER(keycode, MACVIM_SQUOT, _MACVIM, "\"", record->event.pressed);
   SPACE_CADET_LAYER(keycode, SYM_SMINS, _SYM, "_", record->event.pressed);
+  SPACE_CADET_LAYER(keycode, ADJ_SBSLS, _ADJUST, "|", record->event.pressed);
   SPACE_CADET(keycode, CRTL_SLBRC, KC_LCTRL, "{", record->event.pressed);
   SPACE_CADET(keycode, CRTL_SRBRC, KC_RCTRL, "}", record->event.pressed);
   #endif
