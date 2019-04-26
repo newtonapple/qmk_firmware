@@ -66,13 +66,13 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define ________________ORTHO_GRID_QWERTY_L1________________     LAYOUT_args2_wrapper(MOUSE_TAB,  _________________QWERTY_L1_________________)
 #define ________________ORTHO_GRID_QWERTY_L2________________     LAYOUT_args2_wrapper(MACVIM_ESC, _________________QWERTY_L2_________________)
 #define ________________ORTHO_GRID_QWERTY_L3________________     LAYOUT_args2_wrapper(KC_LSPO,    _________________QWERTY_L3_________________)
-#define ________________ORTHO_GRID_QWERTY_L4________________     CRTL_SLBRC, KC_LCTL, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, MOUSE_SPC
+#define ________________ORTHO_GRID_QWERTY_L4________________     CRTL_SLBRC, CTL_T_BSLS, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, MOUSE_SPC
 
 #define ________________ORTHO_GRID_QWERTY_R0________________     LAYOUT_args2_wrapper(________________NUMBER_RIGHT_______________, KC_BSPC)
 #define ________________ORTHO_GRID_QWERTY_R1________________     LAYOUT_args2_wrapper(_________________QWERTY_R1_________________, KC_BSPC)
 #define ________________ORTHO_GRID_QWERTY_R2________________     LAYOUT_args2_wrapper(_________________QWERTY_R2_________________, KC_ENT)
 #define ________________ORTHO_GRID_QWERTY_R3________________     LAYOUT_args2_wrapper(_________________QWERTY_R3_________________, KC_RSPC)
-#define ________________ORTHO_GRID_QWERTY_R4________________     MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, CMD_SMINS, ALT_T_RBRC, CRTL_SRBRC
+#define ________________ORTHO_GRID_QWERTY_R4________________     MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, GUI_T_RBRC, ADJ_SBSLS, CRTL_SRBRC
 
 #define _________________ORTHO_GRID_CAP_L1__________________     LAYOUT_args2_wrapper(_______, __________________CAP_L1___________________)
 #define _________________ORTHO_GRID_CAP_L2__________________     LAYOUT_args2_wrapper(DEFAULT, __________________CAP_L2___________________)
@@ -161,3 +161,30 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define ________________ORTHO_GRID_MOUSE_R3_________________     LAYOUT_args2_wrapper(_________________MOUSE_R3__________________, _______)
 #define ________________ORTHO_GRID_MOUSE_R4_________________     LAYOUT_args2_wrapper(_________________MOUSE_R4__________________, KC_RGHT)
 
+
+/*
+ * Blocks for _NUM layer
+ */
+#define __________________NUM_L0___________________     KC_BRID,  C(KC_UP),  C(KC_DOWN), C(KC_LEFT), C(KC_RGHT)
+#define __________________NUM_L1___________________     KC_GRV,   S(KC_GRV), KC_EQL,     KC_MINS,    S(KC_EQL)
+#define __________________NUM_L2___________________     KC_1,     KC_2,      KC_3,       KC_4,       KC_5
+#define __________________NUM_L3___________________     S(KC_5),  S(KC_9),   S(KC_0),    KC_QUOT,    S(KC_QUOT)
+#define __________________NUM_L4___________________     _______,  _______,   _______,    _______,    KC_LSFT
+
+#define __________________NUM_R0___________________     KC_MRWD,  KC_MPLY,   KC_MFFD,    KC_MUTE,    KC_VOLD
+#define __________________NUM_R1___________________     S(KC_6),  S(KC_8),   S(KC_BSLS), KC_BSLS,    S(KC_MINS)
+#define __________________NUM_R2___________________     KC_6,     KC_7,      KC_8,       KC_9,       KC_0
+#define __________________NUM_R3___________________     KC_LBRC,  KC_RBRC,   _______,    _______,    _______
+#define __________________NUM_R4___________________     _______,  OSL_SYM,   KC_UP,      KC_DOWN,    KC_LEFT
+
+#define _________________ORTHO_GRID_NUM_L0__________________     LAYOUT_args2_wrapper(KC_BRIU, __________________NUM_L0___________________)
+#define _________________ORTHO_GRID_NUM_L1__________________     LAYOUT_args2_wrapper(_______, __________________NUM_L1___________________)
+#define _________________ORTHO_GRID_NUM_L2__________________     LAYOUT_args2_wrapper(DEFAULT, __________________NUM_L2___________________)
+#define _________________ORTHO_GRID_NUM_L3__________________     LAYOUT_args2_wrapper(_______, __________________NUM_L3___________________)
+#define _________________ORTHO_GRID_NUM_L4__________________     LAYOUT_args2_wrapper(_______, __________________NUM_L4___________________)
+
+#define _________________ORTHO_GRID_NUM_R0__________________     LAYOUT_args2_wrapper(__________________NUM_R0___________________, KC_VOLU)
+#define _________________ORTHO_GRID_NUM_R1__________________     LAYOUT_args2_wrapper(__________________NUM_R1___________________, _______)
+#define _________________ORTHO_GRID_NUM_R2__________________     LAYOUT_args2_wrapper(__________________NUM_R2___________________, _______)
+#define _________________ORTHO_GRID_NUM_R3__________________     LAYOUT_args2_wrapper(__________________NUM_R3___________________, _______)
+#define _________________ORTHO_GRID_NUM_R4__________________     LAYOUT_args2_wrapper(__________________NUM_R4___________________, KC_RGHT)
