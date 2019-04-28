@@ -163,7 +163,7 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 
 
 /*
- * Blocks for _NUM layer
+ * Blocks for _SYM layer
  */
 #define __________________NUM_L0___________________     KC_BRID,  C(KC_UP),  C(KC_DOWN), C(KC_LEFT), C(KC_RGHT)
 #define __________________NUM_L1___________________     KC_GRV,   S(KC_GRV), KC_EQL,     KC_MINS,    S(KC_EQL)
@@ -188,3 +188,67 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define _________________ORTHO_GRID_NUM_R2__________________     LAYOUT_args2_wrapper(__________________NUM_R2___________________, _______)
 #define _________________ORTHO_GRID_NUM_R3__________________     LAYOUT_args2_wrapper(__________________NUM_R3___________________, _______)
 #define _________________ORTHO_GRID_NUM_R4__________________     LAYOUT_args2_wrapper(__________________NUM_R4___________________, KC_RGHT)
+
+/*
+ * Blocks for _SYM layer
+ */
+#define __________________SYM_L0___________________      KC_F2,   KC_F3,     KC_F4,   KC_F5,    KC_F6
+#define __________________SYM_L1___________________      KC_GRV,  S(KC_GRV), KC_EQL,  KC_MINS,  S(KC_EQL)
+#define __________________SYM_L2___________________      S(KC_1), S(KC_2),   S(KC_3), S(KC_4),  S(KC_5)
+#define __________________SYM_L3___________________      S(KC_5), MOUSE,     MACVIM,  KC_QUOT,  S(KC_QUOT)
+#define __________________SYM_L4___________________      _______, _______,   _______, _______,   _______
+
+#define __________________SYM_R0___________________     KC_F7,      KC_F8,      KC_F9,      KC_F10,  KC_F11
+#define __________________SYM_R1___________________     S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_BSLS, S(KC_MINS)
+#define __________________SYM_R2___________________     S(KC_6),    S(KC_7),    S(KC_8),    S(KC_9), S(KC_0)
+#define __________________SYM_R3___________________     KC_LBRC,    KC_RBRC,    _______,    _______, _______
+#define __________________SYM_R4___________________     KC_BSPC,    S(KC_QUOT), S(KC_MINS), _______, _______
+
+#define _________________ORTHO_GRID_SYM_L0__________________     LAYOUT_args2_wrapper(KC_F1,   __________________SYM_L0___________________)
+#define _________________ORTHO_GRID_SYM_L1__________________     LAYOUT_args2_wrapper(NUM,     __________________SYM_L1___________________)
+#define _________________ORTHO_GRID_SYM_L2__________________     LAYOUT_args2_wrapper(CAP,     __________________SYM_L2___________________)
+#define _________________ORTHO_GRID_SYM_L3__________________     LAYOUT_args2_wrapper(_______, __________________SYM_L3___________________)
+#define _________________ORTHO_GRID_SYM_L4__________________     LAYOUT_args2_wrapper(_______, __________________SYM_L4___________________)
+
+#define _________________ORTHO_GRID_SYM_R0__________________     LAYOUT_args2_wrapper(__________________SYM_R0___________________, KC_F12)
+#define _________________ORTHO_GRID_SYM_R1__________________     LAYOUT_args2_wrapper(__________________SYM_R1___________________, _______)
+#define _________________ORTHO_GRID_SYM_R2__________________     LAYOUT_args2_wrapper(__________________SYM_R2___________________, _______)
+#define _________________ORTHO_GRID_SYM_R3__________________     LAYOUT_args2_wrapper(__________________SYM_R3___________________, _______)
+#define _________________ORTHO_GRID_SYM_R4__________________     LAYOUT_args2_wrapper(__________________SYM_R4___________________, _______)
+
+
+/*
+ * Blocks for _ADJUST layer
+ */
+#define _________________ADJUST_L0_________________     __________________NUM_L0___________________
+#define _________________ADJUST_L1_________________     MI_ON,   MI_OFF,  MU_MOD, MUV_IN,   MUV_DE
+#define _________________ADJUST_L2_________________     AU_ON,   AU_OFF,  CK_RST, CK_UP,    CK_DOWN
+#define _________________ADJUST_L3_________________     MU_ON,   MU_OFF,  CK_ON,  CK_OFF,   _______
+#define _________________ADJUST_L4_________________     __________________BLANK_5__________________
+
+#define _________________ADJUST_R0_________________     __________________NUM_R0___________________
+#define _________________ADJUST_R1_________________     RGB_TOG, RGB_MOD, RGB_RMOD, RGB_VAI, RGB_VAD
+#define _________________ADJUST_R2_________________     BL_TOGG, RGB_SAI, RGB_SAD,  RGB_HUI, RGB_HUD
+#define _________________ADJUST_R3_________________     BL_BRTG, BL_INC,  BL_DEC,   VLK_TOG, _______
+#define _________________ADJUST_R4_________________     __________________BLANK_5__________________
+
+#define ________________ORTHO_GRID_ADJUST_L0_________________     _________________ORTHO_GRID_NUM_L0__________________
+#define ________________ORTHO_5x12_ADJUST_L1_________________     LAYOUT_args2_wrapper(_______, _________________ADJUST_L1_________________)
+#define ________________ORTHO_5x12_ADJUST_L2_________________     LAYOUT_args2_wrapper(_______, _________________ADJUST_L2_________________)
+#define ________________ORTHO_5x12_ADJUST_L3_________________     LAYOUT_args2_wrapper(_______, _________________ADJUST_L3_________________)
+#define ________________ORTHO_5x12_ADJUST_L4_________________     LAYOUT_args2_wrapper(_______, _________________ADJUST_L4_________________)
+
+#define ________________ORTHO_GRID_ADJUST_R0_________________     _________________ORTHO_GRID_NUM_R0__________________
+#define ________________ORTHO_5x12_ADJUST_R1_________________     LAYOUT_args2_wrapper(_________________ADJUST_R1_________________, RESET)
+#define ________________ORTHO_5x12_ADJUST_R2_________________     LAYOUT_args2_wrapper(_________________ADJUST_R2_________________, _______)
+#define ________________ORTHO_5x12_ADJUST_R3_________________     LAYOUT_args2_wrapper(_________________ADJUST_R3_________________, _______)
+#define ________________ORTHO_5x12_ADJUST_R4_________________     LAYOUT_args2_wrapper(_________________ADJUST_R4_________________, AUDIO)
+
+#define ________________ORTHO_4x12_ADJUST_L1_________________     LAYOUT_args2_wrapper(_______, _________________ADJUST_L1_________________)
+#define ________________ORTHO_4x12_ADJUST_L2_________________     LAYOUT_args2_wrapper(_______, _________________ADJUST_L2_________________)
+#define ________________ORTHO_4x12_ADJUST_L3_________________     LAYOUT_args2_wrapper(_______, _________________ADJUST_L3_________________)
+
+#define ________________ORTHO_4x12_ADJUST_R1_________________     LAYOUT_args2_wrapper(_________________ADJUST_R1_________________, RESET)
+#define ________________ORTHO_4x12_ADJUST_R2_________________     LAYOUT_args2_wrapper(_________________ADJUST_R2_________________, _______)
+#define ________________ORTHO_4x12_ADJUST_R3_________________     LAYOUT_args2_wrapper(_________________ADJUST_R3_________________, AUDIO)
+
