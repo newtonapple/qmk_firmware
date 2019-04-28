@@ -146,11 +146,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_SYM] = LAYOUT_ortho_5x15_wrapper(
-    KC_F1,   KC_F2,    KC_F3,     KC_F4,   KC_F5,      KC_F6,      _______, SLEEP,   TG(_ADJUST), KC_F7,      KC_F8,      KC_F9,      KC_F10,  KC_F11,     KC_F12 ,
-    NUM,     KC_GRV,   S(KC_GRV), KC_EQL,  KC_MINS,    S(KC_EQL),  KC_P7,   KC_P8,   KC_P9,       S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
-    CAP,     S(KC_1),  S(KC_2),   S(KC_3), S(KC_4),    S(KC_5),    KC_P4,   KC_P5,   KC_P6,       S(KC_6),    S(KC_7),    S(KC_8),    S(KC_9), S(KC_0),    _______,
-    _______, _______,  MOUSE,     MACVIM,  KC_QUOT,    S(KC_QUOT), KC_P1,   KC_P2,   KC_P3,       KC_LBRC,    KC_RBRC,    _______,    _______, _______,    _______,
-    _______, _______,  _______,   _______, _______,    _______,    KC_P0,   KC_PDOT, KC_ENT,      KC_BSPC,    S(KC_QUOT), S(KC_MINS), _______, _______,    _______
+    _________________ORTHO_GRID_SYM_L0__________________, _______, SLEEP,   TG(_ADJUST), _________________ORTHO_GRID_SYM_R0__________________,
+    _________________ORTHO_GRID_SYM_L1__________________, KC_P7,   KC_P8,   KC_P9,       _________________ORTHO_GRID_SYM_R1__________________,
+    _________________ORTHO_GRID_SYM_L2__________________, KC_P4,   KC_P5,   KC_P6,       _________________ORTHO_GRID_SYM_R2__________________,
+    _________________ORTHO_GRID_SYM_L3__________________, KC_P1,   KC_P2,   KC_P3,       _________________ORTHO_GRID_SYM_R3__________________,
+    _________________ORTHO_GRID_SYM_L4__________________, KC_P0,   KC_PDOT, KC_ENT,      _________________ORTHO_GRID_SYM_R4__________________
  ),
 
  [_ADJUST] = LAYOUT_ortho_5x15_wrapper(
