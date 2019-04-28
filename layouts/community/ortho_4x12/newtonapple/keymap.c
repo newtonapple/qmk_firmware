@@ -62,17 +62,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_SYM] = LAYOUT_ortho_4x12_wrapper(
-    NUM,     KC_GRV,  S(KC_GRV), KC_EQL,  KC_MINS,  S(KC_EQL),  S(KC_LBRC), S(KC_RBRC), S(KC_BSLS), KC_BSLS, S(KC_MINS), _______,
-    CAP,     S(KC_1), S(KC_2),   S(KC_3), S(KC_4),  S(KC_5),    S(KC_6),    S(KC_7),    S(KC_8),    S(KC_9), S(KC_0),    _______,
-    _______, S(KC_5), MOUSE,     MACVIM,  KC_QUOT,  S(KC_QUOT), KC_LBRC,    KC_RBRC,    _______,    _______, _______,    _______,
-    _______, _______, _______,   _______, _______,   _______,   KC_BSPC,    S(KC_QUOT), S(KC_MINS), _______, _______,    _______
+    _________________ORTHO_GRID_SYM_L1__________________, _________________ORTHO_GRID_SYM_R1__________________,
+    _________________ORTHO_GRID_SYM_L2__________________, _________________ORTHO_GRID_SYM_R2__________________,
+    _________________ORTHO_GRID_SYM_L3__________________, _________________ORTHO_GRID_SYM_R3__________________,
+    _________________ORTHO_GRID_SYM_L4__________________, _________________ORTHO_GRID_SYM_R4__________________
   ),
 
   [_ADJUST] = LAYOUT_ortho_4x12_wrapper(
-    KC_BRIU, KC_BRID, C(KC_UP), C(KC_DOWN), C(KC_LEFT), C(KC_RGHT), KC_MRWD, KC_MPLY, KC_MFFD, KC_MUTE, KC_VOLD, KC_VOLU,
-    _______, MI_ON,   MI_OFF,   MU_MOD,     MUV_IN,     MUV_DE,     _______, _______, _______, _______, _______, RESET,
-    _______, AU_ON,   AU_OFF,   CK_RST,     CK_UP,      CK_DOWN,    _______, _______, _______, _______, _______, _______,
-    _______, MU_ON,   MU_OFF,   CK_ON,      CK_OFF,     _______,    _______, _______, _______, _______, _______, AUDIO
+    ________________ORTHO_GRID_ADJUST_L0_________________, ________________ORTHO_GRID_ADJUST_R0_________________,
+    ________________ORTHO_4x12_ADJUST_L1_________________, ________________ORTHO_4x12_ADJUST_R1_________________,
+    ________________ORTHO_4x12_ADJUST_L2_________________, ________________ORTHO_4x12_ADJUST_R2_________________,
+    ________________ORTHO_4x12_ADJUST_L3_________________, ________________ORTHO_4x12_ADJUST_R3_________________
   ),
 
   [_AUDIO] = LAYOUT_ortho_4x12_wrapper(
