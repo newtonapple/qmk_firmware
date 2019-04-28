@@ -1,10 +1,6 @@
 
 #pragma once
 
-#ifndef CONFIG_USER_H
-#define CONFIG_USER_H
-
-#include "config_common.h"
 
 #ifdef AUDIO_ENABLE
     #define STARTUP_SONG SONG(PREONIC_SOUND)
@@ -46,4 +42,3 @@
 #define ENABLE_MACVIM
 #define ENABLE_SPACE_CADET
 
-#endif
