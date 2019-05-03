@@ -6,8 +6,8 @@
  *    static uint16_t space_cadet_timer;
  *
  * The SPACE_CADET* macros assume only one key is pressed at a time,
- * i.e. no mixing modifier or layer keys are held at the same time.  It uses
- * `TAPPING_TERM` is defined. as it's default timeout value.
+ * i.e. no mixing modifier or layer keys are held at the same time.  It also
+ * uses `TAPPING_TERM` as its default timeout value.
  *
  * You can use `space_cadet` & `space_cadet_layer` for custom timers & timouts.
  */
