@@ -169,7 +169,7 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define __________________NUM_L1___________________     KC_GRV,   S(KC_GRV), KC_EQL,     KC_MINS,    S(KC_EQL)
 #define __________________NUM_L2___________________     KC_1,     KC_2,      KC_3,       KC_4,       KC_5
 #define __________________NUM_L3___________________     S(KC_5),  S(KC_9),   S(KC_0),    KC_QUOT,    S(KC_QUOT)
-#define __________________NUM_L4___________________     _______,  _______,   _______,    _______,    KC_LSFT
+#define __________________NUM_L4___________________     _______,  _______,   _______,    _______,    _______
 
 #define __________________NUM_R0___________________     KC_MRWD,  KC_MPLY,   KC_MFFD,    KC_MUTE,    KC_VOLD
 #define __________________NUM_R1___________________     S(KC_6),  S(KC_8),   S(KC_BSLS), KC_BSLS,    S(KC_MINS)
