@@ -15,7 +15,6 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "muse.h"
 #include "newtonapple.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -37,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_MACVIM] = LAYOUT_ortho_5x12_wrapper(
     ________________ORTHO_GRID_MACVIM_L0________________, ________________ORTHO_GRID_MACVIM_R0________________,
-    ________________ORTHO_GRID_MACVIM_L1________________, ________________ORTHO_GRID_MACVIM_L1________________,
+    ________________ORTHO_GRID_MACVIM_L1________________, ________________ORTHO_GRID_MACVIM_R1________________,
     ________________ORTHO_GRID_MACVIM_L2________________, ________________ORTHO_GRID_MACVIM_R2________________,
     ________________ORTHO_GRID_MACVIM_L3________________, ________________ORTHO_GRID_MACVIM_R3________________,
     ________________ORTHO_GRID_MACVIM_L4________________, ________________ORTHO_GRID_MACVIM_R4________________
@@ -92,25 +91,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 };
 
-#define IS_LAYER_ON_STATE(layer, state) (state & (1UL << (layer)))
-
-uint32_t layer_state_set_user(uint32_t state) {
-  #ifdef ENABLE_MACVIM
-  if ( !(IS_LAYER_ON_STATE(_MACVIM, state) || IS_LAYER_ON_STATE(_VIMNUM, state)) ) {
-    reset_vim_states();
-  }
-  #endif
-  return state;
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  #ifdef ENABLE_SPACE_CADET
-  static uint16_t space_cadet_timer;
-  SPACE_CADET_LAYER(keycode, MACVIM_SQUOT, _MACVIM, "\"", record->event.pressed);
-  SPACE_CADET_LAYER(keycode, SYM_SMINS, _SYM, "_", record->event.pressed);
-  SPACE_CADET_LAYER(keycode, ADJ_SBSLS, _ADJUST, "|", record->event.pressed);
-  SPACE_CADET(keycode, CRTL_SLBRC, KC_LCTRL, "{", record->event.pressed);
-  SPACE_CADET(keycode, CRTL_SRBRC, KC_RCTRL, "}", record->event.pressed);
-  #endif
-  return process_macvim(keycode, record, IS_LAYER_ON(_MACVIM));
-}
