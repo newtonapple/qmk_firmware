@@ -61,7 +61,8 @@ enum custom_keycodes {
 #define TT_NUM TT(_NUM)
 #define TT_SYM TT(_SYM)
 
-
+#ifndef CUSTOM_KEYMAP
 // user these in keymap instad of their _user variants
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 uint32_t layer_state_set_keymap(uint32_t state);
+#endif
