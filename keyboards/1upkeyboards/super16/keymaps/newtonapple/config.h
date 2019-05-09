@@ -1,4 +1,4 @@
-/* Copyright 2018 sevenseacat
+/* Copyright 2019 newtonapple
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,11 +16,8 @@
 
 #pragma once
 
-#ifndef CONFIG_USER_H
-#define CONFIG_USER_H
-
-// #define ENABLE_SPACE_CADET
-#define RGBLIGHT_LAYER_INDICATOR_DISABLE
-#define BACKLIGHT_BREATHING
+// place overrides here
+#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+#define RGB_MATRIX_KEYPRESSES
 #define CUSTOM_KEYMAP
-#endif
+#define RGBLIGHT_LAYER_INDICATOR_DISABLE
