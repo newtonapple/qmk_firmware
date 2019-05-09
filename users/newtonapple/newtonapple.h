@@ -25,10 +25,6 @@ enum newtonapple_layers {
 #define _NEWTONAPPLE_SAFE_RANGE SAFE_RANGE
 #endif
 
-#include "wrappers.h"
-#include "process_records.h"
-#include "process_rgb.h"
-
 #ifdef AUDIO_ENABLE
 #include "muse.h"
 #endif
@@ -37,10 +33,10 @@ enum newtonapple_layers {
 #include "space_cadet.h"
 #endif
 
-
-
-// #if defined(RGBLIGHT_ENABLE) || defined(RGB_MATRIX_ENABLE)
-// void rgb_matrix_scan(void);
-// #endif
+#ifndef CUSTOM_KEYMAP
+#include "process_records.h"
+#include "process_rgb.h"
+#include "wrappers.h"
+#endif
 
 #define IS_LAYER_ON_STATE(layer, state) (state & (1UL << (layer)))
