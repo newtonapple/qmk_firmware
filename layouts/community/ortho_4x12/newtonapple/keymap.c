@@ -68,10 +68,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT_ortho_4x12_wrapper(
-    ________________ORTHO_GRID_ADJUST_L0_________________, ________________ORTHO_GRID_ADJUST_R0_________________,
-    ________________ORTHO_4x12_ADJUST_L1_________________, ________________ORTHO_4x12_ADJUST_R1_________________,
-    ________________ORTHO_4x12_ADJUST_L2_________________, ________________ORTHO_4x12_ADJUST_R2_________________,
-    ________________ORTHO_4x12_ADJUST_L3_________________, ________________ORTHO_4x12_ADJUST_R3_________________
+    ________________ORTHO_GRID_ADJUST_L0________________, ________________ORTHO_GRID_ADJUST_R0________________,
+    ________________ORTHO_4x12_ADJUST_L1________________, ________________ORTHO_4x12_ADJUST_R1________________,
+    ________________ORTHO_4x12_ADJUST_L2________________, ________________ORTHO_4x12_ADJUST_R2________________,
+    ________________ORTHO_4x12_ADJUST_L3________________, ________________ORTHO_4x12_ADJUST_R3________________
   ),
 
   [_AUDIO] = LAYOUT_ortho_4x12_wrapper(
