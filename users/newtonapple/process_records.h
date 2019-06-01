@@ -4,9 +4,12 @@
 // Custom keycodes
 enum custom_keycodes {
   ADJ_SBSLS = _NEWTONAPPLE_SAFE_RANGE,
+  ADJ_SRBRC,
+  ALT_SBSLS,
   CRTL_SLBRC,
   CRTL_SRBRC,
-  CMD_SMINS,
+//   GUI_SMINS,
+  GUI_T_EQL,
   MACVIM_SQUOT,
   SYM_SQUOT,
   SYM_SMINS,
