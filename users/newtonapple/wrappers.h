@@ -67,7 +67,7 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define ________________ORTHO_GRID_QWERTY_L1________________     LAYOUT_args2_wrapper(MOUSE_TAB,  _________________QWERTY_L1_________________)
 #define ________________ORTHO_GRID_QWERTY_L2________________     LAYOUT_args2_wrapper(MACVIM_ESC, _________________QWERTY_L2_________________)
 #define ________________ORTHO_GRID_QWERTY_L3________________     LAYOUT_args2_wrapper(KC_LSPO,    _________________QWERTY_L3_________________)
-#define ________________ORTHO_GRID_QWERTY_L4________________     CRTL_SLBRC, CTL_T_BSLS, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, MOUSE_SPC
+#define ________________ORTHO_GRID_QWERTY_L4________________     CRTL_SLBRC, CTL_T_BSLS, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC
 
 #define ________________ORTHO_GRID_QWERTY_R0________________     LAYOUT_args2_wrapper(________________NUMBER_RIGHT_______________, KC_BSPC)
 #define ________________ORTHO_GRID_QWERTY_R1________________     LAYOUT_args2_wrapper(_________________QWERTY_R1_________________, KC_BSPC)
