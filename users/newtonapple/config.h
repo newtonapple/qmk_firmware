@@ -70,6 +70,6 @@
 /* RGB */
 // #ifdef RGBLED_NUM
 // #undef RGBLED_NUM
-// // #define RGBLED_NUM 21 // number of LEDs
-// #define RGBLED_NUM 36 // number of LEDs
+// #define RGBLED_NUM 21 // number of LEDs (sliver kprepublic case)
+// #define RGBLED_NUM 36 // number of LEDs (kbdfans 5-degree acrylic case)
 // #endif
