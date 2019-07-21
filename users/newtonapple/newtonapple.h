@@ -16,6 +16,7 @@ enum newtonapple_layers {
   _LED,
   _ADJUST,
   _AUDIO,
+  _FN
 };
 
 #ifdef ENABLE_MACVIM
