@@ -2,12 +2,11 @@
 
 #define IS_LAYER_ON_STATE(layer, state) (state & (1UL << (layer)))
 #ifndef CUSTOM_KEYMAP
-__attribute__((weak))
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+__attribute__((weak)) bool process_record_keymap(uint16_t keycode,
+                                                 keyrecord_t *record) {
   return true;
 }
-__attribute__((weak))
-uint32_t layer_state_set_keymap(uint32_t state) {
+__attribute__((weak)) uint32_t layer_state_set_keymap(uint32_t state) {
   return state;
 }
 
@@ -26,6 +25,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   static uint16_t space_cadet_timer;
   SPACE_CADET_LAYER(keycode, MACVIM_SQUOT, _MACVIM, "\"",
                     record->event.pressed);
+  SPACE_CADET_LAYER(keycode, MACVIM_RSPO, _MACVIM, ")", record->event.pressed);
   SPACE_CADET_LAYER(keycode, SYM_SMINS, _SYM, "_", record->event.pressed);
   SPACE_CADET_LAYER(keycode, ADJ_SBSLS, _ADJUST, "|", record->event.pressed);
   SPACE_CADET_LAYER(keycode, ADJ_SRBRC, _ADJUST, "}", record->event.pressed);
