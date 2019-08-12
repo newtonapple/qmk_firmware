@@ -11,6 +11,7 @@ enum custom_keycodes {
 //   GUI_SMINS,
   GUI_T_EQL,
   MACVIM_SQUOT,
+  MACVIM_RSPO,
   SYM_SQUOT,
   SYM_SMINS,
   NEWTONAPPLE_SAFE_RANGE,
@@ -51,6 +52,7 @@ enum custom_keycodes {
 #define GUI_T_LBRC GUI_T(KC_LBRC)
 #define GUI_T_RBRC RGUI_T(KC_RBRC)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
+#define RSFT_T_SLSH RSFT_T(KC_SLSH)
 #define ALT_T_LBRC LALT_T(KC_LBRC)
 #define ALT_T_RBRC RALT_T(KC_RBRC)
 #define CTL_T_BSPC CTL_T(KC_BSPC)
