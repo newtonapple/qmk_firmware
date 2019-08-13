@@ -38,12 +38,15 @@ enum custom_keycodes {
 #define VIMNUM TO(_VIMNUM)
 #define MACVIM_ESC LT(_MACVIM, KC_ESC)
 #define MACVIM_SPC LT(_MACVIM, KC_SPC)
+#define MACVIM_LBRC LT(_MACVIM, KC_LBRC)
 #define MO_VIMNUM MO(_VIMNUM)
 #define TG_VIMNUM TG(_VIMNUM)
 #endif
 
 #define SYM_MINS LT(_SYM, KC_MINS)
 #define SYM_SPC LT(_SYM, KC_SPC)
+#define SYM_SCLN LT(_SYM, KC_SCLN)
+#define NUM_QUOT LT(_NUM, KC_QUOT)
 #define LED_LBRC LT(_LED, KC_LBRC)
 #define LED_RBRC LT(_LED, KC_RBRC)
 #define NUM_MINS LT(_NUM, KC_MINS)
