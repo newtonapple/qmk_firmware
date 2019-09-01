@@ -29,9 +29,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   SPACE_CADET_LAYER(keycode, SYM_SMINS, _SYM, "_", record->event.pressed);
   SPACE_CADET_LAYER(keycode, ADJ_SBSLS, _ADJUST, "|", record->event.pressed);
   SPACE_CADET_LAYER(keycode, ADJ_SRBRC, _ADJUST, "}", record->event.pressed);
+  SPACE_CADET_LAYER(keycode, ADJ_SRBRC, _ADJUST, "}", record->event.pressed);
   SPACE_CADET(keycode, ALT_SBSLS, KC_LALT, "|", record->event.pressed);
   SPACE_CADET(keycode, CRTL_SLBRC, KC_LCTRL, "{", record->event.pressed);
   SPACE_CADET(keycode, CRTL_SRBRC, KC_RCTRL, "}", record->event.pressed);
+  SPACE_CADET(keycode, RGUI_SQUOT, KC_RGUI, "\"", record->event.pressed);
 #endif
   return (process_macvim(keycode, record, IS_LAYER_ON(_MACVIM)) &&
           process_record_keymap(keycode, record));
