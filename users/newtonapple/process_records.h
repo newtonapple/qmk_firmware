@@ -9,7 +9,8 @@ enum custom_keycodes {
   CRTL_SLBRC,
   CRTL_SRBRC,
 //   GUI_SMINS,
-  GUI_T_EQL,
+  RGUI_SQUOT,
+//   GUI_T_EQL,
   MACVIM_SQUOT,
   MACVIM_RSPO,
   SYM_SQUOT,
@@ -56,6 +57,7 @@ enum custom_keycodes {
 #define GUI_T_LBRC GUI_T(KC_LBRC)
 #define GUI_T_RBRC RGUI_T(KC_RBRC)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
+#define SFT_T_MINS SFT_T(KC_MINS)
 #define RSFT_T_SLSH RSFT_T(KC_SLSH)
 #define ALT_T_LBRC LALT_T(KC_LBRC)
 #define ALT_T_RBRC RALT_T(KC_RBRC)
