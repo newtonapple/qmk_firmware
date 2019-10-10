@@ -159,7 +159,7 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define ________________ORTHO_GRID_MOUSE_R0_________________     LAYOUT_args2_wrapper(_________________MOUSE_R0__________________, _______)
 #define ________________ORTHO_GRID_MOUSE_R1_________________     LAYOUT_args2_wrapper(_________________MOUSE_R1__________________, CUT)
 #define ________________ORTHO_GRID_MOUSE_R2_________________     LAYOUT_args2_wrapper(_________________MOUSE_R2__________________, PASTE)
-#define ________________ORTHO_GRID_MOUSE_R3_________________     LAYOUT_args2_wrapper(_________________MOUSE_R3__________________, _______)
+#define ________________ORTHO_GRID_MOUSE_R3_________________     LAYOUT_args2_wrapper(_________________MOUSE_R3__________________, KC_DOWN)
 #define ________________ORTHO_GRID_MOUSE_R4_________________     LAYOUT_args2_wrapper(_________________MOUSE_R4__________________, KC_RGHT)
 
 
