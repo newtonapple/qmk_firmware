@@ -3,19 +3,21 @@
 
 // Custom keycodes
 enum custom_keycodes {
-  ADJ_SBSLS = _NEWTONAPPLE_SAFE_RANGE,
-  ADJ_SRBRC,
-  ALT_SBSLS,
-  CRTL_SLBRC,
-  CRTL_SRBRC,
-//   GUI_SMINS,
-  RGUI_SQUOT,
-//   GUI_T_EQL,
-  MACVIM_SQUOT,
-  MACVIM_RSPO,
-  SYM_SQUOT,
-  SYM_SMINS,
-  NEWTONAPPLE_SAFE_RANGE,
+    ADJ_SBSLS = _NEWTONAPPLE_SAFE_RANGE,
+    ADJ_SRBRC,
+    ADJ_SMINS,
+    ALT_SBSLS,
+    CRTL_SLBRC,
+    CRTL_SRBRC,
+    //   GUI_SMINS,
+    RGUI_SQUOT,
+    //   GUI_T_EQL,
+    MACVIM_SQUOT,
+    MACVIM_RSPO,
+    SYM_SQUOT,
+    SYM_SMINS,
+    SYM_SRBRC,
+    NEWTONAPPLE_SAFE_RANGE,
 };
 
 #define DEFAULT TO(0)
@@ -27,7 +29,7 @@ enum custom_keycodes {
 #define ADJUST TO(_ADJUST)
 #define AUDIO TO(_AUDIO)
 #ifdef ENABLE_MACVIM
-#define MACVIM TO(_MACVIM)
+#    define MACVIM TO(_MACVIM)
 #endif
 
 #define MOUSE_GRV LT(_MOUSE, KC_GRV)
@@ -36,13 +38,13 @@ enum custom_keycodes {
 #define MOUSE_LEFT LT(_MOUSE, KC_LEFT)
 #define MOUSE_RGHT LT(_MOUSE, KC_RGHT)
 #ifdef ENABLE_MACVIM
-#define VIMNUM TO(_VIMNUM)
-#define MACVIM_ESC LT(_MACVIM, KC_ESC)
-#define MACVIM_SPC LT(_MACVIM, KC_SPC)
-#define MACVIM_QUOT LT(_MACVIM, KC_QUOT)
-#define MACVIM_LBRC LT(_MACVIM, KC_LBRC)
-#define MO_VIMNUM MO(_VIMNUM)
-#define TG_VIMNUM TG(_VIMNUM)
+#    define VIMNUM TO(_VIMNUM)
+#    define MACVIM_ESC LT(_MACVIM, KC_ESC)
+#    define MACVIM_SPC LT(_MACVIM, KC_SPC)
+#    define MACVIM_QUOT LT(_MACVIM, KC_QUOT)
+#    define MACVIM_LBRC LT(_MACVIM, KC_LBRC)
+#    define MO_VIMNUM MO(_VIMNUM)
+#    define TG_VIMNUM TG(_VIMNUM)
 #endif
 
 #define SYM_MINS LT(_SYM, KC_MINS)
@@ -73,7 +75,7 @@ enum custom_keycodes {
 #define TT_SYM TT(_SYM)
 
 #ifndef CUSTOM_KEYMAP
-// user these in keymap instad of their _user variants
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
+// use these in keymap instad of their _user variants
+bool     process_record_keymap(uint16_t keycode, keyrecord_t *record);
 uint32_t layer_state_set_keymap(uint32_t state);
 #endif
