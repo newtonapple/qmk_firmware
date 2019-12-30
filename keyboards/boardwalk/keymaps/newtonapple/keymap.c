@@ -22,7 +22,7 @@ ________________ORTHO_GRID_QWERTY_L0________________, SNAP_MAX,            SNAP_
 ________________ORTHO_GRID_QWERTY_L1________________, PREV_TAB,            NEXT_TAB,     ________________ORTHO_GRID_QWERTY_R1________________,
 ________________ORTHO_GRID_QWERTY_L2________________, KC_HOME,             KC_BSPC,      ________________ORTHO_GRID_QWERTY_R2________________,
 ________________ORTHO_GRID_QWERTY_L3________________, LT(_MACVIM, KC_END), MACVIM_SQUOT, ________________ORTHO_GRID_QWERTY_R3________________,
-CRTL_SLBRC,  CRTL_SLBRC, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC,         SFT_T_QUOT,   NUM_MINS , RGUI_SQUOT, ADJ_SBSLS, CRTL_SRBRC, CRTL_SRBRC
+CRTL_SLBRC,  CRTL_SLBRC, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC,         SFT_T_QUOT,   NUM_MINS , RGUI_SQUOT, ADJ_SBSLS, MACVIM_BSLS, CRTL_SRBRC
 ),
 
 
