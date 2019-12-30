@@ -71,7 +71,7 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 
 #define ________________ORTHO_GRID_QWERTY_R0________________     LAYOUT_args2_wrapper(________________NUMBER_RIGHT_______________, KC_BSPC)
 #define ________________ORTHO_GRID_QWERTY_R1________________     LAYOUT_args2_wrapper(_________________QWERTY_R1_________________, KC_BSPC)
-#define ________________ORTHO_GRID_QWERTY_R2________________     LAYOUT_args2_wrapper(_________________QWERTY_R2_________________, KC_ENT)
+#define ________________ORTHO_GRID_QWERTY_R2________________     LAYOUT_args2_wrapper(_________________QWERTY_R2_________________, MACVIM_ENT)
 #define ________________ORTHO_GRID_QWERTY_R3________________     LAYOUT_args2_wrapper(_________________QWERTY_R3_________________, KC_RSPC)
 #define ________________ORTHO_GRID_QWERTY_R4________________     MACVIM_SQUOT, SFT_T_QUOT, NUM_MINS, GUI_T_RBRC, ADJ_SBSLS, CRTL_SRBRC
 
@@ -196,7 +196,7 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define __________________SYM_L0___________________      KC_F2,   KC_F3,     KC_F4,   KC_F5,    KC_F6
 #define __________________SYM_L1___________________      KC_GRV,  S(KC_GRV), KC_EQL,  KC_MINS,  S(KC_EQL)
 #define __________________SYM_L2___________________      S(KC_1), S(KC_2),   S(KC_3), S(KC_4),  S(KC_5)
-#define __________________SYM_L3___________________      S(KC_5), MOUSE,     MACVIM,  KC_QUOT,  S(KC_QUOT)
+#define __________________SYM_L3___________________      S(KC_5), MOUSE,     MACVIM,  S(KC_9),  S(KC_0)
 #define __________________SYM_L4___________________      _______, _______,   _______, _______,   _______
 
 #define __________________SYM_R0___________________     KC_F7,      KC_F8,      KC_F9,      KC_F10,  KC_F11
