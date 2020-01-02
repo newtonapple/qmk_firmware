@@ -2,7 +2,6 @@ SRC += newtonapple.c \
        mac.c \
        macvim.c \
        space_cadet.c \
-       process_rgb.c \
        process_records.c
 
 BOOTMAGIC_ENABLE = no
