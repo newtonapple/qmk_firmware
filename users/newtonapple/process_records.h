@@ -69,6 +69,7 @@ enum custom_keycodes {
 #define GUI_T_RBRC RGUI_T(KC_RBRC)
 #define RSFT_T_SLSH RSFT_T(KC_SLSH)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
+#define SFT_T_BSPC SFT_T(KC_BSPC)
 #define SFT_T_MINS SFT_T(KC_MINS)
 
 #define OSL_NUM OSL(_NUM)
