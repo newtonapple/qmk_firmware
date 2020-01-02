@@ -36,7 +36,6 @@ enum newtonapple_layers {
 
 #ifndef CUSTOM_KEYMAP
 #include "process_records.h"
-#include "process_rgb.h"
 #include "wrappers.h"
 #endif
 
