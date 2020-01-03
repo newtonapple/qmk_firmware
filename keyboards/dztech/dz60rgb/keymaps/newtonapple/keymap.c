@@ -21,7 +21,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_wrapper(
     MOUSE_GRV,  ________________NUMBER_LEFT________________, ________________NUMBER_RIGHT_______________, KC_MINS, KC_EQL,    KC_BSPC,
     MOUSE_TAB,  _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, MACVIM_LBRC, KC_RBRC,   KC_BSLASH,
-    MACVIM_ESC, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, NUM_QUOT, KC_ENT,
+    MACVIM_ESC, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, NUM_QUOT, MACVIM_ENT,
     KC_LSPO,    _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, RSFT_T(KC_BSPC), MACVIM_RSPO,
     CRTL_SLBRC, ALT_SBSLS, GUI_T_EQL,                        KC_SPC,           NUM_MINS, MACVIM_SQUOT, SYM_SMINS, SYM_SMINS, ADJ_SRBRC
   ),
@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _________________ORTHO_GRID_CAP_L1__________________, _________________ORTHO_GRID_CAP_R1__________________, _______, _______,
     _________________ORTHO_GRID_CAP_L2__________________, _________________ORTHO_GRID_CAP_R2__________________, _______,
     _________________ORTHO_GRID_CAP_L3__________________, _________________ORTHO_GRID_CAP_R3__________________, _______,
-    _________BLANK_3_________,                            _______,                    _______, _______,_________BLANK_3_________
+    _________BLANK_3_________,                       _______,                _______, _______,_________BLANK_3_________
   ),
 
   [_MACVIM] = LAYOUT_wrapper(
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ________________ORTHO_GRID_MACVIM_L1________________, ________________ORTHO_GRID_MACVIM_R1________________, _______, _______,
     ________________ORTHO_GRID_MACVIM_L2________________, ________________ORTHO_GRID_MACVIM_R2________________, _______,
     ________________ORTHO_GRID_MACVIM_L3________________, ________________ORTHO_GRID_MACVIM_R3________________, _______,
-    KC_LSFT, _______, MO_VIMNUM,                          KC_BSPC,                 KC_LSFT, MO_VIMNUM, _______, _______, _______
+    KC_LSFT, _______, _______,                   KC_BSPC,                 KC_LSFT, MO_VIMNUM, _______, _______, _______
   ),
 
   [_VIMNUM] = LAYOUT_wrapper(
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ________________ORTHO_GRID_VIMNUM_L1________________, ________________ORTHO_GRID_VIMNUM_R1________________, _______, _______,
     ________________ORTHO_GRID_VIMNUM_L2________________, ________________ORTHO_GRID_VIMNUM_R2________________, _______,
     ________________ORTHO_GRID_VIMNUM_L3________________, ________________ORTHO_GRID_VIMNUM_R3________________, _______,
-    _______, _______, _______,                            KC_BSPC,                   _______, _______, _______, _______, _______
+    _______, _______, _______,                   KC_BSPC,                   _______, _______, _______, _______, _______
   ),
 
   [_MOUSE] = LAYOUT_wrapper(
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ________________ORTHO_GRID_MOUSE_L1_________________, ________________ORTHO_GRID_MOUSE_R1_________________, _______, _______,
     ________________ORTHO_GRID_MOUSE_L2_________________, ________________ORTHO_GRID_MOUSE_R2_________________, _______,
     ________________ORTHO_GRID_MOUSE_L3_________________, ________________ORTHO_GRID_MOUSE_R3_________________, KC_UP,
-    KC_LSFT, _______, MO_VIMNUM,                          KC_BTN1,                  KC_BTN2,  KC_RGUI, KC_LEFT, KC_DOWN, KC_RGHT
+    KC_LSFT, _______, MO_VIMNUM,                 KC_BTN1,                KC_BTN2,  KC_RGUI, KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
   [_NUM] = LAYOUT_wrapper(
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _________________ORTHO_GRID_NUM_L1__________________, _________________ORTHO_GRID_NUM_R1__________________, _______, _______,
     _________________ORTHO_GRID_NUM_L2__________________, _________________ORTHO_GRID_NUM_R2__________________, _______,
     _________________ORTHO_GRID_NUM_L3__________________, _________________ORTHO_GRID_NUM_R3__________________, _______,
-    _______, _______, _______,                            _______,       KC_RGUI,  KC_UP,  LT(_MACVIM, KC_DOWN), LT(_SYM, KC_LEFT),  KC_RGHT
+    _______, _______, _______,        _______,       KC_RGUI,  KC_UP,  LT(_MACVIM, KC_DOWN), LT(_SYM, KC_LEFT),  KC_RGHT
   ),
 
   [_SYM] = LAYOUT_wrapper(
@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, ________________ORTHO_5x12_ADJUST_L1________________, _________________ADJUST_R1_________________, _______, RESET,
     _______, ________________ORTHO_5x12_ADJUST_L2________________, ________________ORTHO_5x12_ADJUST_R2________________,
     ________________ORTHO_5x12_ADJUST_L3________________, ________________ORTHO_5x12_ADJUST_R3________________, _______,
-    _______, _______, _______,                            _______,                     _______, _______, _______, _______, _______
+    _______, _______, _______,                   _______,                   _______, _______, _______, _______, _______
   )
 };
 
