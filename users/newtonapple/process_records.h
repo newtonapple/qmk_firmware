@@ -52,9 +52,13 @@ enum custom_keycodes {
 #define ADJ_BSLS LT(_ADJUST, KC_BSLS)
 #define LED_LBRC LT(_LED, KC_LBRC)
 #define LED_RBRC LT(_LED, KC_RBRC)
+#define NUM_DOT LT(_NUM, KC_DOT)
 #define NUM_MINS LT(_NUM, KC_MINS)
 #define NUM_QUOT LT(_NUM, KC_QUOT)
+#define NUM_Z LT(_NUM, KC_Z)
+#define SYM_COMM LT(_SYM, KC_COMM)
 #define SYM_MINS LT(_SYM, KC_MINS)
+#define SYM_X LT(_SYM, KC_X)
 #define SYM_SPC LT(_SYM, KC_SPC)
 #define SYM_SCLN LT(_SYM, KC_SCLN)
 
