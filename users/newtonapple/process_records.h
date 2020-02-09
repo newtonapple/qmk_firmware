@@ -50,6 +50,8 @@ enum custom_keycodes {
 #endif
 
 #define ADJ_BSLS LT(_ADJUST, KC_BSLS)
+#define ADJ_GRV LT(_ADJUST, KC_GRV)
+#define ADJ_PGDN LT(_ADJUST, KC_PGDN)
 #define LED_LBRC LT(_LED, KC_LBRC)
 #define LED_RBRC LT(_LED, KC_RBRC)
 #define NUM_DOT LT(_NUM, KC_DOT)
