@@ -5,6 +5,8 @@
 // Custom Mac keycodes
 #define ALT_RGHT LALT(KC_RGHT)
 #define ALT_LEFT LALT(KC_LEFT)
+#define CMD_UP LCMD(KC_UP)
+#define CMD_DOWN LCMD(KC_DOWN)
 #define CMD_RGHT LCMD(KC_RGHT)
 #define CMD_LEFT LCMD(KC_LEFT)
 
