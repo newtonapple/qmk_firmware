@@ -21,10 +21,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     SPACE_CADET(keycode, CRTL_SLBRC, KC_LCTRL, "{", record->event.pressed);
     SPACE_CADET(keycode, CRTL_SRBRC, KC_RCTRL, "}", record->event.pressed);
+    SPACE_CADET(keycode, ALT_SRBRC, KC_RALT, "}", record->event.pressed);
 
     SPACE_CADET(keycode, RGUI_SQUOT, KC_RGUI, "\"", record->event.pressed);
 
     SPACE_CADET_LAYER(keycode, MACVIM_SQUOT, _MACVIM, "\"", record->event.pressed);
+    SPACE_CADET_LAYER(keycode, MACVIM_SMINS, _MACVIM, "_", record->event.pressed);
     SPACE_CADET_LAYER(keycode, MACVIM_RSPO, _MACVIM, ")", record->event.pressed);
 
     SPACE_CADET_LAYER(keycode, SYM_SMINS, _SYM, "_", record->event.pressed);
