@@ -17,6 +17,7 @@
 #include QMK_KEYBOARD_H
 #include "newtonapple.h"
 
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_wrapper(
 SNAP_MAX,    ________________ORTHO_GRID_QWERTY_L0________________,                ___________________ANSI_QWERTY_R0_____________________________________, KC_BSPC,
@@ -82,3 +83,52 @@ RGB_RMOD, _______, ________________ORTHO_5x12_ADJUST_L2________________, _______
           _______,                   _________BLANK_3_________,          _________BLANK_3_________
 )
 };
+
+// clang-format on
+// void matrix_init_user(void) {
+//     // set CapsLock LED to output and low
+//     setPinOutput(A0);
+//     writePinLow(A0);
+//     // set NumLock LED to output and low
+//     setPinOutput(A1);
+//     writePinLow(A1);
+//     // set ScrollLock LED to output and low
+//     setPinOutput(A2);
+//     writePinLow(A2);
+// }
+
+// void set_led(uint8_t state) {
+//     state & 1 ? writePinHigh(A0) : writePinLow(A0);
+//     (state >> 1) & 1 ? writePinHigh(A1) : writePinLow(A1);
+//     (state >> 2) & 1 ? writePinHigh(A2) : writePinLow(A2);
+// }
+
+// // function for layer indicator LED
+// uint32_t layer_state_set_keymap(uint32_t layer_state) {
+//     switch (biton32(layer_state)) {
+//         case _NUM:
+//             set_led(1);
+//             break;
+//         case _SYM:
+//             set_led(2);
+//             break;
+//         case _VIMNUM:
+//             set_led(3);
+//             break;
+//         case _MACVIM:
+//             set_led(4);
+//             break;
+//         case _CAP:
+//             set_led(5);
+//             break;
+//         case _MOUSE:
+//             set_led(6);
+//             break;
+//         case _ADJUST:
+//             set_led(7);
+//             break;
+//         default:
+//             set_led(0);
+//     }
+//     return layer_state;
+// }
