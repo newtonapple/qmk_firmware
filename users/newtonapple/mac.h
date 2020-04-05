@@ -18,7 +18,7 @@
 #define REDO SCMD(KC_Z)
 
 #define ZOOM_IN LCMD(KC_EQL)
-#define ZOOM_OUT LCMD(KC_MIN)
+#define ZOOM_OUT LCMD(KC_MINS)
 #define ZOOM_RESET LCMD(KC_0)
 
 #define CLOSE LCMD(KC_W)
