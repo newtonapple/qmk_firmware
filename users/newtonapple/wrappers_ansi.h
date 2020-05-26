@@ -7,14 +7,15 @@
 #define ___________________ANSI_QWERTY_L4_                       CRTL_SLBRC, ALT_SBSLS, GUI_T_EQL, KC_SPC
 
 #define ___________________ANSI_QWERTY_R0_____________________________________    LAYOUT_args4_wrapper(________________NUMBER_RIGHT_______________, KC_MINS,     KC_EQL,  KC_BSPC)
-#define ___________________ANSI_QWERTY_R1_____________________________________    LAYOUT_args4_wrapper(_________________QWERTY_R1_________________, MACVIM_LBRC, KC_RBRC, KC_BSLASH)
-#define ___________________ANSI_QWERTY_R2____________________________             LAYOUT_args3_wrapper(_________________QWERTY_R2_________________, NUM_QUOT,    KC_ENT)
+#define ___________________ANSI_QWERTY_R1_____________________________________    LAYOUT_args4_wrapper(_________________QWERTY_R1_________________, MACVIM_LBRC, MOUSE_RBRC, KC_BSLASH)
+#define ___________________ANSI_QWERTY_R2____________________________             LAYOUT_args3_wrapper(_________________QWERTY_R2_________________, NUM_QUOT,    MACVIM_ENT)
 #define ___________________ANSI_QWERTY_R3___________________                      LAYOUT_args2_wrapper(_________________QWERTY_R3_________________, KC_RSPC)
 #define ___________________ANSI_QWERTY_R4_                                        NUM_MINS, MACVIM_SQUOT, SYM_SMINS, ADJ_SRBRC
 
 //      _______, _______, _______, _______, _______, _______, _______, _______, _______
 #define ___________________TSANGAN_QWERTY_R0___________________________________________     LAYOUT_args5_wrapper(________________NUMBER_RIGHT_______________, KC_MINS, KC_EQL, KC_BSLASH, KC_BSPC)
-#define ___________________TSANGAN_QWERTY_R3_________________________                       LAYOUT_args3_wrapper(_________________QWERTY_R3_________________, KC_RSPC, ADJ_SRBRC)
+#define ___________________TSANGAN_QWERTY_R1___________________________________________     LAYOUT_args4_wrapper(_________________QWERTY_R1_________________, MACVIM_LBRC, KC_RBRC, KC_BSPC)
+#define ___________________TSANGAN_QWERTY_R3_________________________                       LAYOUT_args3_wrapper(_________________QWERTY_R3_________________, KC_RSPC, ADJ_SMINS)
 
 //      _______, _______, _______, _______, _______, _______, _______, _______,
 #define ____________________ANSI_CAP_R1_______________________________________   LAYOUT_args3_wrapper(_________________ORTHO_GRID_CAP_R1__________________, _______, _______)
