@@ -20,9 +20,9 @@
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_wrapper(
-SNAP_MAX,    ________________ORTHO_GRID_QWERTY_L0________________,                ___________________ANSI_QWERTY_R0_____________________________________, KC_BSPC,
-SNAP_CENTER, ________________ORTHO_GRID_QWERTY_L1________________,                ___________________ANSI_QWERTY_R1_____________________________________,
-SNAP_BACK,   ________________ORTHO_GRID_QWERTY_L2________________,                ___________________ANSI_QWERTY_R2____________________________,
+SNAP_MAX,    ________________ORTHO_GRID_QWERTY_L0________________,               ___________________ANSI_QWERTY_R0_____________________________________, KC_BSPC,
+SNAP_CENTER, ________________ORTHO_GRID_QWERTY_L1________________,               ___________________ANSI_QWERTY_R1_____________________________________,
+SNAP_BACK,   ________________ORTHO_GRID_QWERTY_L2________________,               ___________________ANSI_QWERTY_R2____________________________,
              ________________ORTHO_GRID_QWERTY_L3________________, MACVIM_SQUOT, ___________________TSANGAN_QWERTY_R3_________________________,
              CRTL_SLBRC,          GUI_T_EQL, KC_SPC, MACVIM_SMINS,               SFT_T_QUOT, NUM_MINS,                               ALT_SRBRC
 ),
@@ -77,7 +77,7 @@ KC_VOLD, _________________ORTHO_GRID_SYM_L2__________________,          ________
 
 [_ADJUST] = LAYOUT_wrapper(
 RGB_TOG,  _______, ________________ORTHO_GRID_ADJUST_L0________________, ________________ORTHO_GRID_ADJUST_R0________________, _______, _______,
-RGB_MOD, _______, ________________ORTHO_5x12_ADJUST_L1________________, _________________ADJUST_R1_________________, _______, RESET,
+RGB_MOD,  _______, ________________ORTHO_5x12_ADJUST_L1________________, _________________ADJUST_R1_________________, _______, RESET,
 RGB_RMOD, _______, ________________ORTHO_5x12_ADJUST_L2________________, ________________ORTHO_5x12_ADJUST_R2________________,
           ________________ORTHO_5x12_ADJUST_L3________________, _______, ________________ORTHO_5x12_ADJUST_R3________________, _______,
           _______,                   _________BLANK_3_________,          _________BLANK_3_________
