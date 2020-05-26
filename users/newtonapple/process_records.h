@@ -45,6 +45,7 @@ enum custom_keycodes {
 #    define MACVIM_ENT LT(_MACVIM, KC_ENT)
 #    define MACVIM_ESC LT(_MACVIM, KC_ESC)
 #    define MACVIM_LBRC LT(_MACVIM, KC_LBRC)
+#    define MOUSE_RBRC LT(_MOUSE, KC_RBRC)
 #    define MACVIM_QUOT LT(_MACVIM, KC_QUOT)
 #    define MACVIM_SPC LT(_MACVIM, KC_SPC)
 #    define MO_VIMNUM MO(_VIMNUM)
