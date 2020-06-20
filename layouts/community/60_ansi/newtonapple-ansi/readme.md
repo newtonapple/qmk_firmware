@@ -1,4 +1,4 @@
-# newtonapple's 4x12 Layout for Mac Vim Programmers
+# newtonapple's 60% ANSI Layout for Mac Vim Programmers
 
 This layout is designed to reduce fingers / wrist movements for Qwerty programmers.
 
@@ -9,21 +9,3 @@ Layers:
 * `_MACVIM` layer provides VIM-style edits / movements and various system wide shortcuts.
 * `_MOUSE`  layer provides mouse emulation
 
-## Example Make Command:
-```
-make preonic:newtonapple
-```
-
-Or, make & flash firmware all in one command:
-```
-sleep 3 && make preonic:newtonapple:dfu-util
-```
-
-To turn on all LED functionalities or selectively turn on LED functionalities:
-```
-make ALL_LED=yes cannonkeys/ortho60:newtonapple
-```
-To turn off all LED functionalities:
-```
-make ALL_LED=no preonic/rev6:newtonapple:dfu-util
-```
