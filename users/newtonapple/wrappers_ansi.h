@@ -16,6 +16,7 @@
 #define ___________________TSANGAN_QWERTY_R0___________________________________________     LAYOUT_args5_wrapper(________________NUMBER_RIGHT_______________, KC_MINS, KC_EQL, KC_BSLASH, KC_BSPC)
 #define ___________________TSANGAN_QWERTY_R1___________________________________________     LAYOUT_args4_wrapper(_________________QWERTY_R1_________________, MACVIM_LBRC, KC_RBRC, KC_BSPC)
 #define ___________________TSANGAN_QWERTY_R3_________________________                       LAYOUT_args3_wrapper(_________________QWERTY_R3_________________, KC_RSPC, ADJ_SMINS)
+#define _______TSANGAN_QWERTY_R4_                                                           NUM_MINS, MACVIM_SQUOT, ADJ_SRBRC
 
 //      _______, _______, _______, _______, _______, _______, _______, _______,
 #define ____________________ANSI_CAP_R1_______________________________________   LAYOUT_args3_wrapper(_________________ORTHO_GRID_CAP_R1__________________, _______, _______)
