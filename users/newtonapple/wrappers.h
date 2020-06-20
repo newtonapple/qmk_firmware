@@ -16,6 +16,7 @@ expanded before being used as arguments to the LAYOUT_xxx macro.
 #define KEYMAP_wrapper(...)                    LAYOUT(__VA_ARGS__)
 #define LAYOUT_wrapper(...)                    LAYOUT(__VA_ARGS__)
 #define LAYOUT_60_ansi_wrapper(...)            LAYOUT_60_ansi(__VA_ARGS__)
+#define LAYOUT_60_tsangan_hhkb_wrapper(...)    LAYOUT_60_tsangan_hhkb(__VA_ARGS__)
 #define LAYOUT_ortho_4x12_wrapper(...)         LAYOUT_ortho_4x12(__VA_ARGS__)
 #define LAYOUT_ortho_5x12_wrapper(...)         LAYOUT_ortho_5x12(__VA_ARGS__)
 #define LAYOUT_ortho_5x15_wrapper(...)         LAYOUT_ortho_5x15(__VA_ARGS__)
