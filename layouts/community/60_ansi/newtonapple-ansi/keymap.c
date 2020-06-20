@@ -19,11 +19,11 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_60_ansi_wrapper(
-    MOUSE_GRV,  ________________NUMBER_LEFT________________, ________________NUMBER_RIGHT_______________, KC_MINS, KC_EQL,    KC_BSLASH,
-    MOUSE_TAB,  _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, MACVIM_LBRC, KC_RBRC,   KC_BSPC,
-    MACVIM_ESC, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, NUM_QUOT, KC_ENT,
-    KC_LSPO,    _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, KC_RSPC,
-    CRTL_SLBRC, ALT_SBSLS, GUI_T_EQL,                        KC_SPC,                       NUM_MINS, MACVIM_SQUOT, SYM_SMINS, ADJ_SRBRC
+    MOUSE_GRV,  ________________NUMBER_LEFT________________, ___________________ANSI_QWERTY_R0_____________________________________,
+    MOUSE_TAB,  _________________QWERTY_L1_________________, ___________________ANSI_QWERTY_R1_____________________________________,
+    MACVIM_ESC, _________________QWERTY_L2_________________, ___________________ANSI_QWERTY_R2____________________________,
+    KC_LSPO,    _________________QWERTY_L3_________________, ___________________ANSI_QWERTY_R3___________________,
+                         ___________________ANSI_QWERTY_L4_, ___________________ANSI_QWERTY_R4_
   ),
 
   [_CAP] = LAYOUT_60_ansi_wrapper(
