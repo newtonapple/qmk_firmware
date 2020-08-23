@@ -80,8 +80,6 @@ void matrix_scan_user(void) {
   #endif
 }
 
-#define IS_LAYER_ON_STATE(layer, state) (state & (1UL << (layer)))
-
 uint32_t layer_state_set_user(uint32_t state) {
   #ifdef ENABLE_MACVIM
   if ( !(IS_LAYER_ON_STATE(_MACVIM, state) || IS_LAYER_ON_STATE(_VIMNUM, state)) ) {
