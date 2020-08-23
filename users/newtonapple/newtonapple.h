@@ -38,5 +38,3 @@ enum newtonapple_layers {
 #include "process_records.h"
 #include "wrappers.h"
 #endif
-
-#define IS_LAYER_ON_STATE(layer, state) (state & (1UL << (layer)))
