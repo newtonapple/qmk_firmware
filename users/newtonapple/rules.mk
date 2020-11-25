@@ -38,3 +38,10 @@ else
     endif
 endif
 
+
+## Tweak DEF FAST_MCU to use more responsive TAPPING_TERM
+# * STM32F072: CannonKeys Instant60
+ifeq (,$(filter $(MCU), STM32F072))
+    # ATmegaxxU2 does not have hardware MUL instruction - lib8tion must be told to use software multiplication routines
+    OPT_DEFS += -DFAST_MCU
+endif
