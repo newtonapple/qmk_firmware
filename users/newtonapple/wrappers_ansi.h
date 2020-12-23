@@ -12,10 +12,14 @@
 #define ___________________ANSI_QWERTY_R3___________________                      LAYOUT_args2_wrapper(_________________QWERTY_R3_________________, KC_RSPC)
 #define ___________________ANSI_QWERTY_R4_                                        NUM_MINS, MACVIM_SQUOT, SYM_SMINS, ADJ_SRBRC
 
+
+//      _______, _______, _______, _______, _______, _______, _______, _______, _______
+#define ___________________TSANGAN_QWERTY_L3_________________                               KC_LSPO,   KC_Z,     KC_X,    KC_C,    KC_V,    KC_B
+
 //      _______, _______, _______, _______, _______, _______, _______, _______, _______
 #define ___________________TSANGAN_QWERTY_R0___________________________________________     LAYOUT_args5_wrapper(________________NUMBER_RIGHT_______________, KC_MINS, KC_EQL, KC_BSLASH, KC_DEL)
 #define ___________________TSANGAN_QWERTY_R1___________________________________________     LAYOUT_args4_wrapper(_________________QWERTY_R1_________________, MACVIM_LBRC, KC_RBRC, KC_BSPC)
-#define ___________________TSANGAN_QWERTY_R3_________________________                       LAYOUT_args3_wrapper(_________________QWERTY_R3_________________, KC_RSPC, ADJ_SMINS)
+#define ___________________TSANGAN_QWERTY_R3_________________________                       KC_N,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, KC_RSPC, ADJ_SMINS
 #define _______TSANGAN_QWERTY_R4_                                                           NUM_MINS, MACVIM_SQUOT, ADJ_SRBRC
 
 //      _______, _______, _______, _______, _______, _______, _______, _______,
@@ -23,6 +27,13 @@
 #define ____________________ANSI_CAP_R2______________________________            LAYOUT_args2_wrapper(_________________ORTHO_GRID_CAP_R2__________________, _______)
 
 #define ___________________TSANGAN_CAP_R3_________________________     LAYOUT_args3_wrapper(_________________ORTHO_GRID_CAP_R3__________________, _______, _______)
+
+
+//      _______, _______, _______, _______, _______, _______, _______, _______, _______
+#define _______TSANGAN_MOUSE_L4__                            KC_LSFT, _______, _______
+
+#define ___________________TSANGAN_MOUSE_R3__________________________ KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_BTN2, KC_UP, KC_DOWN
+#define _______TSANGAN_MOUSE_R4___________                            KC_BTN1, KC_LEFT, KC_DOWN, KC_RGHT
 
 // #define ___________________ANSI_MACVIM_L0___________________     LAYOUT_args2_wrapper(VIM_ESC,   _________________MACVIM_L0_________________)
 // #define ___________________ANSI_MACVIM_L1___________________     LAYOUT_args2_wrapper(VIM_ESC,   _________________MACVIM_L1_________________)
@@ -55,7 +66,7 @@
 // #define ___________________ANSI_MOUSE_L4____________________     LAYOUT_args2_wrapper(_______, _________________MOUSE_L4__________________)
 
 // #define ___________________ANSI_MOUSE_R0____________________     LAYOUT_args2_wrapper(_________________MOUSE_R0__________________, _______)
-// #define ___________________ANSI_MOUSE_R1___________________     LAYOUT_args2_wrapper(_________________MOUSE_R1__________________, CUT)
+// #define ___________________ANSI_MOUSE_R1____________________     LAYOUT_args2_wrapper(_________________MOUSE_R1__________________, CUT)
 // #define ___________________ANSI_MOUSE_R2____________________     LAYOUT_args2_wrapper(_________________MOUSE_R2__________________, PASTE)
 // #define ___________________ANSI_MOUSE_R3____________________     LAYOUT_args2_wrapper(_________________MOUSE_R3__________________, KC_DOWN)
 // #define ___________________ANSI_MOUSE_R4____________________     LAYOUT_args2_wrapper(_________________MOUSE_R4__________________, KC_RGHT)
