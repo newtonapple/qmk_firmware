@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MOUSE_GRV,  ________________NUMBER_LEFT________________, ___________________TSANGAN_QWERTY_R0___________________________________________,
     MOUSE_TAB,  _________________QWERTY_L1_________________, ___________________TSANGAN_QWERTY_R1___________________________________________,
     MACVIM_ESC, _________________QWERTY_L2_________________, ___________________ANSI_QWERTY_R2____________________________,
-    KC_LSPO,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT, KC_SLSH, KC_RSPC, ADJ_SMINS,
+      ___________________TSANGAN_QWERTY_L3_________________, ___________________TSANGAN_QWERTY_R3_________________________,
                          ___________________ANSI_QWERTY_L4_, ___________________ANSI_QWERTY_R4_
   ),
 
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ________________ORTHO_GRID_MOUSE_L0_________________, ________________ORTHO_GRID_MOUSE_R0_________________, _______, _______, _______,
     ________________ORTHO_GRID_MOUSE_L1_________________, ________________ORTHO_GRID_MOUSE_R1_________________, _______, _______,
     ________________ORTHO_GRID_MOUSE_L2_________________, ________________ORTHO_GRID_MOUSE_R2_________________, _______,
-    ________________ORTHO_GRID_MOUSE_L3_________________, _________________MOUSE_R3__________________, KC_UP, KC_DOWN,
+    ________________ORTHO_GRID_MOUSE_L3_________________, ___________________TSANGAN_MOUSE_R3__________________________,
     KC_LSFT, _______, MO_VIMNUM,                          KC_BTN1,                KC_BTN2,  KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
