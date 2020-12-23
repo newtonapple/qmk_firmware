@@ -22,7 +22,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MOUSE_GRV,  ________________NUMBER_LEFT________________, ___________________TSANGAN_QWERTY_R0___________________________________________,
     MOUSE_TAB,  _________________QWERTY_L1_________________, ___________________TSANGAN_QWERTY_R1___________________________________________,
     MACVIM_ESC, _________________QWERTY_L2_________________, ___________________ANSI_QWERTY_R2____________________________,
-    KC_LSPO,    _________________QWERTY_L3_________________, ___________________TSANGAN_QWERTY_R3_________________________,
+      ___________________TSANGAN_QWERTY_L3_________________, ___________________TSANGAN_QWERTY_R3_________________________,
                          ___________________ANSI_QWERTY_L4_, _______TSANGAN_QWERTY_R4_
   ),
 
@@ -54,8 +54,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ________________ORTHO_GRID_MOUSE_L0_________________, ________________ORTHO_GRID_MOUSE_R0_________________, _________BLANK_3_________,
     ________________ORTHO_GRID_MOUSE_L1_________________, ________________ORTHO_GRID_MOUSE_R1_________________, _______, _______,
     ________________ORTHO_GRID_MOUSE_L2_________________, ________________ORTHO_GRID_MOUSE_R2_________________, _______,
-    ________________ORTHO_GRID_MOUSE_L3_________________, ________________ORTHO_GRID_MOUSE_R3_________________, KC_LEFT,
-    KC_LSFT, _______, _______,                          KC_BTN1,                              KC_BTN2, KC_DOWN, RCTL(KC_RGHT)
+    ________________ORTHO_GRID_MOUSE_L3_________________, ___________________TSANGAN_MOUSE_R3__________________________,
+                               _______TSANGAN_MOUSE_L4__, _______TSANGAN_MOUSE_R4___________
   ),
 
   [_NUM] = LAYOUT_60_tsangan_hhkb_wrapper(
