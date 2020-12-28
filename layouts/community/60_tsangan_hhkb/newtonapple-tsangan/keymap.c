@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _________________ORTHO_GRID_NUM_L1__________________, _________________ORTHO_GRID_NUM_R1__________________, _______, _______,
     _________________ORTHO_GRID_NUM_L2__________________, _________________ORTHO_GRID_NUM_R2__________________, _______,
     _________________ORTHO_GRID_NUM_L3__________________, _________________ORTHO_GRID_NUM_R3__________________, KC_UP,
-    _________BLANK_3_________,                            _______,  LT(_SYM, KC_LEFT), LT(_MACVIM, KC_RGHT),  KC_DOWN
+    _________BLANK_3_________,                            KC_SPC,  LT(_SYM, KC_LEFT), LT(_MACVIM, KC_RGHT),  KC_DOWN
   ),
 
   [_SYM] = LAYOUT_60_tsangan_hhkb_wrapper(
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _________________ORTHO_GRID_SYM_L1__________________, _________________ORTHO_GRID_SYM_R1__________________, _______, _______,
     _________________ORTHO_GRID_SYM_L2__________________, _________________ORTHO_GRID_SYM_R2__________________, _______,
     _________________ORTHO_GRID_SYM_L3__________________, _________________ORTHO_GRID_SYM_R3__________________, _______,
-    _________BLANK_3_________,                            _______,                             _________BLANK_3_________
+    _________BLANK_3_________,                            KC_SPC,                             _________BLANK_3_________
   ),
 
   [_ADJUST] = LAYOUT_60_tsangan_hhkb_wrapper(
