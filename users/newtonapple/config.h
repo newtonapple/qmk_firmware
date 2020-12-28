@@ -26,9 +26,12 @@
 
 #ifdef FAST_MCU
 #    define TAPPING_TERM 125
+#    define CUSTOM_TAP_DELTA 135
 #else
 #    define TAPPING_TERM 200
+#    define CUSTOM_TAP_DELTA 75
 #endif
+#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
 
 // #define IGNORE_MOD_TAP_INTERRUPT

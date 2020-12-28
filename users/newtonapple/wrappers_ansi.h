@@ -4,7 +4,7 @@
 
 // 60 ANSI
 //      _______, _______, _______, _______, _______, _______, _______, _______,
-#define ___________________ANSI_QWERTY_L4_                       CRTL_SLBRC, ALT_SBSLS, GUI_T_EQL, KC_SPC
+#define ___________________ANSI_QWERTY_L4_                       CRTL_SLBRC, ALT_SBSLS, GUI_T_EQL, LT(_NUM, KC_SPC)
 
 #define ___________________ANSI_QWERTY_R0_____________________________________    LAYOUT_args4_wrapper(________________NUMBER_RIGHT_______________, KC_MINS,     KC_EQL,  KC_BSPC)
 #define ___________________ANSI_QWERTY_R1_____________________________________    LAYOUT_args4_wrapper(_________________QWERTY_R1_________________, MACVIM_LBRC, MOUSE_RBRC, KC_BSLASH)
@@ -30,7 +30,7 @@
 
 
 //      _______, _______, _______, _______, _______, _______, _______, _______, _______
-#define _______TSANGAN_MOUSE_L4__                            KC_LSFT, _______, _______
+#define _______TSANGAN_MOUSE_L4__                             KC_LSFT, _______, _______
 
 #define ___________________TSANGAN_MOUSE_R3__________________________ KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_BTN2, KC_UP, KC_DOWN
 #define _______TSANGAN_MOUSE_R4___________                            KC_BTN1, KC_LEFT, KC_DOWN, KC_RGHT
