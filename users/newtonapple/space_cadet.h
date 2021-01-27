@@ -12,20 +12,18 @@
  * You can use `space_cadet` & `space_cadet_layer` for custom timers & timouts.
  */
 
-#define SPACE_CADET(keycode, kc_custom, kc_mod, str, pressed)                  \
-  if (keycode == kc_custom) {                                                  \
-    space_cadet(kc_mod, str, pressed, &space_cadet_timer, TAPPING_TERM);       \
-    return false;                                                              \
-  };
+#define SPACE_CADET(keycode, kc_custom, kc_mod, str, pressed)                                   \
+    if (keycode == kc_custom) {                                                                 \
+        space_cadet(kc_mod, str, pressed, &space_cadet_timer, TAPPING_TERM + CUSTOM_TAP_DELTA); \
+        return false;                                                                           \
+    };
 
-#define SPACE_CADET_LAYER(keycode, kc_custom, layer, str, pressed)             \
-  if (keycode == kc_custom) {                                                  \
-    space_cadet_layer(layer, str, pressed, &space_cadet_timer, TAPPING_TERM);  \
-    return false;                                                              \
-  };
+#define SPACE_CADET_LAYER(keycode, kc_custom, layer, str, pressed)                                   \
+    if (keycode == kc_custom) {                                                                      \
+        space_cadet_layer(layer, str, pressed, &space_cadet_timer, TAPPING_TERM + CUSTOM_TAP_DELTA); \
+        return false;                                                                                \
+    };
 
-void space_cadet(uint16_t kc_mod, const char *str, bool pressed,
-                 uint16_t *timer, uint16_t timeout);
+void space_cadet(uint16_t kc_mod, const char *str, bool pressed, uint16_t *timer, uint16_t timeout);
 
-void space_cadet_layer(uint8_t layer, const char *str, bool pressed,
-                       uint16_t *timer, uint16_t timeout);
+void space_cadet_layer(uint8_t layer, const char *str, bool pressed, uint16_t *timer, uint16_t timeout);
