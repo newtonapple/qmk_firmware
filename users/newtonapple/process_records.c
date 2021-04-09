@@ -20,6 +20,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     SPACE_CADET(keycode, CRTL_SLBRC, KC_LCTRL, "{", record->event.pressed);
     SPACE_CADET(keycode, CRTL_SRBRC, KC_RCTRL, "}", record->event.pressed);
+    SPACE_CADET(keycode, CRTL_SNAPBACK, KC_LCTRL, SS_SNAP_BACK, record->event.pressed);
+
     SPACE_CADET(keycode, ALT_SRBRC, KC_RALT, "}", record->event.pressed);
 
     SPACE_CADET(keycode, RGUI_SQUOT, KC_RGUI, "\"", record->event.pressed);

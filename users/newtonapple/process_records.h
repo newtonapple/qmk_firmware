@@ -9,6 +9,7 @@ enum custom_keycodes {
     ALT_SBSLS,
     CRTL_SLBRC,
     CRTL_SRBRC,
+    CRTL_SNAPBACK,
     ALT_SRBRC,
     //   GUI_SMINS,
     RGUI_SQUOT,
