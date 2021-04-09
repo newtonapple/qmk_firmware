@@ -25,5 +25,4 @@
     };
 
 void space_cadet(uint16_t kc_mod, const char *str, bool pressed, uint16_t *timer, uint16_t timeout);
-
 void space_cadet_layer(uint8_t layer, const char *str, bool pressed, uint16_t *timer, uint16_t timeout);
