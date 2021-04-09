@@ -45,6 +45,7 @@
 #define S_POWER S(KC_POWER)
 
 // Custom SS_TAPs
+#define SS_SNAP_BACK SS_LCMD(SS_LALT(SS_LCTL(SS_TAP(X_SLSH))))
 #define SS_TAP_LEFT SS_TAP(X_LEFT)
 #define SS_TAP_RIGHT SS_TAP(X_RIGHT)
 #define SS_TAP_UP SS_TAP(X_UP)
