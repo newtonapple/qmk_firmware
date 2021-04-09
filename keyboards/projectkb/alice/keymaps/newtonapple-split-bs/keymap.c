@@ -1,4 +1,4 @@
-/* Copyright 2020 David Dai
+/* Copyright 2021 David Dai
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,8 +20,8 @@
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_wrapper(
-SNAP_MAX,      ________________ORTHO_GRID_QWERTY_L0________________,               ___________________ANSI_QWERTY_R0_____________________________________, KC_BSPC,
-SNAP_CENTER,   ________________ORTHO_GRID_QWERTY_L1________________,               ___________________ANSI_QWERTY_R1_____________________________________,
+SNAP_MAX,      ________________ORTHO_GRID_QWERTY_L0________________,               ___________________TSANGAN_QWERTY_R0___________________________________________,
+SNAP_CENTER,   ________________ORTHO_GRID_QWERTY_L1________________,               ___________________TSANGAN_QWERTY_R1___________________________________________,
 CRTL_SNAPBACK, ________________ORTHO_GRID_QWERTY_L2________________,               ___________________ANSI_QWERTY_R2____________________________,
                ________________ORTHO_GRID_QWERTY_L3________________, MACVIM_SQUOT, ___________________TSANGAN_QWERTY_R3_________________________,
                CRTL_SLBRC,          GUI_T_EQL, KC_SPC, MACVIM_SMINS,               SFT_T_QUOT, NUM_MINS,                               ALT_SRBRC
