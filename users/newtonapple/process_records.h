@@ -35,6 +35,7 @@ enum custom_keycodes {
 #    define MACVIM TO(_MACVIM)
 #endif
 
+
 #define MOUSE_GRV LT(_MOUSE, KC_GRV)
 #define MOUSE_TAB LT(_MOUSE, KC_TAB)
 #define MOUSE_SPC LT(_MOUSE, KC_SPC)
@@ -77,6 +78,7 @@ enum custom_keycodes {
 #define GUI_T_EQL GUI_T(KC_EQL)
 #define GUI_T_LBRC GUI_T(KC_LBRC)
 #define GUI_T_RBRC RGUI_T(KC_RBRC)
+#define LCAG_T_GRV LCAG_T(KC_GRV)
 #define RSFT_T_SLSH RSFT_T(KC_SLSH)
 #define SFT_T_QUOT SFT_T(KC_QUOT)
 #define SFT_T_BSPC SFT_T(KC_BSPC)
