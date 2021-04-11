@@ -1,7 +1,7 @@
 #pragma once
 #include "wrappers.h"
 
-#define ________________ORTHO_GRID_QWERTY_L0________________     LAYOUT_args2_wrapper(MOUSE_GRV,  ________________NUMBER_LEFT________________)
+#define ________________ORTHO_GRID_QWERTY_L0________________     LAYOUT_args2_wrapper(LCAG_T_GRV, ________________NUMBER_LEFT________________)
 #define ________________ORTHO_GRID_QWERTY_L1________________     LAYOUT_args2_wrapper(MOUSE_TAB,  _________________QWERTY_L1_________________)
 #define ________________ORTHO_GRID_QWERTY_L2________________     LAYOUT_args2_wrapper(MACVIM_ESC, _________________QWERTY_L2_________________)
 #define ________________ORTHO_GRID_QWERTY_L3________________     LAYOUT_args2_wrapper(KC_LSPO,    _________________QWERTY_L3_________________)
