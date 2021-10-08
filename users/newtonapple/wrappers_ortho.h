@@ -7,7 +7,7 @@
 #define ________________ORTHO_GRID_QWERTY_L3________________     LAYOUT_args2_wrapper(KC_LSPO,    _________________QWERTY_L3_________________)
 #define ________________ORTHO_GRID_QWERTY_L4________________     CRTL_SLBRC, CTL_T_BSLS, ALT_T_LBRC, GUI_T_EQL, SYM_SMINS, KC_SPC
 
-#define ________________ORTHO_GRID_QWERTY_R0________________     LAYOUT_args2_wrapper(________________NUMBER_RIGHT_______________, KC_BSPC)
+#define ________________ORTHO_GRID_QWERTY_R0________________     LAYOUT_args2_wrapper(________________NUMBER_RIGHT_______________, KC_DEL)
 #define ________________ORTHO_GRID_QWERTY_R1________________     LAYOUT_args2_wrapper(_________________QWERTY_R1_________________, KC_BSPC)
 #define ________________ORTHO_GRID_QWERTY_R2________________     LAYOUT_args2_wrapper(_________________QWERTY_R2_________________, MACVIM_ENT)
 #define ________________ORTHO_GRID_QWERTY_R3________________     LAYOUT_args2_wrapper(_________________QWERTY_R3_________________, KC_RSPC)
