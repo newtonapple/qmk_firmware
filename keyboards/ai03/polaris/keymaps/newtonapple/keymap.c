@@ -19,10 +19,10 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_60_ansi_split_space_bs_rshift_wrapper(
-    MOUSE_GRV,  ________________NUMBER_LEFT________________, ___________________TSANGAN_QWERTY_R0___________________________________________,
-    MOUSE_TAB,  _________________QWERTY_L1_________________, ___________________TSANGAN_QWERTY_R1___________________________________________,
-    MACVIM_ESC, _________________QWERTY_L2_________________, ___________________ANSI_QWERTY_R2____________________________,
-    KC_LSPO,    _________________QWERTY_L3_________________, ___________________TSANGAN_QWERTY_R3_________________________,
+    ________________ORTHO_GRID_QWERTY_L0________________, ___________________TSANGAN_QWERTY_R0___________________________________________,
+    ________________ORTHO_GRID_QWERTY_L1________________, ___________________TSANGAN_QWERTY_R1___________________________________________,
+    ________________ORTHO_GRID_QWERTY_L2________________, ___________________ANSI_QWERTY_R2____________________________,
+    ________________ORTHO_GRID_QWERTY_L3________________, ___________________TSANGAN_QWERTY_R3_________________________,
     CRTL_SLBRC, ALT_SBSLS, GUI_T_EQL,     KC_SPC, MACVIM_SQUOT,  SFT_T_QUOT,    NUM_MINS, MACVIM_SQUOT, SYM_SMINS, ADJ_SRBRC
   ),
 
